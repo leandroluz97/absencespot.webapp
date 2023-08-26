@@ -1,0 +1,42 @@
+@tailwind base;
+
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: red;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+    width: 7px;
+    margin: 50px;
+    height: 7px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #d2dbe6;
+    border-radius: 100px;
+    margin: 1px;
+}
+*::-webkit-scrollbar-thumb {
+    background-color: #b7c2cf;
+    border-radius: 14px;
+}
+
+@tailwind components;
+@tailwind utilities;
+
+* {
+    box-sizing: border-box;
+}
+html {
+    font-family: 'DM Sans', sans-serif;
+    height: 100vh;
+}
+
+body,
+#root {
+    height: inherit;
+}
+
+
