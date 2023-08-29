@@ -22,7 +22,21 @@
 
         "paths": {
             "@/*": ["./src/*"]
-        }
+        },
+        // "paths": {
+        //     "@/reducers/*": ["./src/reducers/*"],
+        //     "@/auth/*": ["./src/auth/*"],
+        //     "@/app/*": ["./src/app/*"],
+        //     "@/actions/*": ["./src/actions/*"],
+        //     "@/constants/*": ["./src/constants/*"],
+        //     "@/lib/*": ["./src/lib/*"],
+        //     "@/providers/*": ["./src/providers/*"],
+        //     "@/routes/*": ["./src/routes/*"],
+        //     "@/types/*": ["./src/types/*"],
+        //     "@/_common/*": ["./src/_common/*"]
+        // },
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true
     },
     "include": ["src"],
     "references": [{ "path": "./tsconfig.node.json" }]
