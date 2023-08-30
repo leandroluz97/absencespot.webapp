@@ -21,7 +21,7 @@ export default {
                 'primary-50': '#FAFCFF',
             },
             fontFamily: {
-                sans: ['DM Sans', 'sans-serif'],
+                sans: ['Nunito Sans', 'sans-serif'],
             },
             flexGrow: {
                 2: '2',

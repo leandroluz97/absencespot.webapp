@@ -30,7 +30,7 @@
     box-sizing: border-box;
 }
 html {
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
     height: 100vh;
 }
 
@@ -38,5 +38,3 @@ body,
 #root {
     height: inherit;
 }
-
-

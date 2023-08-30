@@ -7,7 +7,7 @@ export const Application = () => {
     return (
         <Routes>
             <Route path="/c/:id" element={<MainLayout />}>
-                <Route path="dashboard" element={<p>Dashboard</p>} />
+                <Route path="dashboard" element={<p className="text-red-500">Dashboard</p>} />
                 <Route path="" element={<p>404</p>} />
             </Route>
             <Route path="*" element={<Navigate to="/c/5454-4353-534f-3ef6/dashboard" />} />
