@@ -4,6 +4,7 @@ import {
     Building2,
     Calendar,
     Clock3,
+    Crown,
     FilePieChart,
     Flame,
     LayoutDashboard,
@@ -285,6 +286,9 @@ export const MainLayout = () => {
                                         >
                                             Notifications
                                         </span>
+                                        <div className="w-5 h-5 bg-primary-900 rounded-full ml-auto text-center">
+                                            <p className="text-white">1</p>
+                                        </div>
                                     </NavLink>
                                 </li>
                                 <li>
@@ -355,22 +359,16 @@ export const MainLayout = () => {
                                     <NavLink
                                         to={`/c/${id}/offices`}
                                         className={({ isActive }) =>
-                                            `group text-sm flex gap-2 font-medium p-3 rounded hover:font-medium hover:bg-slate-100 hover:text-primary-900 ${
+                                            `group text-sm flex items-center gap-2 font-bold p-3 rounded hover:font-bold hover:bg-slate-100 hover:text-primary-900 ${
                                                 isActive
                                                     ? ' text-primary-900 bg-slate-100'
                                                     : 'text-red-300'
                                             }`
                                         }
                                     >
-                                        <Building2
-                                            size={20}
-                                            className={twMerge(
-                                                'text-slate-400 group-hover:text-primary-900 ',
-                                                pathname.includes('offices')
-                                                    ? 'text-primary-900'
-                                                    : ''
-                                            )}
-                                        />
+                                        <div className=" w-10 h-10 bg-slate-200 rounded-full flex justify-center items-center">
+                                            <p className="text-slate-600 leading-none">ES</p>
+                                        </div>
                                         <span
                                             className={twMerge(
                                                 'text-slate-500 group-hover:text-primary-900 ',
@@ -381,6 +379,9 @@ export const MainLayout = () => {
                                         >
                                             Emily Smith
                                         </span>
+                                        <div className="ml-auto">
+                                            <Crown className="text-yellow-400" />
+                                        </div>
                                     </NavLink>
                                 </li>
                             </div>
