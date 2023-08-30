@@ -21,9 +21,9 @@ export const MainLayout = () => {
     const { pathname } = useLocation();
     return (
         <React.Fragment>
-            <section className="flex">
+            <section className="flex bg-slate-100">
                 <article className="h-screen">
-                    <nav className="h-full w-64 p-4 space-y-6 flex flex-col">
+                    <nav className="h-full w-64 p-4 space-y-6 flex flex-col bg-white">
                         <Link to={`/c/${id}/dashboard`} className="">
                             <img src={absenceSpotLogo} alt="absence spot" className="w-40" />
                         </Link>
@@ -140,7 +140,7 @@ export const MainLayout = () => {
                                             size={20}
                                             className={twMerge(
                                                 'text-slate-400 group-hover:text-primary-900 ',
-                                                pathname.includes('calendar')
+                                                pathname.includes('track-records')
                                                     ? 'text-primary-900'
                                                     : ''
                                             )}
@@ -148,7 +148,7 @@ export const MainLayout = () => {
                                         <span
                                             className={twMerge(
                                                 'text-slate-500 group-hover:text-primary-900 ',
-                                                pathname.includes('calendar')
+                                                pathname.includes('track-records')
                                                     ? 'text-primary-900'
                                                     : ''
                                             )}
@@ -205,17 +205,13 @@ export const MainLayout = () => {
                                             size={20}
                                             className={twMerge(
                                                 'text-slate-400 group-hover:text-primary-900 ',
-                                                pathname.includes('calendar')
-                                                    ? 'text-primary-900'
-                                                    : ''
+                                                pathname.includes('teams') ? 'text-primary-900' : ''
                                             )}
                                         />
                                         <span
                                             className={twMerge(
                                                 'text-slate-500 group-hover:text-primary-900 ',
-                                                pathname.includes('calendar')
-                                                    ? 'text-primary-900'
-                                                    : ''
+                                                pathname.includes('teams') ? 'text-primary-900' : ''
                                             )}
                                         >
                                             Teams
@@ -357,7 +353,7 @@ export const MainLayout = () => {
                                 </li>
                                 <li>
                                     <NavLink
-                                        to={`/c/${id}/offices`}
+                                        to={`/c/${id}/profile`}
                                         className={({ isActive }) =>
                                             `group text-sm flex items-center gap-2 font-bold p-3 rounded hover:font-bold hover:bg-slate-100 hover:text-primary-900 ${
                                                 isActive
@@ -372,7 +368,7 @@ export const MainLayout = () => {
                                         <span
                                             className={twMerge(
                                                 'text-slate-500 group-hover:text-primary-900 ',
-                                                pathname.includes('offices')
+                                                pathname.includes('profile')
                                                     ? 'text-primary-900'
                                                     : ''
                                             )}
