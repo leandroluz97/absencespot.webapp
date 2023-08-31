@@ -129,47 +129,61 @@ export const MainLayout = () => {
                                         collapsible
                                     >
                                         <Accordion.Item className="AccordionItem" value="item-1">
-                                            <AccordionTrigger>
-                                                <NavLink
-                                                    to={`/c/${id}/request`}
-                                                    className={({ isActive }) =>
-                                                        `group text-sm flex gap-2 font-medium p-3 rounded hover:font-medium hover:bg-slate-100 hover:text-primary-900 ${
-                                                            isActive
-                                                                ? ' text-primary-900 bg-slate-100'
-                                                                : 'text-red-300'
-                                                        }`
-                                                    }
+                                            <Accordion.Header className="AccordionHeader">
+                                                <Accordion.Trigger
+                                                    className={twMerge(
+                                                        'AccordionTrigger w-full flex justify-between items-center pr-2 rounded hover:bg-slate-100 hover:text-primary-900',
+                                                        pathname.includes('request')
+                                                            ? 'bg-slate-100 text-primary-900 '
+                                                            : ''
+                                                    )}
                                                 >
-                                                    <FilePieChart
-                                                        size={20}
-                                                        className={twMerge(
-                                                            'text-slate-400 group-hover:text-primary-900 ',
-                                                            pathname.includes('request')
-                                                                ? 'text-primary-900'
-                                                                : ''
-                                                        )}
-                                                    />
-                                                    <span
-                                                        className={twMerge(
-                                                            'text-slate-500 group-hover:text-primary-900 ',
-                                                            pathname.includes('request')
-                                                                ? 'text-primary-900'
-                                                                : ''
-                                                        )}
+                                                    <NavLink
+                                                        to={`/c/${id}/request`}
+                                                        className={({ isActive }) =>
+                                                            `w-full group text-sm flex gap-2 font-medium p-3 rounded hover:font-medium hover:bg-slate-100 hover:text-primary-900 ${
+                                                                isActive
+                                                                    ? ' text-primary-900 bg-slate-100'
+                                                                    : 'text-red-300'
+                                                            }`
+                                                        }
                                                     >
-                                                        Request
-                                                    </span>
-                                                </NavLink>
-                                            </AccordionTrigger>
-                                            <div style={{ marginLeft: '26px' }}>
-                                                <Accordion.Content className="w-36">
+                                                        <FilePieChart
+                                                            size={20}
+                                                            className={twMerge(
+                                                                'text-slate-400 group-hover:text-primary-900 ',
+                                                                pathname.includes('request')
+                                                                    ? 'text-primary-900'
+                                                                    : ''
+                                                            )}
+                                                        />
+                                                        <span
+                                                            className={twMerge(
+                                                                'text-slate-500 group-hover:text-primary-900 ',
+                                                                pathname.includes('request')
+                                                                    ? 'text-primary-900'
+                                                                    : ''
+                                                            )}
+                                                        >
+                                                            Request
+                                                        </span>
+                                                    </NavLink>
+                                                    <ChevronDownIcon
+                                                        size={26}
+                                                        className="text-slate-400 rounded hover:bg-slate-50 AccordionChevron"
+                                                        aria-hidden
+                                                    />
+                                                </Accordion.Trigger>
+                                            </Accordion.Header>
+                                            <div style={{ marginLeft: '25px' }}>
+                                                <Accordion.Content className="transition-all AccordionContent">
                                                     <NavLink
                                                         to={`/c/${id}/request?filter=approved`}
                                                         className={({ isActive }) =>
-                                                            `group text-sm flex gap-2 font-medium p-3 rounded hover:font-medium hover:bg-slate-100 hover:text-primary-900 ${
+                                                            `mt-2 group text-sm flex gap-2 font-medium p-3 rounded hover:font-medium hover:bg-slate-100 hover:text-primary-900 ${
                                                                 isActive
                                                                     ? ' text-primary-900'
-                                                                    : 'text-red-300'
+                                                                    : ' text-red-300'
                                                             }`
                                                         }
                                                     >
