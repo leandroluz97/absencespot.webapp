@@ -2,8 +2,6 @@ import { MainLayout } from '@/_common/layout/MainLayout';
 import { Navigate, Route, Routes } from 'react-router-dom';
 
 export const Application = () => {
-    console.log('RESSS');
-
     return (
         <Routes>
             <Route path="/c/:id" element={<MainLayout />}>
