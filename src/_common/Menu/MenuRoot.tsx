@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import { LinkProps, NavLink } from 'react-router-dom';
+import { twMerge } from 'tailwind-merge';
 
 type Props = LinkProps & {
     children: ReactNode;
@@ -8,12 +9,15 @@ type Props = LinkProps & {
 export const MenuRoot = ({ children, ...props }: Props) => {
     return (
         <NavLink
-            className={({ isActive }) =>
-                `group text-sm flex gap-2 font-medium p-2 rounded hover:font-medium hover:bg-slate-100 hover:text-primary-900 ${
-                    isActive ? ' text-primary-900 bg-slate-100' : ''
-                }`
-            }
             {...props}
+            className={({ isActive }) =>
+                twMerge(
+                    `group text-sm flex gap-2 font-medium p-2 rounded hover:font-medium hover:bg-slate-100 hover:text-primary-900 transition-all ease-in duration-300  ${
+                        isActive ? ' text-primary-900 bg-slate-100' : ''
+                    }`,
+                    props.className
+                )
+            }
         >
             {children}
         </NavLink>

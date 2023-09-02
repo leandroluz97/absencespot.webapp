@@ -57,7 +57,7 @@ export const MainLayout = () => {
                         <Link to={`/c/${id}/dashboard`} className="">
                             <img src={absenceSpotLogo} alt="absence spot" className="w-40" />
                         </Link>
-                        <ul className="h-full w-full flex flex-col justify-between items-center overflow-y-auto pr-2">
+                        <ul className="h-full w-full flex flex-col justify-between items-center overflow-y-auto pr-2 space-y-2">
                             <div className="w-full space-y-2">
                                 <li>
                                     <Menu.Root to={`/c/${id}/dashboard`}>
@@ -105,7 +105,10 @@ export const MainLayout = () => {
                                                             : ''
                                                     )}
                                                 >
-                                                    <Menu.Root to={`/c/${id}/request`}>
+                                                    <Menu.Root
+                                                        to={`/c/${id}/request`}
+                                                        className="w-full hover:bg-transparent"
+                                                    >
                                                         <Menu.Content className="w-full flex gap-2">
                                                             <Menu.Icon
                                                                 isActive={pathname.includes(
@@ -133,6 +136,7 @@ export const MainLayout = () => {
                                                 <Accordion.Content className="transition-all AccordionContent">
                                                     <Menu.Root
                                                         to={`/c/${id}/request?filter=approved`}
+                                                        className="mt-2"
                                                     >
                                                         <Menu.Content className="w-full flex gap-2">
                                                             <Menu.Title
