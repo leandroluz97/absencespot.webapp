@@ -57,7 +57,7 @@ export const MainLayout = () => {
                         <Link to={`/c/${id}/dashboard`} className="">
                             <img src={absenceSpotLogo} alt="absence spot" className="w-40" />
                         </Link>
-                        <ul className="h-full w-full flex flex-col justify-between items-center overflow-y-auto pr-2 space-y-2">
+                        <ul className="h-full w-full flex flex-col  items-center overflow-y-auto pr-2 space-y-2">
                             <div className="w-full space-y-2">
                                 <li>
                                     <Menu.Root to={`/c/${id}/dashboard`}>
@@ -234,7 +234,8 @@ export const MainLayout = () => {
                                     </Menu.Root>
                                 </li>
                             </div>
-                            <div className="w-full space-y-2">
+                            <div style={{ marginTop: 'auto' }}></div>
+                            <div className="w-full space-y-2 mt-auto">
                                 <li>
                                     <Menu.Root to={`/c/${id}/notifications`}>
                                         <Menu.Content className="w-full flex gap-2">
@@ -279,36 +280,25 @@ export const MainLayout = () => {
                                         </Menu.Content>
                                     </Menu.Root>
                                 </li>
-                                <li>
-                                    <NavLink
-                                        to={`/c/${id}/profile`}
-                                        className={({ isActive }) =>
-                                            `group text-sm flex items-center gap-2 font-bold p-3 rounded hover:font-bold hover:bg-slate-100 hover:text-primary-900 ${
-                                                isActive
-                                                    ? ' text-primary-900 bg-slate-100'
-                                                    : 'text-red-300'
-                                            }`
-                                        }
-                                    >
-                                        <div className=" w-10 h-10 bg-slate-200 rounded-full flex justify-center items-center">
+                            </div>
+                            <li className="w-full">
+                                <Menu.Root to={`/c/${id}/profile`} className="w-full">
+                                    <Menu.Content className="w-full flex gap-2 items-center">
+                                        <div className="w-10 h-10 bg-slate-200 rounded-full flex justify-center items-center">
                                             <p className="text-slate-600 leading-none">ES</p>
                                         </div>
-                                        <span
-                                            className={twMerge(
-                                                'text-slate-500 group-hover:text-primary-900 ',
-                                                pathname.includes('profile')
-                                                    ? 'text-primary-900'
-                                                    : ''
-                                            )}
+                                        <Menu.Title
+                                            isActive={pathname.includes('profile')}
+                                            className="font-bold"
                                         >
                                             Emily Smith
-                                        </span>
-                                        <div className="ml-auto">
+                                        </Menu.Title>
+                                        <Menu.Info>
                                             <Crown className="text-yellow-400" />
-                                        </div>
-                                    </NavLink>
-                                </li>
-                            </div>
+                                        </Menu.Info>
+                                    </Menu.Content>
+                                </Menu.Root>
+                            </li>
                         </ul>
                     </nav>
                 </article>
