@@ -16,7 +16,10 @@ export const Application = () => {
                 <Route path="teams" element={<p className="text-slate-800">Dashboard</p>} />
                 <Route path="offices" element={<p className="text-slate-800">Teams</p>} />
                 <Route path="notifications" element={<p className="text-slate-800">Offices</p>} />
-                <Route path="settings" element={<p className="text-slate-800">Settings</p>} />
+                <Route
+                    path="settings"
+                    element={<p className="text-slate-800">Settingssssssssssssssssssssssssss</p>}
+                />
                 <Route path="upgrade" element={<p className="text-slate-800">upgrade</p>} />
                 <Route path="profile" element={<p className="text-slate-800">profile</p>} />
 

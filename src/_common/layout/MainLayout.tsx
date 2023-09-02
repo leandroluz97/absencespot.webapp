@@ -22,14 +22,17 @@ import { Menu } from '../Menu';
 
 export const MainLayout = () => {
     const { id } = useParams();
-    const { pathname } = useLocation();
+    const { pathname, search } = useLocation();
 
     return (
         <React.Fragment>
-            <section className=" h-screen flex bg-slate-100">
-                <article className="h-screen ">
-                    <nav className="h-full w-64 p-4 space-y-6 flex flex-col bg-white">
-                        <Link to={`/c/${id}/dashboard`} className="hidden md:block">
+            <section className="h-screen flex bg-slate-100 relative">
+                <article className="h-screen w-full md:w-auto absolute -left-0 md:relative ">
+                    <nav className="h-full md:w-64 p-4 md:space-y-6 flex flex-col bg-white">
+                        <Link
+                            to={`/c/${id}/dashboard`}
+                            className="hidden invisible md:block md:visible"
+                        >
                             <img src={absenceSpotLogo} alt="absence spot" className="w-40" />
                         </Link>
                         <ul className="h-full w-full flex flex-col  items-center overflow-y-auto pr-2 space-y-2">
@@ -111,12 +114,12 @@ export const MainLayout = () => {
                                                 <Accordion.Content className="transition-all AccordionContent">
                                                     <Menu.Root
                                                         to={`/c/${id}/request?filter=approved`}
-                                                        className="mt-2"
+                                                        className="mt-2 hover:bg-transparent bg-transparent"
                                                     >
                                                         <Menu.Content className="w-full flex gap-2">
                                                             <Menu.Title
-                                                                isActive={pathname.includes(
-                                                                    'request'
+                                                                isActive={search.includes(
+                                                                    'approved'
                                                                 )}
                                                             >
                                                                 Approved
@@ -125,11 +128,12 @@ export const MainLayout = () => {
                                                     </Menu.Root>
                                                     <Menu.Root
                                                         to={`/c/${id}/request?filter=pending`}
+                                                        className="hover:bg-transparent bg-transparent"
                                                     >
                                                         <Menu.Content className="w-full flex gap-2">
                                                             <Menu.Title
-                                                                isActive={pathname.includes(
-                                                                    'request'
+                                                                isActive={search.includes(
+                                                                    'pending'
                                                                 )}
                                                             >
                                                                 Pending
@@ -138,12 +142,11 @@ export const MainLayout = () => {
                                                     </Menu.Root>
                                                     <Menu.Root
                                                         to={`/c/${id}/request?filter=reject`}
+                                                        className="hover:bg-transparent bg-transparent"
                                                     >
                                                         <Menu.Content className="w-full flex gap-2">
                                                             <Menu.Title
-                                                                isActive={pathname.includes(
-                                                                    'request'
-                                                                )}
+                                                                isActive={search.includes('reject')}
                                                             >
                                                                 Reject
                                                             </Menu.Title>
@@ -209,8 +212,8 @@ export const MainLayout = () => {
                                     </Menu.Root>
                                 </li>
                             </div>
-                            <div style={{ marginTop: 'auto' }}></div>
-                            <div className="order-3 md:order-3 w-full space-y-2 mt-auto ">
+                            <div className="order-3 md:order-2" style={{ marginTop: 'auto' }}></div>
+                            <div className="order-4 md:order-4 w-full space-y-2 mt-auto ">
                                 <li>
                                     <Menu.Root to={`/c/${id}/notifications`}>
                                         <Menu.Content className="w-full flex gap-2">
@@ -257,7 +260,7 @@ export const MainLayout = () => {
                                 </li>
                             </div>
 
-                            <div className="order-1 md:order-4 w-full flex">
+                            <div className="pb-3 md:pb-0 order-1 md:order-4 w-full flex">
                                 <li className="w-full">
                                     <Menu.Root to={`/c/${id}/profile`} className="w-full">
                                         <Menu.Content className="w-full flex gap-2 items-center">
@@ -270,13 +273,13 @@ export const MainLayout = () => {
                                             >
                                                 Emily Smith
                                             </Menu.Title>
-                                            <Menu.Info>
+                                            <Menu.Info className="">
                                                 <Crown className="text-yellow-400" />
                                             </Menu.Info>
                                         </Menu.Content>
                                     </Menu.Root>
                                 </li>
-                                <button className="block md:hidden">
+                                <button className="block md:hidden p-2">
                                     <X />
                                 </button>
                             </div>
