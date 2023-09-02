@@ -10,7 +10,7 @@ export const MenuTitle = ({ children, isActive, ...props }: Props) => {
     return (
         <span
             className={twMerge(
-                'text-slate-500 group-hover:text-primary-900 ',
+                'text-slate-600 group-hover:text-primary-900 ',
                 isActive ? 'text-primary-900' : '',
                 props.className
             )}

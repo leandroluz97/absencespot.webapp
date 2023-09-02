@@ -92,7 +92,7 @@ export const MainLayout = () => {
                                     <Accordion.Root
                                         className="AccordionRoot"
                                         type="single"
-                                        defaultValue="item-1"
+                                        defaultValue="item-2"
                                         collapsible
                                     >
                                         <Accordion.Item className="AccordionItem" value="item-1">
@@ -175,463 +175,105 @@ export const MainLayout = () => {
                                         </Accordion.Item>
                                     </Accordion.Root>
                                 </li>
-                                {/* <li>
-                                    <NavLink
-                                        to={`/c/${id}/dashboard`}
-                                        className={({ isActive }) =>
-                                            `group text-sm flex gap-2 font-medium p-3 rounded hover:font-medium hover:bg-slate-100 hover:text-primary-900 ${
-                                                isActive
-                                                    ? ' text-primary-900 bg-slate-100'
-                                                    : 'text-red-300'
-                                            }`
-                                        }
-                                    >
-                                        <LayoutDashboard
-                                            size={20}
-                                            className={twMerge(
-                                                'text-slate-400 group-hover:text-primary-900 ',
-                                                pathname.includes('dashboard')
-                                                    ? 'text-primary-900'
-                                                    : ''
-                                            )}
-                                        />
-                                        <span
-                                            className={twMerge(
-                                                'text-slate-500 group-hover:text-primary-900 ',
-                                                pathname.includes('dashboard')
-                                                    ? 'text-primary-900'
-                                                    : ''
-                                            )}
-                                        >
-                                            Dashboard
-                                        </span>
-                                    </NavLink>
-                                </li> */}
                                 <li>
-                                    <NavLink
-                                        to={`/c/${id}/calendar`}
-                                        className={({ isActive }) =>
-                                            `group text-sm flex gap-2 font-medium p-3 rounded hover:font-medium hover:bg-slate-100 hover:text-primary-900 ${
-                                                isActive
-                                                    ? ' text-primary-900 bg-slate-100'
-                                                    : 'text-red-300'
-                                            }`
-                                        }
-                                    >
-                                        <Calendar
-                                            size={20}
-                                            className={twMerge(
-                                                'text-slate-400 group-hover:text-primary-900 ',
-                                                pathname.includes('calendar')
-                                                    ? 'text-primary-900'
-                                                    : ''
-                                            )}
-                                        />
-                                        <span
-                                            className={twMerge(
-                                                'text-slate-500 group-hover:text-primary-900 ',
-                                                pathname.includes('calendar')
-                                                    ? 'text-primary-900'
-                                                    : ''
-                                            )}
-                                        >
-                                            Calendar
-                                        </span>
-                                    </NavLink>
-                                </li>
-                                <li>
-                                    <Accordion.Root
-                                        className="AccordionRoot"
-                                        type="single"
-                                        defaultValue="item-1"
-                                        collapsible
-                                    >
-                                        <Accordion.Item className="AccordionItem" value="item-1">
-                                            <Accordion.Header className="AccordionHeader">
-                                                <Accordion.Trigger
-                                                    className={twMerge(
-                                                        'AccordionTrigger w-full flex justify-between items-center pr-2 rounded hover:bg-slate-100 hover:text-primary-900',
-                                                        pathname.includes('request')
-                                                            ? 'bg-slate-100 text-primary-900 '
-                                                            : ''
-                                                    )}
-                                                >
-                                                    <NavLink
-                                                        to={`/c/${id}/request`}
-                                                        className={({ isActive }) =>
-                                                            `w-full group text-sm flex gap-2 font-medium p-3 rounded hover:font-medium hover:bg-slate-100 hover:text-primary-900 ${
-                                                                isActive
-                                                                    ? ' text-primary-900 bg-slate-100'
-                                                                    : 'text-red-300'
-                                                            }`
-                                                        }
-                                                    >
-                                                        <FilePieChart
-                                                            size={20}
-                                                            className={twMerge(
-                                                                'text-slate-400 group-hover:text-primary-900 ',
-                                                                pathname.includes('request')
-                                                                    ? 'text-primary-900'
-                                                                    : ''
-                                                            )}
-                                                        />
-                                                        <span
-                                                            className={twMerge(
-                                                                'text-slate-500 group-hover:text-primary-900 ',
-                                                                pathname.includes('request')
-                                                                    ? 'text-primary-900'
-                                                                    : ''
-                                                            )}
-                                                        >
-                                                            Request
-                                                        </span>
-                                                    </NavLink>
-                                                    <ChevronDownIcon
-                                                        size={26}
-                                                        className="text-slate-400 rounded hover:bg-slate-50 AccordionChevron"
-                                                        aria-hidden
-                                                    />
-                                                </Accordion.Trigger>
-                                            </Accordion.Header>
-                                            <div style={{ marginLeft: '25px' }}>
-                                                <Accordion.Content className="transition-all AccordionContent">
-                                                    <NavLink
-                                                        to={`/c/${id}/request?filter=approved`}
-                                                        className={({ isActive }) =>
-                                                            `mt-2 group text-sm flex gap-2 font-medium p-3 rounded hover:font-medium hover:bg-slate-100 hover:text-primary-900 ${
-                                                                isActive
-                                                                    ? ' text-primary-900'
-                                                                    : ' text-red-300'
-                                                            }`
-                                                        }
-                                                    >
-                                                        <span
-                                                            className={twMerge(
-                                                                'text-slate-500 group-hover:text-primary-900 ',
-                                                                pathname.includes('request')
-                                                                    ? 'text-primary-900'
-                                                                    : ''
-                                                            )}
-                                                        >
-                                                            Approved
-                                                        </span>
-                                                    </NavLink>
-                                                    <NavLink
-                                                        to={`/c/${id}/request?filter=pending`}
-                                                        className={({ isActive }) =>
-                                                            `group text-sm flex gap-2 font-medium p-3 rounded hover:font-medium hover:bg-slate-100 hover:text-primary-900 ${
-                                                                isActive
-                                                                    ? ' text-primary-900'
-                                                                    : 'text-red-300'
-                                                            }`
-                                                        }
-                                                    >
-                                                        <span
-                                                            className={twMerge(
-                                                                'text-slate-500 group-hover:text-primary-900 ',
-                                                                pathname.includes('pending')
-                                                                    ? 'text-primary-900'
-                                                                    : ''
-                                                            )}
-                                                        >
-                                                            Pending
-                                                        </span>
-                                                    </NavLink>
-                                                    <NavLink
-                                                        to={`/c/${id}/request?filter=reject`}
-                                                        className={({ isActive }) =>
-                                                            `group text-sm flex gap-2 font-medium p-3 rounded hover:font-medium hover:bg-slate-100 hover:text-primary-900 ${
-                                                                isActive
-                                                                    ? ' text-primary-900 '
-                                                                    : 'text-red-300'
-                                                            }`
-                                                        }
-                                                    >
-                                                        <span
-                                                            className={twMerge(
-                                                                'text-slate-500 group-hover:text-primary-900 ',
-                                                                pathname.includes('approved')
-                                                                    ? 'text-primary-900'
-                                                                    : ''
-                                                            )}
-                                                        >
-                                                            Reject
-                                                        </span>
-                                                    </NavLink>
-                                                </Accordion.Content>
-                                            </div>
-                                        </Accordion.Item>
-                                    </Accordion.Root>
-                                    {/* <Accordion.Root
-                                            className="AccordionRoot"
-                                            type="single"
-                                            defaultValue="item-1"
-                                            collapsible
-                                        >
-                                            <Accordion.Item
-                                                className="AccordionItem"
-                                                value="item-1"
+                                    <Menu.Root to={`/c/${id}/track-records`}>
+                                        <Menu.Content className="w-full flex gap-2">
+                                            <Menu.Icon
+                                                isActive={pathname.includes('track-records')}
+                                                Icon={Clock3}
+                                            />
+                                            <Menu.Title
+                                                isActive={pathname.includes('track-records')}
                                             >
-                                                <AccordionTrigger>
-                                                    Is it accessible?
-                                                </AccordionTrigger>
-                                                <AccordionContent>
-                                                    Yes. It adheres to the WAI-ARIA design pattern.
-                                                </AccordionContent>
-                                            </Accordion.Item>
-
-                                            <Accordion.Item
-                                                className="AccordionItem"
-                                                value="item-2"
-                                            >
-                                                <AccordionTrigger>Is it unstyled?</AccordionTrigger>
-                                                <AccordionContent>
-                                                    Yes. It's unstyled by default, giving you
-                                                    freedom over the look and feel.
-                                                </AccordionContent>
-                                            </Accordion.Item>
-
-                                            <Accordion.Item
-                                                className="AccordionItem"
-                                                value="item-3"
-                                            >
-                                                <AccordionTrigger>
-                                                    Can it be animated?
-                                                </AccordionTrigger>
-                                                <Accordion.Content className="AccordionContent">
-                                                    <div className="AccordionContentText">
-                                                        Yes! You can animate the Accordion with CSS
-                                                        or JavaScript.
-                                                    </div>
-                                                </Accordion.Content>
-                                            </Accordion.Item>
-                                        </Accordion.Root> */}
+                                                Track Records
+                                            </Menu.Title>
+                                        </Menu.Content>
+                                    </Menu.Root>
                                 </li>
                                 <li>
-                                    <NavLink
-                                        to={`/c/${id}/track-records`}
-                                        className={({ isActive }) =>
-                                            `group text-sm flex gap-2 font-medium p-3 rounded hover:font-medium hover:bg-slate-100 hover:text-primary-900 ${
-                                                isActive
-                                                    ? ' text-primary-900 bg-slate-100'
-                                                    : 'text-red-300'
-                                            }`
-                                        }
-                                    >
-                                        <Clock3
-                                            size={20}
-                                            className={twMerge(
-                                                'text-slate-400 group-hover:text-primary-900 ',
-                                                pathname.includes('track-records')
-                                                    ? 'text-primary-900'
-                                                    : ''
-                                            )}
-                                        />
-                                        <span
-                                            className={twMerge(
-                                                'text-slate-500 group-hover:text-primary-900 ',
-                                                pathname.includes('track-records')
-                                                    ? 'text-primary-900'
-                                                    : ''
-                                            )}
-                                        >
-                                            Track Records
-                                        </span>
-                                    </NavLink>
-                                </li>
-
-                                <li>
-                                    <NavLink
-                                        to={`/c/${id}/employees`}
-                                        className={({ isActive }) =>
-                                            `group text-sm flex gap-2 font-medium p-3 rounded hover:font-medium hover:bg-slate-100 hover:text-primary-900 ${
-                                                isActive
-                                                    ? ' text-primary-900 bg-slate-100'
-                                                    : 'text-red-300'
-                                            }`
-                                        }
-                                    >
-                                        <UserCheck2
-                                            size={20}
-                                            className={twMerge(
-                                                'text-slate-400 group-hover:text-primary-900 ',
-                                                pathname.includes('employees')
-                                                    ? 'text-primary-900'
-                                                    : ''
-                                            )}
-                                        />
-                                        <span
-                                            className={twMerge(
-                                                'text-slate-500 group-hover:text-primary-900 ',
-                                                pathname.includes('employees')
-                                                    ? 'text-primary-900'
-                                                    : ''
-                                            )}
-                                        >
-                                            Employees
-                                        </span>
-                                    </NavLink>
+                                    <Menu.Root to={`/c/${id}/employees`}>
+                                        <Menu.Content className="w-full flex gap-2">
+                                            <Menu.Icon
+                                                isActive={pathname.includes('employees')}
+                                                Icon={UserCheck2}
+                                            />
+                                            <Menu.Title isActive={pathname.includes('employees')}>
+                                                Employees
+                                            </Menu.Title>
+                                        </Menu.Content>
+                                    </Menu.Root>
                                 </li>
                                 <li>
-                                    <NavLink
-                                        to={`/c/${id}/teams`}
-                                        className={({ isActive }) =>
-                                            `group text-sm flex gap-2 font-medium p-3 rounded hover:font-medium hover:bg-slate-100 hover:text-primary-900 ${
-                                                isActive
-                                                    ? ' text-primary-900 bg-slate-100'
-                                                    : 'text-red-300'
-                                            }`
-                                        }
-                                    >
-                                        <Users2
-                                            size={20}
-                                            className={twMerge(
-                                                'text-slate-400 group-hover:text-primary-900 ',
-                                                pathname.includes('teams') ? 'text-primary-900' : ''
-                                            )}
-                                        />
-                                        <span
-                                            className={twMerge(
-                                                'text-slate-500 group-hover:text-primary-900 ',
-                                                pathname.includes('teams') ? 'text-primary-900' : ''
-                                            )}
-                                        >
-                                            Teams
-                                        </span>
-                                    </NavLink>
+                                    <Menu.Root to={`/c/${id}/teams`}>
+                                        <Menu.Content className="w-full flex gap-2">
+                                            <Menu.Icon
+                                                isActive={pathname.includes('teams')}
+                                                Icon={Users2}
+                                            />
+                                            <Menu.Title isActive={pathname.includes('teams')}>
+                                                Teams
+                                            </Menu.Title>
+                                        </Menu.Content>
+                                    </Menu.Root>
                                 </li>
                                 <li>
-                                    <NavLink
-                                        to={`/c/${id}/offices`}
-                                        className={({ isActive }) =>
-                                            `group text-sm flex gap-2 font-medium p-3 rounded hover:font-medium hover:bg-slate-100 hover:text-primary-900 ${
-                                                isActive
-                                                    ? ' text-primary-900 bg-slate-100'
-                                                    : 'text-red-300'
-                                            }`
-                                        }
-                                    >
-                                        <Building2
-                                            size={20}
-                                            className={twMerge(
-                                                'text-slate-400 group-hover:text-primary-900 ',
-                                                pathname.includes('offices')
-                                                    ? 'text-primary-900'
-                                                    : ''
-                                            )}
-                                        />
-                                        <span
-                                            className={twMerge(
-                                                'text-slate-500 group-hover:text-primary-900 ',
-                                                pathname.includes('offices')
-                                                    ? 'text-primary-900'
-                                                    : ''
-                                            )}
-                                        >
-                                            Offices
-                                        </span>
-                                    </NavLink>
+                                    <Menu.Root to={`/c/${id}/offices`}>
+                                        <Menu.Content className="w-full flex gap-2">
+                                            <Menu.Icon
+                                                isActive={pathname.includes('offices')}
+                                                Icon={Building2}
+                                            />
+                                            <Menu.Title isActive={pathname.includes('offices')}>
+                                                Offices
+                                            </Menu.Title>
+                                        </Menu.Content>
+                                    </Menu.Root>
                                 </li>
                             </div>
                             <div className="w-full space-y-2">
                                 <li>
-                                    <NavLink
-                                        to={`/c/${id}/notifications`}
-                                        className={({ isActive }) =>
-                                            `group text-sm flex gap-2 font-medium p-3 rounded hover:font-medium hover:bg-slate-100 hover:text-primary-900 ${
-                                                isActive
-                                                    ? ' text-primary-900 bg-slate-100'
-                                                    : 'text-red-300'
-                                            }`
-                                        }
-                                    >
-                                        <Bell
-                                            size={20}
-                                            className={twMerge(
-                                                'text-slate-400 group-hover:text-primary-900 ',
-                                                pathname.includes('notifications')
-                                                    ? 'text-primary-900'
-                                                    : ''
-                                            )}
-                                        />
-                                        <span
-                                            className={twMerge(
-                                                'text-slate-500 group-hover:text-primary-900 ',
-                                                pathname.includes('notifications')
-                                                    ? 'text-primary-900'
-                                                    : ''
-                                            )}
-                                        >
-                                            Notifications
-                                        </span>
-                                        <div className="w-5 h-5 bg-primary-900 rounded-full ml-auto text-center">
-                                            <p className="text-white">1</p>
-                                        </div>
-                                    </NavLink>
+                                    <Menu.Root to={`/c/${id}/notifications`}>
+                                        <Menu.Content className="w-full flex gap-2">
+                                            <Menu.Icon
+                                                isActive={pathname.includes('notifications')}
+                                                Icon={Bell}
+                                            />
+                                            <Menu.Title
+                                                isActive={pathname.includes('notifications')}
+                                            >
+                                                Notifications
+                                            </Menu.Title>
+                                            <Menu.Info className="w-5 h-5 bg-primary-900 rounded-full ml-auto text-center">
+                                                <p className="text-white">1</p>
+                                            </Menu.Info>
+                                        </Menu.Content>
+                                    </Menu.Root>
                                 </li>
                                 <li>
-                                    <NavLink
-                                        to={`/c/${id}/settings`}
-                                        className={({ isActive }) =>
-                                            `group text-sm flex gap-2 font-medium p-3 rounded hover:font-medium hover:bg-slate-100 hover:text-primary-900 ${
-                                                isActive
-                                                    ? ' text-primary-900 bg-slate-100'
-                                                    : 'text-red-300'
-                                            }`
-                                        }
-                                    >
-                                        <Settings
-                                            size={20}
-                                            className={twMerge(
-                                                'text-slate-400 group-hover:text-primary-900 ',
-                                                pathname.includes('settings')
-                                                    ? 'text-primary-900'
-                                                    : ''
-                                            )}
-                                        />
-                                        <span
-                                            className={twMerge(
-                                                'text-slate-500 group-hover:text-primary-900 ',
-                                                pathname.includes('settings')
-                                                    ? 'text-primary-900'
-                                                    : ''
-                                            )}
-                                        >
-                                            Settings
-                                        </span>
-                                    </NavLink>
+                                    <Menu.Root to={`/c/${id}/settings`}>
+                                        <Menu.Content className="w-full flex gap-2">
+                                            <Menu.Icon
+                                                isActive={pathname.includes('settings')}
+                                                Icon={Settings}
+                                            />
+                                            <Menu.Title isActive={pathname.includes('settings')}>
+                                                Settings
+                                            </Menu.Title>
+                                        </Menu.Content>
+                                    </Menu.Root>
                                 </li>
                                 <li>
-                                    <NavLink
-                                        to={`/c/${id}/upgrate`}
-                                        className={({ isActive }) =>
-                                            `group text-sm flex gap-2 font-medium p-3 rounded hover:font-medium hover:bg-slate-100 hover:text-primary-900 ${
-                                                isActive
-                                                    ? ' text-primary-900 bg-slate-100'
-                                                    : 'text-red-300'
-                                            }`
-                                        }
-                                    >
-                                        <Flame
-                                            size={20}
-                                            className={twMerge(
-                                                'text-slate-400 group-hover:text-primary-900 ',
-                                                pathname.includes('upgrate')
-                                                    ? 'text-primary-900'
-                                                    : ''
-                                            )}
-                                        />
-                                        <span
-                                            className={twMerge(
-                                                'text-slate-500 group-hover:text-primary-900 ',
-                                                pathname.includes('upgrate')
-                                                    ? 'text-primary-900'
-                                                    : ''
-                                            )}
-                                        >
-                                            Upgrate
-                                        </span>
-                                    </NavLink>
+                                    <Menu.Root to={`/c/${id}/upgrade`}>
+                                        <Menu.Content className="w-full flex gap-2">
+                                            <Menu.Icon
+                                                isActive={pathname.includes('upgrade')}
+                                                Icon={Flame}
+                                            />
+                                            <Menu.Title isActive={pathname.includes('upgrade')}>
+                                                Upgrade
+                                            </Menu.Title>
+                                        </Menu.Content>
+                                    </Menu.Root>
                                 </li>
                                 <li>
                                     <NavLink
