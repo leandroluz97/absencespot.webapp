@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import {
     Bell,
     Building2,
@@ -12,38 +12,13 @@ import {
     Settings,
     UserCheck2,
     Users2,
+    X,
 } from 'lucide-react';
 import absenceSpotLogo from '@/assets/absence-spot-logo.svg';
 import * as Accordion from '@radix-ui/react-accordion';
-import { Link, NavLink, Outlet, useLocation, useParams } from 'react-router-dom';
+import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import { twMerge } from 'tailwind-merge';
 import { Menu } from '../Menu';
-
-interface Props {
-    children: ReactNode;
-}
-
-const AccordionTrigger = React.forwardRef(({ children, className, ...props }, forwardedRef) => (
-    <Accordion.Header className="AccordionHeader">
-        <Accordion.Trigger
-            className={twMerge(
-                'w-full flex justify-between items-center text-primary-900 bg-slate-100 pr-2 rounded',
-                className
-            )}
-            {...props}
-            ref={forwardedRef}
-        >
-            {children}
-            <ChevronDownIcon size={26} className="" aria-hidden />
-        </Accordion.Trigger>
-    </Accordion.Header>
-));
-
-const AccordionContent = React.forwardRef(({ children, className, ...props }, forwardedRef) => (
-    <Accordion.Content className={twMerge('ml-6', className)} {...props} ref={forwardedRef}>
-        <div className="ml-6">{children}</div>
-    </Accordion.Content>
-));
 
 export const MainLayout = () => {
     const { id } = useParams();
@@ -54,11 +29,11 @@ export const MainLayout = () => {
             <section className=" h-screen flex bg-slate-100">
                 <article className="h-screen ">
                     <nav className="h-full w-64 p-4 space-y-6 flex flex-col bg-white">
-                        <Link to={`/c/${id}/dashboard`} className="">
+                        <Link to={`/c/${id}/dashboard`} className="hidden md:block">
                             <img src={absenceSpotLogo} alt="absence spot" className="w-40" />
                         </Link>
                         <ul className="h-full w-full flex flex-col  items-center overflow-y-auto pr-2 space-y-2">
-                            <div className="w-full space-y-2">
+                            <div className="order-2 md:order-1 w-full space-y-2">
                                 <li>
                                     <Menu.Root to={`/c/${id}/dashboard`}>
                                         <Menu.Content className="w-full flex gap-2">
@@ -235,7 +210,7 @@ export const MainLayout = () => {
                                 </li>
                             </div>
                             <div style={{ marginTop: 'auto' }}></div>
-                            <div className="w-full space-y-2 mt-auto">
+                            <div className="order-3 md:order-3 w-full space-y-2 mt-auto ">
                                 <li>
                                     <Menu.Root to={`/c/${id}/notifications`}>
                                         <Menu.Content className="w-full flex gap-2">
@@ -281,24 +256,30 @@ export const MainLayout = () => {
                                     </Menu.Root>
                                 </li>
                             </div>
-                            <li className="w-full">
-                                <Menu.Root to={`/c/${id}/profile`} className="w-full">
-                                    <Menu.Content className="w-full flex gap-2 items-center">
-                                        <div className="w-10 h-10 bg-slate-200 rounded-full flex justify-center items-center">
-                                            <p className="text-slate-600 leading-none">ES</p>
-                                        </div>
-                                        <Menu.Title
-                                            isActive={pathname.includes('profile')}
-                                            className="font-bold"
-                                        >
-                                            Emily Smith
-                                        </Menu.Title>
-                                        <Menu.Info>
-                                            <Crown className="text-yellow-400" />
-                                        </Menu.Info>
-                                    </Menu.Content>
-                                </Menu.Root>
-                            </li>
+
+                            <div className="order-1 md:order-4 w-full flex">
+                                <li className="w-full">
+                                    <Menu.Root to={`/c/${id}/profile`} className="w-full">
+                                        <Menu.Content className="w-full flex gap-2 items-center">
+                                            <div className="w-10 h-10 bg-slate-200 rounded-full flex justify-center items-center">
+                                                <p className="text-slate-600 leading-none">ES</p>
+                                            </div>
+                                            <Menu.Title
+                                                isActive={pathname.includes('profile')}
+                                                className="font-bold"
+                                            >
+                                                Emily Smith
+                                            </Menu.Title>
+                                            <Menu.Info>
+                                                <Crown className="text-yellow-400" />
+                                            </Menu.Info>
+                                        </Menu.Content>
+                                    </Menu.Root>
+                                </li>
+                                <button className="block md:hidden">
+                                    <X />
+                                </button>
+                            </div>
                         </ul>
                     </nav>
                 </article>
