@@ -12,7 +12,9 @@ import {
     Settings,
     UserCheck2,
     Users2,
+    Search,
     X,
+    Menu as MenuIcon,
 } from 'lucide-react';
 import absenceSpotLogo from '@/assets/absence-spot-logo.svg';
 import * as Accordion from '@radix-ui/react-accordion';
@@ -27,7 +29,7 @@ export const MainLayout = () => {
     return (
         <React.Fragment>
             <section className="h-screen flex bg-slate-100 relative">
-                <article className="h-screen w-full md:w-auto absolute -left-0 md:relative ">
+                <article className="h-screen w-full md:w-auto absolute z-10 -left-0 md:relative ">
                     <nav className="h-full md:w-64 p-4 md:space-y-6 flex flex-col bg-white">
                         <Link
                             to={`/c/${id}/dashboard`}
@@ -77,7 +79,7 @@ export const MainLayout = () => {
                                             <Accordion.Header className="AccordionHeader">
                                                 <Accordion.Trigger
                                                     className={twMerge(
-                                                        'AccordionTrigger w-full flex justify-between items-center pr-2 rounded hover:bg-slate-100 hover:text-primary-900',
+                                                        'AccordionTrigger w-full flex justify-between items-center pr-2 rounded hover:bg-slate-100 hover:text-primary-900 transition-all ease-in duration-300',
                                                         pathname.includes('request')
                                                             ? 'bg-slate-100 text-primary-900 '
                                                             : ''
@@ -85,7 +87,7 @@ export const MainLayout = () => {
                                                 >
                                                     <Menu.Root
                                                         to={`/c/${id}/request`}
-                                                        className="w-full hover:bg-transparent"
+                                                        className="w-full hover:bg-transparent bg-transparent"
                                                     >
                                                         <Menu.Content className="w-full flex gap-2">
                                                             <Menu.Icon
@@ -273,7 +275,7 @@ export const MainLayout = () => {
                                             >
                                                 Emily Smith
                                             </Menu.Title>
-                                            <Menu.Info className="">
+                                            <Menu.Info className="md:ml-auto ">
                                                 <Crown className="text-yellow-400" />
                                             </Menu.Info>
                                         </Menu.Content>
@@ -286,7 +288,31 @@ export const MainLayout = () => {
                         </ul>
                     </nav>
                 </article>
-                <Outlet />
+                <main className="flex flex-col w-full md:ml-[2px]">
+                    <header className=" bg-white">
+                        <div className="h-full p-3 flex flex-col md:flex-row justify-between items-center">
+                            <div className="w-full flex justify-between items-center mb-3 md:mb-0">
+                                <MenuIcon className=" md:hidden" />
+                                <h2 className="text-slate-600 font-bold">Dashboard</h2>
+                                <div className=" md:hidden w-10 h-10 bg-slate-200 rounded-full flex justify-center items-center">
+                                    <p className="text-slate-600 leading-none">ES</p>
+                                </div>
+                            </div>
+                            <div className="relative max-w-full md:max-w-xs w-full">
+                                <Search
+                                    size={20}
+                                    className="absolute top-2 left-4 translate-y-0.5 text-slate-400"
+                                />
+                                <input
+                                    type="text"
+                                    placeholder="Search"
+                                    className="bg-slate-100 rounded-lg p-2 pl-12 outline-primary-900 w-full text-slate-700 placeholder-slate-400"
+                                />
+                            </div>
+                        </div>
+                    </header>
+                    <Outlet />
+                </main>
             </section>
         </React.Fragment>
     );
