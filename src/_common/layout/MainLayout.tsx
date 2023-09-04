@@ -288,7 +288,7 @@ export const MainLayout = () => {
                         </ul>
                     </nav>
                 </article>
-                <main className="flex flex-col w-full md:ml-[2px] ">
+                <main className="flex flex-col w-full md:ml-[2px] gap-[3px] ">
                     <header className="bg-white">
                         <div className="h-full p-3 flex flex-col md:flex-row justify-between items-center">
                             <div className="w-full flex justify-between items-center mb-3 md:mb-0">
