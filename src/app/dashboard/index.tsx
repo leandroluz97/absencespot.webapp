@@ -1,7 +1,73 @@
 import { Check, Search, X } from 'lucide-react';
+import {
+    PieChart,
+    Pie,
+    Sector,
+    Cell,
+    ResponsiveContainer,
+    BarChart,
+    Bar,
+    XAxis,
+    YAxis,
+    CartesianGrid,
+    Tooltip,
+    Legend,
+} from 'recharts';
 import * as Tabs from '@radix-ui/react-tabs';
 import { NavLink } from 'react-router-dom';
 
+const data = [
+    { name: 'Group A', value: 600 },
+    { name: 'Group B', value: 300 },
+    // { name: 'Group C', value: 300 },
+    // { name: 'Group D', value: 200 },
+];
+const COLORS = ['#2693FF', '#C2E1FF'];
+
+const data1 = [
+    {
+        name: 'Page A',
+        Overtime: 4000,
+        'Worked Hours': 2400,
+        amt: 2400,
+    },
+    {
+        name: 'Page B',
+        Overtime: 3000,
+        'Worked Hours': 1398,
+        amt: 2210,
+    },
+    {
+        name: 'Page C',
+        Overtime: 2000,
+        'Worked Hours': 9800,
+        amt: 2290,
+    },
+    {
+        name: 'Page D',
+        Overtime: 2780,
+        'Worked Hours': 3908,
+        amt: 2000,
+    },
+    {
+        name: 'Page E',
+        Overtime: 1890,
+        'Worked Hours': 4800,
+        amt: 2181,
+    },
+    {
+        name: 'Page F',
+        uv: 2390,
+        pv: 3800,
+        amt: 2500,
+    },
+    {
+        name: 'Page G',
+        uv: 3490,
+        pv: 4300,
+        amt: 2100,
+    },
+];
 export const Dashboard = () => {
     return (
         <article className="flex h-full gap-[3px]">
@@ -19,43 +85,118 @@ export const Dashboard = () => {
                             <div className="h-full flex flex-col justify-center p-6 gap-3">
                                 <div className="flex justify-between">
                                     <div className="text-center p-2">
+                                        {/* <p className="text-slate-700 font-extrabold">06</p>
+                                        <p className="text-slate-400">Planned</p> */}
+                                        <PieChart
+                                            width={100}
+                                            height={100}
+                                            //onMouseEnter={this.onPieEnter}
+                                        >
+                                            <Pie
+                                                data={data}
+                                                cx={45}
+                                                cy={45}
+                                                innerRadius={30}
+                                                outerRadius={50}
+                                                fill="#8884d8"
+                                                paddingAngle={0}
+                                                dataKey="value"
+                                            >
+                                                {data.map((entry, index) => (
+                                                    <Cell
+                                                        key={`cell-${index}`}
+                                                        fill={COLORS[index % COLORS.length]}
+                                                    />
+                                                ))}
+                                            </Pie>
+                                        </PieChart>
+                                    </div>
+                                    <div className="text-center p-2 flex flex-col items-center justify-center">
                                         <p className="text-slate-700 font-extrabold">06</p>
                                         <p className="text-slate-400">Planned</p>
                                     </div>
-                                    <div className="text-center p-2">
+                                    <div className="text-center p-2 flex flex-col items-center justify-center">
                                         <p className="text-slate-700 font-extrabold">06</p>
                                         <p className="text-slate-400">Planned</p>
                                     </div>
-                                    <div className="text-center p-2">
-                                        <p className="text-slate-700 font-extrabold">06</p>
-                                        <p className="text-slate-400">Planned</p>
-                                    </div>
-                                    <div className="text-center p-2">
+                                    <div className="text-center p-2 flex flex-col items-center justify-center">
                                         <p className="text-slate-700 font-extrabold">06</p>
                                         <p className="text-slate-400">Planned</p>
                                     </div>
                                 </div>
                                 <div className="flex justify-between">
                                     <div className="text-center p-2">
+                                        <PieChart
+                                            width={100}
+                                            height={100}
+                                            //onMouseEnter={this.onPieEnter}
+                                        >
+                                            <Pie
+                                                data={data}
+                                                cx={45}
+                                                cy={45}
+                                                innerRadius={30}
+                                                outerRadius={50}
+                                                fill="#8884d8"
+                                                paddingAngle={0}
+                                                dataKey="value"
+                                            >
+                                                {data.map((entry, index) => (
+                                                    <Cell
+                                                        key={`cell-${index}`}
+                                                        fill={COLORS[index % COLORS.length]}
+                                                    />
+                                                ))}
+                                            </Pie>
+                                        </PieChart>
+                                    </div>
+                                    <div className="text-center p-2 flex flex-col items-center justify-center">
                                         <p className="text-slate-700 font-extrabold">06</p>
                                         <p className="text-slate-400">Planned</p>
                                     </div>
-                                    <div className="text-center p-2">
+                                    <div className="text-center p-2 flex flex-col items-center justify-center">
                                         <p className="text-slate-700 font-extrabold">06</p>
                                         <p className="text-slate-400">Planned</p>
                                     </div>
-                                    <div className="text-center p-2">
-                                        <p className="text-slate-700 font-extrabold">06</p>
-                                        <p className="text-slate-400">Planned</p>
-                                    </div>
-                                    <div className="text-center p-2">
+                                    <div className="text-center p-2 flex flex-col items-center justify-center">
                                         <p className="text-slate-700 font-extrabold">06</p>
                                         <p className="text-slate-400">Planned</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div className="w-1/2 bg-white rounded">Right</div>
+                        <div className="w-1/2 bg-white rounded">
+                            <div>
+                                {/* <ResponsiveContainer width="400px" height="200px"> */}
+                                <BarChart
+                                    className="mt-10"
+                                    width={400}
+                                    height={250}
+                                    data={data1}
+                                    margin={{
+                                        top: 0,
+                                        right: 30,
+                                        left: 20,
+                                        bottom: 5,
+                                    }}
+                                >
+                                    <CartesianGrid strokeDasharray="3 3" />
+                                    <XAxis dataKey="name" />
+                                    <YAxis />
+                                    <Tooltip />
+                                    <Legend />
+                                    <Bar
+                                        dataKey="Worked Hours"
+                                        stackId="a"
+                                        fill="#2693FF"
+                                        width={100}
+                                    />
+                                    <Bar dataKey="Overtime" stackId="a" fill="#C2E1FF" />
+                                    <Bar dataKey="Overtime" stackId="a" fill="#C2E1FF" />
+                                </BarChart>
+                                {/* </ResponsiveContainer> */}
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div className="p-3 rounded">
