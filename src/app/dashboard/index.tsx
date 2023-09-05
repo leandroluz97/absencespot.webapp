@@ -15,7 +15,6 @@ import {
 } from 'recharts';
 import * as Tabs from '@radix-ui/react-tabs';
 import { NavLink } from 'react-router-dom';
-
 const data = [
     { name: 'Group A', value: 600 },
     { name: 'Group B', value: 300 },
@@ -26,43 +25,43 @@ const COLORS = ['#2693FF', '#C2E1FF'];
 
 const data1 = [
     {
-        name: 'Page A',
+        name: 'Mo',
         Overtime: 4000,
         'Worked Hours': 2400,
         amt: 2400,
     },
     {
-        name: 'Page B',
+        name: 'Tu',
         Overtime: 3000,
         'Worked Hours': 1398,
         amt: 2210,
     },
     {
-        name: 'Page C',
+        name: 'We',
         Overtime: 2000,
         'Worked Hours': 9800,
         amt: 2290,
     },
     {
-        name: 'Page D',
+        name: 'Th',
         Overtime: 2780,
         'Worked Hours': 3908,
         amt: 2000,
     },
     {
-        name: 'Page E',
+        name: 'Fr',
         Overtime: 1890,
         'Worked Hours': 4800,
         amt: 2181,
     },
     {
-        name: 'Page F',
+        name: 'Sa',
         uv: 2390,
         pv: 3800,
         amt: 2500,
     },
     {
-        name: 'Page G',
+        name: 'Su',
         uv: 3490,
         pv: 4300,
         amt: 2100,
@@ -180,18 +179,34 @@ export const Dashboard = () => {
                                         bottom: 5,
                                     }}
                                 >
-                                    <CartesianGrid strokeDasharray="3 3" />
-                                    <XAxis dataKey="name" />
-                                    <YAxis />
+                                    <CartesianGrid strokeDasharray="4 4" vertical={false} />
+                                    <XAxis
+                                        dataKey="name"
+                                        tick={{
+                                            fill: '#334155',
+                                            fontSize: '12px',
+                                            fontWeight: 'bold',
+                                        }}
+                                        tickLine={{ stroke: '#fffff' }}
+                                        stroke="#fffff"
+                                    />
+                                    <YAxis
+                                        tick={{
+                                            fill: '#334155',
+                                            fontSize: '12px',
+                                            fontWeight: 'bold',
+                                        }}
+                                        tickLine={{ stroke: '#fffff' }}
+                                        stroke="#fffff"
+                                    />
                                     <Tooltip />
-                                    <Legend />
+                                    <Legend radius={10} state={{ boxWidth: 10, boxHeight: 10 }} />
                                     <Bar
                                         dataKey="Worked Hours"
                                         stackId="a"
                                         fill="#2693FF"
                                         width={100}
                                     />
-                                    <Bar dataKey="Overtime" stackId="a" fill="#C2E1FF" />
                                     <Bar dataKey="Overtime" stackId="a" fill="#C2E1FF" />
                                 </BarChart>
                                 {/* </ResponsiveContainer> */}
