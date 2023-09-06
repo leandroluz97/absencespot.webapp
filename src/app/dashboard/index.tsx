@@ -15,6 +15,7 @@ import {
 import * as Tabs from '@radix-ui/react-tabs';
 import { NavLink } from 'react-router-dom';
 import { NameType, ValueType } from 'recharts/types/component/DefaultTooltipContent';
+import { twMerge } from 'tailwind-merge';
 const data = [
     { name: 'Group A', value: 600 },
     { name: 'Group B', value: 300 },
@@ -91,7 +92,7 @@ export const Dashboard = () => {
                         <h2 className="text-slate-600 text-xl font-bold">Hello, Emily Smith 👋</h2>
                         <p className="text-slate-400">
                             Here is what’s happening at
-                            <span className="font-bold">AbsenceSpot</span>
+                            <span className="font-bold"> AbsenceSpot</span>
                         </p>
                     </div>
                     <div className="flex-1 flex gap-[3px]">
@@ -399,33 +400,59 @@ export const Dashboard = () => {
                 <div className="p-4">
                     <h4 className="mb-4 text-sm font-bold text-slate-500 ">May, 2023</h4>
                     <div className="flex gap-2 justify-between">
-                        <div className="group p-2 px-3 rounded text-center">
-                            <p className="text-slate-800 font-bold">1</p>
-                            <p className="text-slate-400">Su</p>
+                        <div className="group  py-3 px-3 rounded text-center relative hover:bg-primary-100 cursor-pointer transition-all ease-in-out duration-300">
+                            <p className="text-slate-600 group-hover:text-primary-900 font-bold">
+                                1
+                            </p>
+                            <p className="text-slate-400 group-hover:text-primary-500 after:absolute after:left-1/2 after:text-primary-900 after:-translate-x-1/2 after:-bottom-1 after:content-['•']">
+                                Su
+                            </p>
                         </div>
-                        <div className="p-2 px-3 rounded text-center">
-                            <p className="text-slate-800 font-bold">2</p>
-                            <p className="text-slate-400">Mo</p>
+                        <div className="group  py-3 px-3 rounded text-center relative hover:bg-primary-100 cursor-pointer transition-all ease-in-out duration-300">
+                            <p className="text-slate-600 font-bold group-hover:text-primary-900">
+                                2
+                            </p>
+                            <p className="text-slate-400 group-hover:text-primary-500 after:absolute after:left-1/2 after:text-primary-900 after:-translate-x-1/2 after:-bottom-1 after:content-['•']">
+                                Mo
+                            </p>
                         </div>
-                        <div className="p-2 px-3 rounded text-center">
-                            <p className="text-slate-800 font-bold">3</p>
-                            <p className="text-slate-400">Tu</p>
+                        <div className="group  py-3 px-3 rounded text-center relative hover:bg-primary-100 cursor-pointer transition-all ease-in-out duration-300">
+                            <p className="text-slate-600 font-bold group-hover:text-primary-900">
+                                3
+                            </p>
+                            <p className="text-slate-400 group-hover:text-primary-500 after:absolute after:left-1/2 after:text-primary-900 after:-translate-x-1/2 after:-bottom-1 after:content-['•']">
+                                Tu
+                            </p>
                         </div>
-                        <div className="p-2 px-3 rounded text-center">
-                            <p className="text-slate-800 font-bold">4</p>
-                            <p className="text-slate-400">We</p>
+                        <div className="group  py-3 px-3 rounded text-center relative hover:bg-primary-100 cursor-pointer transition-all ease-in-out duration-300">
+                            <p className="text-slate-600 font-bold group-hover:text-primary-900">
+                                4
+                            </p>
+                            <p className="text-slate-400 group-hover:text-primary-500 after:absolute after:left-1/2 after:text-primary-900 after:-translate-x-1/2 after:-bottom-1 after:content-['•']">
+                                We
+                            </p>
                         </div>
-                        <div className="froup p-2 px-3 bg-primary-100 rounded text-center">
-                            <p className="text-primary-900 font-bold ">5</p>
-                            <p className="text-primary-500">Th</p>
+                        <div className="group py-3 px-3 bg-primary-100 rounded text-center relative hover:bg-primary-100 cursor-pointer transition-all ease-in-out duration-300">
+                            <p className="text-primary-900 font-bold group-hover:text-primary-900">
+                                5
+                            </p>
+                            <p className="text-primary-500 after:absolute after:left-1/2 after:text-primary-900 after:-translate-x-1/2 after:-bottom-1 after:content-['•']">
+                                Th
+                            </p>
                         </div>
-                        <div className="p-2 px-3 rounded text-center">
-                            <p className="text-slate-800 font-bold">6</p>
-                            <p className="text-slate-400">Fr</p>
+                        <div className="group  py-3 px-3 rounded text-center relative hover:bg-primary-100 cursor-pointer transition-all ease-in-out duration-300">
+                            <p className="text-slate-600 font-bold group-hover:text-primary-900">
+                                6
+                            </p>
+                            <p className="text-slate-400 group-hover:text-primary-500 after:absolute after:left-1/2 after:text-primary-900 after:-translate-x-1/2 after:-bottom-1 after:content-['•']">
+                                Fr
+                            </p>
                         </div>
-                        <div className="p-2 px-3 rounded text-center">
-                            <p className="text-slate-800 font-bold">7</p>
-                            <p className="text-slate-400">Sa</p>
+                        <div className="group  py-3 px-3 rounded text-center relative hover:bg-primary-100 cursor-pointer transition-all ease-in-out duration-300">
+                            <p className="text-slate-600 font-bold group-hover:text-primary-900">
+                                7
+                            </p>
+                            <p className="text-slate-400 group-hover:text-primary-500">Sa</p>
                         </div>
                     </div>
                     <div className="mt-6">
@@ -452,28 +479,56 @@ export const Dashboard = () => {
                                     >
                                         <NavLink
                                             to={''}
-                                            className="inline-block before:md:absolute before:md:w-full before:md:h-1 before:md:bg-primary-800 before:md:left-0 before:md:bottom-0 before:md:rounded-t-lg"
+                                            className={twMerge(
+                                                'inline-block before:md:absolute before:md:w-full hover:before:md:h-1 before:md:bg-primary-800 before:md:left-0 before:md:bottom-0 before:md:rounded-t-lg transition-all ease-in-out duration-300',
+                                                true ? ' before:md:h-1' : ''
+                                            )}
                                         >
                                             Leaves
                                         </NavLink>
                                     </Tabs.Trigger>
                                     <Tabs.Trigger
-                                        className="TabsTrigger p-2 font-semibold text-slate-600 text-sm"
+                                        className="TabsTrigger p-2 font-semibold text-slate-600 text-sm relative"
                                         value="tab2"
                                     >
-                                        Remote
+                                        <NavLink
+                                            to={''}
+                                            className={twMerge(
+                                                'inline-block before:md:absolute before:md:w-full hover:before:md:h-1 before:md:bg-primary-800 before:md:left-0 before:md:bottom-0 before:md:rounded-t-lg transition-all ease-in-out duration-300',
+                                                false ? ' before:md:h-1' : ''
+                                            )}
+                                        >
+                                            Remote
+                                        </NavLink>
                                     </Tabs.Trigger>
                                     <Tabs.Trigger
-                                        className="TabsTrigger p-2 font-semibold text-slate-600 text-sm"
+                                        className="TabsTrigger p-2 font-semibold text-slate-600 text-sm relative"
                                         value="tab1"
                                     >
-                                        Holiday
+                                        <NavLink
+                                            to={''}
+                                            className={twMerge(
+                                                'inline-block before:md:absolute before:md:w-full hover:before:md:h-1 before:md:bg-primary-800 before:md:left-0 before:md:bottom-0 before:md:rounded-t-lg transition-all ease-in-out duration-300',
+                                                false ? ' before:md:h-1' : ''
+                                            )}
+                                        >
+                                            Holiday
+                                        </NavLink>
                                     </Tabs.Trigger>
                                     <Tabs.Trigger
-                                        className="TabsTrigger p-2 font-semibold text-slate-600 text-sm"
+                                        className="TabsTrigger p-2 font-semibold text-slate-600 text-sm relative"
                                         value="tab2"
                                     >
-                                        Birthday
+                                        <NavLink
+                                            to={''}
+                                            // className="inline-block before:md:absolute before:md:w-full before:md:h-1 before:md:bg-primary-800 before:md:left-0 before:md:bottom-0 before:md:rounded-t-lg"
+                                            className={twMerge(
+                                                'inline-block before:md:absolute before:md:w-full hover:before:md:h-1 before:md:bg-primary-800 before:md:left-0 before:md:bottom-0 before:md:rounded-t-lg transition-all ease-in-out duration-300',
+                                                false ? ' before:md:h-1' : ''
+                                            )}
+                                        >
+                                            Birthday
+                                        </NavLink>
                                     </Tabs.Trigger>
                                 </Tabs.List>
                             </Tabs.Root>
