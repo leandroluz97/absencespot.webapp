@@ -2,7 +2,6 @@ import { Check, Search, X } from 'lucide-react';
 import {
     PieChart,
     Pie,
-    Sector,
     Cell,
     ResponsiveContainer,
     BarChart,
@@ -11,10 +10,11 @@ import {
     YAxis,
     CartesianGrid,
     Tooltip,
-    Legend,
+    TooltipProps,
 } from 'recharts';
 import * as Tabs from '@radix-ui/react-tabs';
 import { NavLink } from 'react-router-dom';
+import { NameType, ValueType } from 'recharts/types/component/DefaultTooltipContent';
 const data = [
     { name: 'Group A', value: 600 },
     { name: 'Group B', value: 300 },
@@ -26,47 +26,62 @@ const COLORS = ['#2693FF', '#C2E1FF'];
 const data1 = [
     {
         name: 'Mo',
-        Overtime: 4000,
-        'Worked Hours': 2400,
+        'Worked Hours': 4000,
+        Overtime: 2400,
         amt: 2400,
     },
     {
         name: 'Tu',
-        Overtime: 3000,
-        'Worked Hours': 1398,
+        'Worked Hours': 3000,
+        Overtime: 1398,
         amt: 2210,
     },
     {
         name: 'We',
-        Overtime: 2000,
-        'Worked Hours': 9800,
+        'Worked Hours': 2000,
+        Overtime: 800,
         amt: 2290,
     },
     {
         name: 'Th',
-        Overtime: 2780,
-        'Worked Hours': 3908,
+        'Worked Hours': 2780,
+        Overtime: 3908,
         amt: 2000,
     },
     {
         name: 'Fr',
-        Overtime: 1890,
-        'Worked Hours': 4800,
+        'Worked Hours': 1890,
+        Overtime: 4800,
         amt: 2181,
     },
     {
         name: 'Sa',
-        uv: 2390,
-        pv: 3800,
+        'Worked Hours': 2390,
+        Overtime: 3800,
         amt: 2500,
     },
     {
         name: 'Su',
-        uv: 3490,
-        pv: 4300,
+        'Worked Hours': 3490,
+        Overtime: 4300,
         amt: 2100,
     },
 ];
+
+const CustomToolTip = ({ active, payload, label }: TooltipProps<ValueType, NameType>) => {
+    if (active && payload && payload.length) {
+        const [data] = payload;
+
+        return (
+            <div className="bg-primary-900 p-2 px-3 rounded-lg text-white opacity-90 ">
+                <p className="text-xs font-thin">{label}</p>
+                <p className="text-lg font-bold">WH: {data.value}</p>
+                <p className="text-lg font-bold">Over: {data.payload.Overtime}</p>
+            </div>
+        );
+    }
+    return <p> </p>;
+};
 export const Dashboard = () => {
     return (
         <article className="flex h-full gap-[3px]">
@@ -81,11 +96,15 @@ export const Dashboard = () => {
                     </div>
                     <div className="flex-1 flex gap-[3px]">
                         <div className="w-1/2 bg-white rounded">
-                            <div className="h-full flex flex-col justify-center p-6 gap-3">
-                                <div className="flex justify-between">
-                                    <div className="text-center p-2">
+                            <div className="h-full flex flex-col p-6 gap-1">
+                                <h4 className="text-slate-600 text-sm font-bold">Annual Leaves</h4>
+                                <div className="flex justify-evenly items-center">
+                                    <div className="text-left p-2">
                                         {/* <p className="text-slate-700 font-extrabold">06</p>
                                         <p className="text-slate-400">Planned</p> */}
+                                        <h5 className="text-slate-400 text-sm font-medium pb-3">
+                                            Vacation
+                                        </h5>
                                         <PieChart
                                             width={100}
                                             height={100}
@@ -111,20 +130,23 @@ export const Dashboard = () => {
                                         </PieChart>
                                     </div>
                                     <div className="text-center p-2 flex flex-col items-center justify-center">
-                                        <p className="text-slate-700 font-extrabold">06</p>
-                                        <p className="text-slate-400">Planned</p>
+                                        <p className="text-slate-700 font-extrabold text-xl">06</p>
+                                        <p className="text-slate-400 text-sm">Planned</p>
                                     </div>
                                     <div className="text-center p-2 flex flex-col items-center justify-center">
-                                        <p className="text-slate-700 font-extrabold">06</p>
-                                        <p className="text-slate-400">Planned</p>
+                                        <p className="text-slate-700 font-extrabold text-xl">18</p>
+                                        <p className="text-slate-400 text-sm">Left</p>
                                     </div>
                                     <div className="text-center p-2 flex flex-col items-center justify-center">
-                                        <p className="text-slate-700 font-extrabold">06</p>
-                                        <p className="text-slate-400">Planned</p>
+                                        <p className="text-slate-700 font-extrabold text-xl">24</p>
+                                        <p className="text-slate-400 text-sm">Annual</p>
                                     </div>
                                 </div>
-                                <div className="flex justify-between">
-                                    <div className="text-center p-2">
+                                <div className="flex justify-evenly">
+                                    <div className="text-left p-2">
+                                        <h5 className="text-slate-400 text-sm font-medium pb-3">
+                                            Others
+                                        </h5>
                                         <PieChart
                                             width={100}
                                             height={100}
@@ -150,66 +172,91 @@ export const Dashboard = () => {
                                         </PieChart>
                                     </div>
                                     <div className="text-center p-2 flex flex-col items-center justify-center">
-                                        <p className="text-slate-700 font-extrabold">06</p>
-                                        <p className="text-slate-400">Planned</p>
+                                        <p className="text-slate-700 font-extrabold text-xl">03</p>
+                                        <p className="text-slate-400 text-sm">Planned</p>
                                     </div>
                                     <div className="text-center p-2 flex flex-col items-center justify-center">
-                                        <p className="text-slate-700 font-extrabold">06</p>
-                                        <p className="text-slate-400">Planned</p>
+                                        <p className="text-slate-700 font-extrabold text-xl">01</p>
+                                        <p className="text-slate-400 text-sm">Left</p>
                                     </div>
                                     <div className="text-center p-2 flex flex-col items-center justify-center">
-                                        <p className="text-slate-700 font-extrabold">06</p>
-                                        <p className="text-slate-400">Planned</p>
+                                        <p className="text-slate-700 font-extrabold text-xl">04</p>
+                                        <p className="text-slate-400 text-sm">Annual</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div className="w-1/2 bg-white rounded">
-                            <div>
-                                {/* <ResponsiveContainer width="400px" height="200px"> */}
-                                <BarChart
-                                    className="mt-10"
-                                    width={400}
-                                    height={250}
-                                    data={data1}
-                                    margin={{
-                                        top: 0,
-                                        right: 30,
-                                        left: 20,
-                                        bottom: 5,
-                                    }}
-                                >
-                                    <CartesianGrid strokeDasharray="4 4" vertical={false} />
-                                    <XAxis
-                                        dataKey="name"
-                                        tick={{
-                                            fill: '#334155',
-                                            fontSize: '12px',
-                                            fontWeight: 'bold',
-                                        }}
-                                        tickLine={{ stroke: '#fffff' }}
-                                        stroke="#fffff"
-                                    />
-                                    <YAxis
-                                        tick={{
-                                            fill: '#334155',
-                                            fontSize: '12px',
-                                            fontWeight: 'bold',
-                                        }}
-                                        tickLine={{ stroke: '#fffff' }}
-                                        stroke="#fffff"
-                                    />
-                                    <Tooltip />
-                                    <Legend radius={10} state={{ boxWidth: 10, boxHeight: 10 }} />
-                                    <Bar
-                                        dataKey="Worked Hours"
-                                        stackId="a"
-                                        fill="#2693FF"
-                                        width={100}
-                                    />
-                                    <Bar dataKey="Overtime" stackId="a" fill="#C2E1FF" />
-                                </BarChart>
-                                {/* </ResponsiveContainer> */}
+                            <div className="h-full flex flex-col p-6 gap-3">
+                                <h4 className="text-slate-600 text-sm font-bold">
+                                    Employee Time Tracking
+                                </h4>
+                                <div>
+                                    <div className="flex gap-3 mb-3 mt-3 justify-center">
+                                        <div className="flex items-center gap-1 text-sm">
+                                            <div
+                                                className="bg-primary-900 rounded"
+                                                style={{ width: '14px', height: '14px' }}
+                                            ></div>
+                                            <p className="text-xs font-bold text-slate-600">
+                                                Work Hours
+                                            </p>
+                                        </div>
+                                        <div className="flex items-center gap-1 text-sm">
+                                            <div
+                                                className="bg-primary-300 rounded"
+                                                style={{ width: '14px', height: '14px' }}
+                                            ></div>
+                                            <p className="text-xs font-bold text-slate-600">
+                                                Overtime
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div className="w-full flex justify-center items-center">
+                                        {/* <ResponsiveContainer> */}
+                                        <BarChart
+                                            width={450}
+                                            height={250}
+                                            data={data1}
+                                            margin={{
+                                                top: 5,
+                                                right: 30,
+                                                left: 20,
+                                                bottom: 5,
+                                            }}
+                                        >
+                                            <CartesianGrid strokeDasharray="4 4" vertical={false} />
+                                            <XAxis
+                                                dataKey="name"
+                                                tick={{
+                                                    fill: '#334155',
+                                                    fontSize: '12px',
+                                                    fontWeight: 'bold',
+                                                }}
+                                                tickLine={{ stroke: '#fffff' }}
+                                                stroke="#fffff"
+                                            />
+                                            <YAxis
+                                                tick={{
+                                                    fill: '#334155',
+                                                    fontSize: '12px',
+                                                    fontWeight: 'bold',
+                                                }}
+                                                tickLine={{ stroke: '#fffff' }}
+                                                stroke="#fffff"
+                                            />
+                                            <Tooltip
+                                                cursor={false}
+                                                content={(
+                                                    props: TooltipProps<ValueType, NameType>
+                                                ) => <CustomToolTip {...props} />}
+                                            />
+                                            <Bar dataKey="Worked Hours" fill="#2693FF" />
+                                            <Bar dataKey="Overtime" fill="#C2E1FF" />
+                                        </BarChart>
+                                        {/* </ResponsiveContainer> */}
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
