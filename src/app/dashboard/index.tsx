@@ -88,12 +88,53 @@ export const Dashboard = () => {
         <article className="flex h-full gap-[3px]">
             <div className="flex-grow-10 flex flex-col gap-[3px]">
                 <div className="flex flex-col flex-1 gap-[3px] rounded">
-                    <div className="rounded p-3">
-                        <h2 className="text-slate-600 text-xl font-bold">Hello, Emily Smith 👋</h2>
-                        <p className="text-slate-400">
-                            Here is what’s happening at
-                            <span className="font-bold"> AbsenceSpot</span>
-                        </p>
+                    <div className="rounded p-3 flex justify-between items-end">
+                        <div>
+                            <h2 className="text-slate-600 text-xl font-bold">
+                                Hello, Emily Smith 👋
+                            </h2>
+                            <p className="text-slate-400">
+                                Here is what’s happening at
+                                <span className="font-bold"> AbsenceSpot</span>
+                            </p>
+                        </div>
+                        <div>
+                            <Tabs.Root className="TabsRoot" defaultValue="tab1">
+                                <Tabs.List
+                                    className="TabsList flex gap-3 "
+                                    aria-label="Filter by absence types"
+                                >
+                                    <Tabs.Trigger
+                                        className="TabsTrigger p-2 font-semibold text-slate-600 text-sm relative"
+                                        value="tab2"
+                                    >
+                                        <NavLink
+                                            to={''}
+                                            className={twMerge(
+                                                'inline-block before:md:absolute before:md:w-full hover:before:md:h-1 before:md:bg-primary-800 before:md:left-0 before:md:bottom-0 before:md:rounded-t-lg transition-all ease-in-out duration-300',
+                                                false ? ' before:md:h-1' : ''
+                                            )}
+                                        >
+                                            Company
+                                        </NavLink>
+                                    </Tabs.Trigger>
+                                    <Tabs.Trigger
+                                        className="TabsTrigger p-2 font-semibold text-slate-600 text-sm relative "
+                                        value="tab1"
+                                    >
+                                        <NavLink
+                                            to={''}
+                                            className={twMerge(
+                                                'inline-block text-primary-950 before:md:absolute before:md:w-full hover:before:md:h-1 before:md:bg-primary-800 before:md:left-0 before:md:bottom-0 before:md:rounded-t-lg transition-all ease-in-out duration-300',
+                                                true ? ' before:md:h-1' : ''
+                                            )}
+                                        >
+                                            Personal
+                                        </NavLink>
+                                    </Tabs.Trigger>
+                                </Tabs.List>
+                            </Tabs.Root>
+                        </div>
                     </div>
                     <div className="flex-1 flex gap-[3px]">
                         <div className="w-1/2 bg-white rounded">
@@ -480,7 +521,7 @@ export const Dashboard = () => {
                                         <NavLink
                                             to={''}
                                             className={twMerge(
-                                                'inline-block before:md:absolute before:md:w-full hover:before:md:h-1 before:md:bg-primary-800 before:md:left-0 before:md:bottom-0 before:md:rounded-t-lg transition-all ease-in-out duration-300',
+                                                'inline-block text-primary-950 before:md:absolute before:md:w-full hover:before:md:h-1 before:md:bg-primary-800 before:md:left-0 before:md:bottom-0 before:md:rounded-t-lg transition-all ease-in-out duration-300',
                                                 true ? ' before:md:h-1' : ''
                                             )}
                                         >
