@@ -85,11 +85,11 @@ const CustomToolTip = ({ active, payload, label }: TooltipProps<ValueType, NameT
 };
 export const Dashboard = () => {
     return (
-        <article className="flex h-full gap-[3px]">
-            <div className="flex-grow-10 flex flex-col gap-[3px]">
+        <article className="flex h-full gap-[3px] overflow-hidden rounded">
+            <div className="flex-grow-10 flex flex-col gap-[3px] overflow-y-auto">
                 <div className="flex flex-col flex-1 gap-[3px] rounded">
-                    <div className="rounded p-3 flex justify-between items-end">
-                        <div>
+                    <div className="rounded p-3 flex justify-center md:justify-between items-end">
+                        <div className="hidden md:block ">
                             <h2 className="text-slate-600 text-xl font-bold">
                                 Hello, Emily Smith 👋
                             </h2>
@@ -136,22 +136,16 @@ export const Dashboard = () => {
                             </Tabs.Root>
                         </div>
                     </div>
-                    <div className="flex-1 flex gap-[3px]">
-                        <div className="w-1/2 bg-white rounded">
+                    <div className="flex-1 flex flex-col md:flex-row gap-[3px]">
+                        <div className="w-full md:w-1/2 bg-white rounded">
                             <div className="h-full flex flex-col p-6 gap-1">
                                 <h4 className="text-slate-600 text-sm font-bold">Annual Leaves</h4>
                                 <div className="flex justify-evenly items-center">
                                     <div className="text-left p-2">
-                                        {/* <p className="text-slate-700 font-extrabold">06</p>
-                                        <p className="text-slate-400">Planned</p> */}
                                         <h5 className="text-slate-400 text-sm font-medium pb-3">
                                             Vacation
                                         </h5>
-                                        <PieChart
-                                            width={100}
-                                            height={100}
-                                            //onMouseEnter={this.onPieEnter}
-                                        >
+                                        <PieChart width={100} height={100}>
                                             <Pie
                                                 data={data}
                                                 cx={45}
@@ -171,17 +165,25 @@ export const Dashboard = () => {
                                             </Pie>
                                         </PieChart>
                                     </div>
-                                    <div className="text-center p-2 flex flex-col items-center justify-center">
-                                        <p className="text-slate-700 font-extrabold text-xl">06</p>
-                                        <p className="text-slate-400 text-sm">Planned</p>
-                                    </div>
-                                    <div className="text-center p-2 flex flex-col items-center justify-center">
-                                        <p className="text-slate-700 font-extrabold text-xl">18</p>
-                                        <p className="text-slate-400 text-sm">Left</p>
-                                    </div>
-                                    <div className="text-center p-2 flex flex-col items-center justify-center">
-                                        <p className="text-slate-700 font-extrabold text-xl">24</p>
-                                        <p className="text-slate-400 text-sm">Annual</p>
+                                    <div className="flex-1 flex flex-row justify-evenly">
+                                        <div className="text-center p-2 md:p-5 flex flex-col items-center justify-center">
+                                            <p className="text-slate-700 font-extrabold text-xl">
+                                                06
+                                            </p>
+                                            <p className="text-slate-400 text-sm">Planned</p>
+                                        </div>
+                                        <div className="text-center p-2 md:p-5 flex flex-col items-center justify-center">
+                                            <p className="text-slate-700 font-extrabold text-xl">
+                                                18
+                                            </p>
+                                            <p className="text-slate-400 text-sm">Left</p>
+                                        </div>
+                                        <div className="text-center p-2 md:p-5 flex flex-col items-center justify-center">
+                                            <p className="text-slate-700 font-extrabold text-xl">
+                                                24
+                                            </p>
+                                            <p className="text-slate-400 text-sm">Annual</p>
+                                        </div>
                                     </div>
                                 </div>
                                 <div className="flex justify-evenly">
@@ -213,22 +215,30 @@ export const Dashboard = () => {
                                             </Pie>
                                         </PieChart>
                                     </div>
-                                    <div className="text-center p-2 flex flex-col items-center justify-center">
-                                        <p className="text-slate-700 font-extrabold text-xl">03</p>
-                                        <p className="text-slate-400 text-sm">Planned</p>
-                                    </div>
-                                    <div className="text-center p-2 flex flex-col items-center justify-center">
-                                        <p className="text-slate-700 font-extrabold text-xl">01</p>
-                                        <p className="text-slate-400 text-sm">Left</p>
-                                    </div>
-                                    <div className="text-center p-2 flex flex-col items-center justify-center">
-                                        <p className="text-slate-700 font-extrabold text-xl">04</p>
-                                        <p className="text-slate-400 text-sm">Annual</p>
+                                    <div className="flex-1 flex flex-row justify-evenly">
+                                        <div className="text-center p-2 md:p-5 flex flex-col items-center justify-center">
+                                            <p className="text-slate-700 font-extrabold text-xl">
+                                                03
+                                            </p>
+                                            <p className="text-slate-400 text-sm">Planned</p>
+                                        </div>
+                                        <div className="text-center p-2 md:p-5 flex flex-col items-center justify-center">
+                                            <p className="text-slate-700 font-extrabold text-xl">
+                                                01
+                                            </p>
+                                            <p className="text-slate-400 text-sm">Left</p>
+                                        </div>
+                                        <div className="text-center p-2 md:p-5 flex flex-col items-center justify-center">
+                                            <p className="text-slate-700 font-extrabold text-xl">
+                                                04
+                                            </p>
+                                            <p className="text-slate-400 text-sm">Annual</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div className="w-1/2 bg-white rounded">
+                        <div className="w-full md:w-1/2 bg-white rounded">
                             <div className="h-full flex flex-col p-6 gap-3">
                                 <h4 className="text-slate-600 text-sm font-bold">
                                     Employee Time Tracking
@@ -255,48 +265,55 @@ export const Dashboard = () => {
                                         </div>
                                     </div>
                                     <div className="w-full flex justify-center items-center">
-                                        {/* <ResponsiveContainer> */}
-                                        <BarChart
-                                            width={450}
-                                            height={250}
-                                            data={data1}
-                                            margin={{
-                                                top: 5,
-                                                right: 30,
-                                                left: 20,
-                                                bottom: 5,
-                                            }}
-                                        >
-                                            <CartesianGrid strokeDasharray="4 4" vertical={false} />
-                                            <XAxis
-                                                dataKey="name"
-                                                tick={{
-                                                    fill: '#334155',
-                                                    fontSize: '12px',
-                                                    fontWeight: 'bold',
+                                        <ResponsiveContainer width={'100%'} height={250}>
+                                            <BarChart
+                                                // width={450}
+                                                // height={250}
+                                                data={data1}
+                                                margin={{
+                                                    top: 5,
+                                                    right: 30,
+                                                    left: 20,
+                                                    bottom: 5,
                                                 }}
-                                                tickLine={{ stroke: '#fffff' }}
-                                                stroke="#fffff"
-                                            />
-                                            <YAxis
-                                                tick={{
-                                                    fill: '#334155',
-                                                    fontSize: '12px',
-                                                    fontWeight: 'bold',
-                                                }}
-                                                tickLine={{ stroke: '#fffff' }}
-                                                stroke="#fffff"
-                                            />
-                                            <Tooltip
-                                                cursor={false}
-                                                content={(
-                                                    props: TooltipProps<ValueType, NameType>
-                                                ) => <CustomToolTip {...props} />}
-                                            />
-                                            <Bar dataKey="Worked Hours" fill="#2693FF" />
-                                            <Bar dataKey="Overtime" fill="#C2E1FF" />
-                                        </BarChart>
-                                        {/* </ResponsiveContainer> */}
+                                            >
+                                                <CartesianGrid
+                                                    strokeDasharray="4 4"
+                                                    vertical={false}
+                                                />
+                                                <XAxis
+                                                    dataKey="name"
+                                                    tick={{
+                                                        fill: '#334155',
+                                                        fontSize: '12px',
+                                                        fontWeight: 'bold',
+                                                    }}
+                                                    tickLine={{ stroke: '#fffff' }}
+                                                    stroke="#fffff"
+                                                />
+                                                <YAxis
+                                                    tick={{
+                                                        fill: '#334155',
+                                                        fontSize: '12px',
+                                                        fontWeight: 'bold',
+                                                    }}
+                                                    tickLine={{ stroke: '#fffff' }}
+                                                    stroke="#fffff"
+                                                />
+                                                <Tooltip
+                                                    cursor={false}
+                                                    content={(
+                                                        props: TooltipProps<ValueType, NameType>
+                                                    ) => <CustomToolTip {...props} />}
+                                                />
+                                                <Bar
+                                                    dataKey="Worked Hours"
+                                                    fill="#2693FF"
+                                                    radius={4}
+                                                />
+                                                <Bar dataKey="Overtime" fill="#C2E1FF" radius={4} />
+                                            </BarChart>
+                                        </ResponsiveContainer>
                                     </div>
                                 </div>
                             </div>
@@ -314,124 +331,171 @@ export const Dashboard = () => {
                         </button>
                     </div>
                 </div>
-                <div className="flex-1 rounded">
-                    <div className="space-y-[3px]">
-                        <div className=" justify-between bg-white p-3 rounded grid grid-cols-12">
-                            <div className="text-slate-600 font-bold col-span-3">Employee</div>
-                            <div className="text-slate-600 font-bold col-span-2">Type</div>
-                            <div className="text-slate-600 font-bold col-span-2">Date</div>
-                            <div className="text-slate-600 font-bold col-span-1">Duration</div>
-                            <div className="text-slate-600 font-bold col-span-2 text-right">
-                                Status
+                <div className="flex-1 shrink-0 rounded ">
+                    <div className="space-y-[3px] overflow-x-auto">
+                        <div
+                            className="flex flex-col w-100 space-y-[3px] "
+                            style={{ minWidth: '700px' }}
+                        >
+                            <div className="justify-between bg-white p-3 rounded grid grid-cols-12">
+                                <div className="text-slate-600 font-bold col-span-3">Employee</div>
+                                <div className="text-slate-600 font-bold col-span-2">Type</div>
+                                <div className="text-slate-600 font-bold col-span-2">Date</div>
+                                <div className="text-slate-600 font-bold col-span-1">Duration</div>
+                                <div className="text-slate-600 font-bold col-span-2 text-right">
+                                    Status
+                                </div>
+                                <div className="text-slate-600 font-bold col-span-3"></div>
                             </div>
-                            <div className="text-slate-600 font-bold col-span-3"></div>
-                        </div>
-                        <div className="justify-between items-center bg-white p-3 rounded grid gap-x-2 grid-cols-12">
-                            <div className="col-span-3">
-                                <div className="flex gap-2 items-center">
-                                    <div className="w-8 h-8 bg-slate-200 rounded-full flex flex-shrink-0 justify-center items-center">
-                                        <p className="text-slate-600 leading-none font-bold text-sm">
-                                            CH
+                            <div className="justify-between items-center bg-white p-3 rounded grid gap-x-2 grid-cols-12">
+                                <div className="col-span-3">
+                                    <div className="flex gap-2 items-center">
+                                        <div className="w-8 h-8 bg-slate-200 rounded-full flex flex-shrink-0 justify-center items-center">
+                                            <p className="text-slate-600 leading-none font-bold text-sm">
+                                                CH
+                                            </p>
+                                        </div>
+                                        <p className="truncate text-slate-500 text-sm">
+                                            Justine Andre
                                         </p>
                                     </div>
-                                    <p className="truncate text-slate-500 text-sm">Justine Andre</p>
+                                </div>
+                                <div className="col-span-2 flex items-center">
+                                    <p className="font-bold text-green-500">Vacation</p>
+                                </div>
+                                <div className="col-span-2 flex items-center ">
+                                    <p className="text-slate-500 text-sm">Jun 26</p>
+                                </div>
+                                <div className="col-span-1 flex items-center">
+                                    <p className="text-slate-500 text-sm">1 Days</p>
+                                </div>
+                                <div className="col-span-2 flex items-center text-slate-500 justify-end">
+                                    <p className="font-bold text-sm bg-violet-100 text-violet-800 rounded-lg p-1 px-3">
+                                        Pending
+                                    </p>
+                                </div>
+                                <div className="col-span-2 flex items-center text-slate-500 gap-2 justify-end">
+                                    <button className="text-white text-sm bg-slate-100 p-2 rounded-lg hover:bg-slate-200 transition-all ease-in-out duration-300">
+                                        <X className="text-slate-400" />
+                                    </button>
+                                    <button className="text-white text-sm bg-primary-900 p-2 rounded-lg hover:bg-primary-950 transition-all ease-in-out duration-300">
+                                        <Check />
+                                    </button>
                                 </div>
                             </div>
-                            <div className="col-span-2 flex items-center">
-                                <p className="font-bold text-green-500">Vacation</p>
-                            </div>
-                            <div className="col-span-2 flex items-center ">
-                                <p className="text-slate-500 text-sm">Jun 26</p>
-                            </div>
-                            <div className="col-span-1 flex items-center">
-                                <p className="text-slate-500 text-sm">1 Days</p>
-                            </div>
-                            <div className="col-span-2 flex items-center text-slate-500 justify-end">
-                                <p className="font-bold text-sm bg-violet-100 text-violet-800 rounded-lg p-1 px-3">
-                                    Pending
-                                </p>
-                            </div>
-                            <div className="col-span-2 flex items-center text-slate-500 gap-2 justify-end">
-                                <button className="text-white text-sm bg-slate-100 p-2 rounded-lg hover:bg-slate-200 transition-all ease-in-out duration-300">
-                                    <X className="text-slate-400" />
-                                </button>
-                                <button className="text-white text-sm bg-primary-900 p-2 rounded-lg hover:bg-primary-950 transition-all ease-in-out duration-300">
-                                    <Check />
-                                </button>
-                            </div>
-                        </div>
-                        <div className="justify-between items-center bg-white p-3 rounded grid gap-x-2 grid-cols-12">
-                            <div className="col-span-3">
-                                <div className="flex gap-2 items-center">
-                                    <div className="w-8 h-8 bg-slate-200 rounded-full flex flex-shrink-0 justify-center items-center">
-                                        <p className="text-slate-600 leading-none font-bold text-sm">
-                                            CH
+                            <div className="justify-between items-center bg-white p-3 rounded grid gap-x-2 grid-cols-12">
+                                <div className="col-span-3">
+                                    <div className="flex gap-2 items-center">
+                                        <div className="w-8 h-8 bg-slate-200 rounded-full flex flex-shrink-0 justify-center items-center">
+                                            <p className="text-slate-600 leading-none font-bold text-sm">
+                                                CH
+                                            </p>
+                                        </div>
+                                        <p className="truncate text-slate-500 text-sm">
+                                            Justine Andre
                                         </p>
                                     </div>
-                                    <p className="truncate text-slate-500 text-sm">Justine Andre</p>
+                                </div>
+                                <div className="col-span-2 flex items-center">
+                                    <p className="font-bold text-green-500">Vacation</p>
+                                </div>
+                                <div className="col-span-2 flex items-center ">
+                                    <p className="text-slate-500 text-sm">Jun 26</p>
+                                </div>
+                                <div className="col-span-1 flex items-center">
+                                    <p className="text-slate-500 text-sm">1 Days</p>
+                                </div>
+                                <div className="col-span-2 flex items-center text-slate-500 justify-end">
+                                    <p className="font-bold text-sm bg-violet-100 text-violet-800 rounded-lg p-1 px-3">
+                                        Pending
+                                    </p>
+                                </div>
+                                <div className="col-span-2 flex items-center text-slate-500 gap-2 justify-end">
+                                    <button className="text-white text-sm bg-slate-100 p-2 rounded-lg hover:bg-slate-200 transition-all ease-in-out duration-300">
+                                        <X className="text-slate-400" />
+                                    </button>
+                                    <button className="text-white text-sm bg-primary-900 p-2 rounded-lg hover:bg-primary-950 transition-all ease-in-out duration-300">
+                                        <Check />
+                                    </button>
                                 </div>
                             </div>
-                            <div className="col-span-2 flex items-center">
-                                <p className="font-bold text-green-500">Vacation</p>
-                            </div>
-                            <div className="col-span-2 flex items-center ">
-                                <p className="text-slate-500 text-sm">Jun 26</p>
-                            </div>
-                            <div className="col-span-1 flex items-center">
-                                <p className="text-slate-500 text-sm">1 Days</p>
-                            </div>
-                            <div className="col-span-2 flex items-center text-slate-500 justify-end">
-                                <p className="font-bold text-sm bg-violet-100 text-violet-800 rounded-lg p-1 px-3">
-                                    Pending
-                                </p>
-                            </div>
-                            <div className="col-span-2 flex items-center text-slate-500 gap-2 justify-end">
-                                <button className="text-white text-sm bg-slate-100 p-2 rounded-lg hover:bg-slate-200 transition-all ease-in-out duration-300">
-                                    <X className="text-slate-400" />
-                                </button>
-                                <button className="text-white text-sm bg-primary-900 p-2 rounded-lg hover:bg-primary-950 transition-all ease-in-out duration-300">
-                                    <Check />
-                                </button>
-                            </div>
-                        </div>
-                        <div className="justify-between items-center bg-white p-3 rounded grid gap-x-2 grid-cols-12">
-                            <div className="col-span-3">
-                                <div className="flex gap-2 items-center">
-                                    <div className="w-8 h-8 bg-slate-200 rounded-full flex flex-shrink-0 justify-center items-center">
-                                        <p className="text-slate-600 leading-none font-bold text-sm">
-                                            CH
+                            <div className="justify-between items-center bg-white p-3 rounded grid gap-x-2 grid-cols-12">
+                                <div className="col-span-3">
+                                    <div className="flex gap-2 items-center">
+                                        <div className="w-8 h-8 bg-slate-200 rounded-full flex flex-shrink-0 justify-center items-center">
+                                            <p className="text-slate-600 leading-none font-bold text-sm">
+                                                CH
+                                            </p>
+                                        </div>
+                                        <p className="truncate text-slate-500 text-sm">
+                                            Justine Andre
                                         </p>
                                     </div>
-                                    <p className="truncate text-slate-500 text-sm">Justine Andre</p>
+                                </div>
+                                <div className="col-span-2 flex items-center">
+                                    <p className="font-bold text-green-500">Vacation</p>
+                                </div>
+                                <div className="col-span-2 flex items-center ">
+                                    <p className="text-slate-500 text-sm">Jun 26</p>
+                                </div>
+                                <div className="col-span-1 flex items-center">
+                                    <p className="text-slate-500 text-sm">1 Days</p>
+                                </div>
+                                <div className="col-span-2 flex items-center text-slate-500 justify-end">
+                                    <p className="font-bold text-sm bg-violet-100 text-violet-800 rounded-lg p-1 px-3">
+                                        Pending
+                                    </p>
+                                </div>
+                                <div className="col-span-2 flex items-center text-slate-500 gap-2 justify-end">
+                                    <button className="text-white text-sm bg-slate-100 p-2 rounded-lg hover:bg-slate-200 transition-all ease-in-out duration-300">
+                                        <X className="text-slate-400" />
+                                    </button>
+                                    <button className="text-white text-sm bg-primary-900 p-2 rounded-lg hover:bg-primary-950 transition-all ease-in-out duration-300">
+                                        <Check />
+                                    </button>
                                 </div>
                             </div>
-                            <div className="col-span-2 flex items-center">
-                                <p className="font-bold text-green-500">Vacation</p>
-                            </div>
-                            <div className="col-span-2 flex items-center ">
-                                <p className="text-slate-500 text-sm">Jun 26</p>
-                            </div>
-                            <div className="col-span-1 flex items-center">
-                                <p className="text-slate-500 text-sm">1 Days</p>
-                            </div>
-                            <div className="col-span-2 flex items-center text-slate-500 justify-end">
-                                <p className="font-bold text-sm bg-violet-100 text-violet-800 rounded-lg p-1 px-3">
-                                    Pending
-                                </p>
-                            </div>
-                            <div className="col-span-2 flex items-center text-slate-500 gap-2 justify-end">
-                                <button className="text-white text-sm bg-slate-100 p-2 rounded-lg hover:bg-slate-200 transition-all ease-in-out duration-300">
-                                    <X className="text-slate-400" />
-                                </button>
-                                <button className="text-white text-sm bg-primary-900 p-2 rounded-lg hover:bg-primary-950 transition-all ease-in-out duration-300">
-                                    <Check />
-                                </button>
+                            <div className="justify-between items-center bg-white p-3 rounded grid gap-x-2 grid-cols-12">
+                                <div className="col-span-3">
+                                    <div className="flex gap-2 items-center">
+                                        <div className="w-8 h-8 bg-slate-200 rounded-full flex flex-shrink-0 justify-center items-center">
+                                            <p className="text-slate-600 leading-none font-bold text-sm">
+                                                CH
+                                            </p>
+                                        </div>
+                                        <p className="truncate text-slate-500 text-sm">
+                                            Justine Andre
+                                        </p>
+                                    </div>
+                                </div>
+                                <div className="col-span-2 flex items-center">
+                                    <p className="font-bold text-green-500">Vacation</p>
+                                </div>
+                                <div className="col-span-2 flex items-center ">
+                                    <p className="text-slate-500 text-sm">Jun 26</p>
+                                </div>
+                                <div className="col-span-1 flex items-center">
+                                    <p className="text-slate-500 text-sm">1 Days</p>
+                                </div>
+                                <div className="col-span-2 flex items-center text-slate-500 justify-end">
+                                    <p className="font-bold text-sm bg-violet-100 text-violet-800 rounded-lg p-1 px-3">
+                                        Pending
+                                    </p>
+                                </div>
+                                <div className="col-span-2 flex items-center text-slate-500 gap-2 justify-end">
+                                    <button className="text-white text-sm bg-slate-100 p-2 rounded-lg hover:bg-slate-200 transition-all ease-in-out duration-300">
+                                        <X className="text-slate-400" />
+                                    </button>
+                                    <button className="text-white text-sm bg-primary-900 p-2 rounded-lg hover:bg-primary-950 transition-all ease-in-out duration-300">
+                                        <Check />
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <aside className="flex-grow-3 bg-white h-full max-w-sm rounded">
+            <aside className="hidden lg:block flex-grow-3 bg-white h-full max-w-sm rounded">
                 <div className="p-4 flex justify-between items-center">
                     <h3 className="text-slate-500 font-bold">Calendar</h3>
                     <button className="text-white text-sm bg-primary-900 p-3 px-4 rounded-lg hover:bg-primary-950 transition-all ease-in-out duration-300">

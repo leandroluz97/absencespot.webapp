@@ -29,8 +29,8 @@ export const MainLayout = () => {
     return (
         <React.Fragment>
             <section className="h-screen flex bg-slate-100 relative">
-                <article className="h-screen w-full md:w-auto absolute z-10 -left-0 md:relative ">
-                    <nav className="h-full md:w-64 p-4 md:space-y-6 flex flex-col bg-white">
+                <article className="hidden md:block h-screen w-full md:w-auto absolute z-10 -left-0 md:relative ">
+                    <nav className="hidden h-full md:w-64 p-4 md:space-y-6 md:flex flex-col bg-white">
                         <Link
                             to={`/c/${id}/dashboard`}
                             className="hidden invisible md:block md:visible"
