@@ -85,6 +85,20 @@ const CustomToolTip = ({ active, payload, label }: TooltipProps<ValueType, NameT
     }
     return <p> </p>;
 };
+
+const CustomCirculeToolTip = ({ active, payload, label }: TooltipProps<ValueType, NameType>) => {
+    if (active && payload && payload.length) {
+        const [data] = payload;
+        return (
+            <div className="bg-primary-900 p-2 px-3 rounded-lg text-white opacity-90 ">
+                <p className="text-lg font-bold">
+                    <span className="text-sm">{data.name}</span>: {data.value}
+                </p>
+            </div>
+        );
+    }
+    return <p> </p>;
+};
 export const Dashboard = () => {
     return (
         <article className="flex h-full gap-[3px] overflow-hidden rounded">
@@ -165,7 +179,11 @@ export const Dashboard = () => {
                                                     />
                                                 ))}
                                             </Pie>
-                                            <Tooltip />
+                                            <Tooltip
+                                                content={(
+                                                    props: TooltipProps<ValueType, NameType>
+                                                ) => <CustomCirculeToolTip {...props} />}
+                                            />
                                         </PieChart>
                                     </div>
                                     <div className="flex-1 flex flex-row justify-evenly">
@@ -212,7 +230,11 @@ export const Dashboard = () => {
                                                     />
                                                 ))}
                                             </Pie>
-                                            <Tooltip />
+                                            <Tooltip
+                                                content={(
+                                                    props: TooltipProps<ValueType, NameType>
+                                                ) => <CustomCirculeToolTip {...props} />}
+                                            />
                                         </PieChart>
                                     </div>
                                     <div className="flex-1 flex flex-row justify-evenly">
@@ -334,8 +356,8 @@ export const Dashboard = () => {
                 <div className="flex-1 shrink-0 rounded ">
                     <div className="space-y-[3px] overflow-x-auto">
                         <div
-                            className="flex flex-col w-100 space-y-[3px] "
-                            style={{ minWidth: '700px' }}
+                            className="flex flex-col w-100 space-y-[3px]"
+                            style={{ minWidth: '600px' }}
                         >
                             <div className="justify-between bg-white p-3 rounded grid grid-cols-12">
                                 <div className="text-slate-600 font-bold col-span-3">Employee</div>
@@ -364,7 +386,7 @@ export const Dashboard = () => {
                                     <p className="font-bold text-green-500">Vacation</p>
                                 </div>
                                 <div className="col-span-2 flex items-center ">
-                                    <p className="text-slate-500 text-sm">Jun 26</p>
+                                    <p className="text-slate-500 text-sm">Jun 26 - Jun 27</p>
                                 </div>
                                 <div className="col-span-1 flex items-center">
                                     <p className="text-slate-500 text-sm">1 Days</p>
