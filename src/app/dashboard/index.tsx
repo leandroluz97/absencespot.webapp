@@ -1,4 +1,4 @@
-import { Check, Search, X } from 'lucide-react';
+import { ArrowDownUp, ArrowDownWideNarrow, Check, MoveDown, MoveUp, Search, X } from 'lucide-react';
 import * as R from 'ramda';
 import * as Tabs from '@radix-ui/react-tabs';
 import { NavLink, useSearchParams } from 'react-router-dom';
@@ -14,6 +14,7 @@ import { PieMetrics } from './_common/PieMetrics';
 import { ChartMetrics } from './_common/ChartMetrics';
 import { URLSearch } from '@/constants/utils/URLSearch';
 import { Header } from './_common/Header';
+import { Table } from '@/_common/table';
 const dataCircularOne = [
     { name: 'Planned', value: 6 },
     { name: 'Left', value: 18 },
@@ -230,7 +231,13 @@ export const Dashboard = () => {
                             style={{ minWidth: '600px' }}
                         >
                             <div className="justify-between bg-white p-3 rounded grid grid-cols-12">
-                                <div className="text-slate-600 font-bold col-span-3">Employee</div>
+                                <div className="text-slate-600 font-bold col-span-3 flex items-center">
+                                    Employee{' '}
+                                    <div className="flex -space-x-2">
+                                        <MoveUp size={15} className="text-slate-400" />
+                                        <MoveDown size={15} className="text-slate-700" />
+                                    </div>
+                                </div>
                                 <div className="text-slate-600 font-bold col-span-2">Type</div>
                                 <div className="text-slate-600 font-bold col-span-2">Date</div>
                                 <div className="text-slate-600 font-bold col-span-1">Duration</div>
@@ -385,6 +392,25 @@ export const Dashboard = () => {
                             </div>
                         </div>
                     </div>
+                    <Table.Root>
+                        <Table.Content>
+                            <Table.Row>
+                                <Table.ColumnHead
+                                    className="col-span-3"
+                                    hasIcon={true}
+                                    query="employee"
+                                    to={URLSearch.set({ sortBy: 'employee' })}
+                                >
+                                    Employee
+                                </Table.ColumnHead>
+                                <Table.ColumnHead>Type</Table.ColumnHead>
+                                <Table.ColumnHead>Date</Table.ColumnHead>
+                                <Table.ColumnHead className="col-span-1">Duration</Table.ColumnHead>
+                                <Table.ColumnHead className="justify-end">Status</Table.ColumnHead>
+                                <Table.ColumnHead></Table.ColumnHead>
+                            </Table.Row>
+                        </Table.Content>
+                    </Table.Root>
                 </div>
             </div>
             {/* <aside className="hidden xl:block flex-grow-3 bg-white h-full max-w-sm rounded">

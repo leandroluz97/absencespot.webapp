@@ -1,7 +1,7 @@
 import { twMerge } from 'tailwind-merge';
 import * as R from 'ramda';
 import * as datefns from 'date-fns';
-import { Search } from 'lucide-react';
+import { MousePointerSquare, Search } from 'lucide-react';
 import { Link, useSearchParams } from 'react-router-dom';
 
 import { Avatar } from '@/_common/avatar';
@@ -14,6 +14,7 @@ export const CalendarFilter = () => {
     const QUERIES = URLSearch.queries();
     const [searchParams, setSearchParams] = useSearchParams();
     const DEBOUNCE_TIME = 1000;
+    const STATE = false;
     const setSearchText = debounce(searchParams, setSearchParams, DEBOUNCE_TIME);
     const selectedDate = QUERIES.date || datefns.format(new Date(), 'yyyy-MM-dd');
 
@@ -131,26 +132,64 @@ export const CalendarFilter = () => {
                             </BasicTabs.Root>
                             <div className="flex flex-col overflow-hidden ">
                                 <div className=" space-y-2 overflow-y-auto">
-                                    {Array(10)
-                                        .fill(2)
-                                        .map((_, index) => (
-                                            <div
-                                                key={index}
-                                                className="flex gap-2 p-2 rounded-lg hover:bg-slate-100 cursor-pointer transition-all ease-in-out duration-300"
-                                            >
-                                                <Avatar.Root>
-                                                    <Avatar.Initials>CH</Avatar.Initials>
-                                                </Avatar.Root>
-                                                <div>
-                                                    <p className="text-sm text-slate-500 font-bold">
-                                                        Cecilia Hernández
+                                    {
+                                        STATE ? (
+                                            Array(10)
+                                                .fill(2)
+                                                .map((_, index) => (
+                                                    <div
+                                                        key={index}
+                                                        className="flex gap-2 p-2 rounded-lg hover:bg-slate-100 cursor-pointer transition-all ease-in-out duration-300"
+                                                    >
+                                                        <Avatar.Root>
+                                                            <Avatar.Initials>CH</Avatar.Initials>
+                                                        </Avatar.Root>
+                                                        <div>
+                                                            <p className="text-sm text-slate-500 font-bold">
+                                                                Cecilia Hernández
+                                                            </p>
+                                                            <p className="text-sm text-slate-400">
+                                                                Maternity
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                ))
+                                        ) : (
+                                            <div className="mt-6">
+                                                <div className="flex justify-center  m-4">
+                                                    <MousePointerSquare
+                                                        size={50}
+                                                        className="text-primary-800"
+                                                    />
+                                                </div>
+                                                <div className="text-center">
+                                                    <p className="text-lg text-slate-600 font-bold">
+                                                        No absence found.
                                                     </p>
-                                                    <p className="text-sm text-slate-400">
-                                                        Maternity
+                                                    <p className="text-base text-slate-400">
+                                                        There are no staff absences for the selected
+                                                        date. Use a different time range!
                                                     </p>
                                                 </div>
                                             </div>
-                                        ))}
+                                        )
+                                        //   Array(3)
+                                        //       .fill(2)
+                                        //       .map((_, index) => (
+                                        //           <div
+                                        //               key={index}
+                                        //               className="flex gap-2 p-2 rounded-lg hover:bg-slate-100 cursor-pointer transition-all ease-in-out duration-300 animate-pulse"
+                                        //           >
+                                        //               <Avatar.Root>
+                                        //                   <Avatar.Initials>{''}</Avatar.Initials>
+                                        //               </Avatar.Root>
+                                        //               <div>
+                                        //                   <p className="text-sm text-slate-500 font-bold bg-slate-200 w-56 h-4 rounded mb-2"></p>
+                                        //                   <p className="text-sm text-slate-400 bg-slate-200 w-36 h-3 rounded"></p>
+                                        //               </div>
+                                        //           </div>
+                                        //       ))
+                                    }
                                 </div>
                             </div>
                         </div>
