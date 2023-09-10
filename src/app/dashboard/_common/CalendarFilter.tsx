@@ -24,7 +24,7 @@ export const CalendarFilter = () => {
 
     return (
         <aside className="small-scroll hidden xl:block flex-grow-3 bg-white h-full max-w-sm rounded">
-            <div className="p-4 flex flex-col h-full">
+            <div className="p-4 flex flex-col h-full gap-6">
                 <div className="flex justify-between items-center">
                     <h3 className="text-slate-500 font-bold">Calendar</h3>
                     <button className="text-white text-sm bg-primary-900 p-3 px-4 rounded-lg hover:bg-primary-950 transition-all ease-in-out duration-300">
@@ -35,7 +35,7 @@ export const CalendarFilter = () => {
                     <h4 className="mb-4 text-sm font-bold text-slate-500 ">
                         {datefns.format(new Date(), 'MMM, yyyy')}
                     </h4>
-                    <div className="flex gap-2 justify-between">
+                    <div className="flex gap-1 justify-between">
                         {weekDays.map((day) => {
                             const isActive = datefns.format(day, 'yyyy-MM-dd') === selectedDate;
                             return (
@@ -67,7 +67,7 @@ export const CalendarFilter = () => {
                             );
                         })}
                     </div>
-                    <div className="mt-6 flex-1 flex flex-col overflow-hidden">
+                    <div className="mt-6 flex-1 flex flex-col overflow-hidden p-1 ">
                         <div className="relative max-w-full w-full">
                             <Search
                                 size={20}
@@ -89,8 +89,9 @@ export const CalendarFilter = () => {
                                     className="flex justify-between"
                                     aria-label="Filter by absence types"
                                 >
-                                    <BasicTabs.Trigger value="leaves">
+                                    <BasicTabs.Trigger value="leaves" className="p-0">
                                         <BasicTabs.Link
+                                            className="p-2"
                                             to={URLSearch.set({ type: 'leaves' })}
                                             isActive={
                                                 QUERIES.type === 'leaves' || R.isNil(QUERIES.type)
@@ -99,24 +100,27 @@ export const CalendarFilter = () => {
                                             Leaves
                                         </BasicTabs.Link>
                                     </BasicTabs.Trigger>
-                                    <BasicTabs.Trigger value="remote">
+                                    <BasicTabs.Trigger value="remote" className="p-0">
                                         <BasicTabs.Link
+                                            className="p-2"
                                             to={URLSearch.set({ type: 'remotes' })}
                                             isActive={QUERIES.type === 'remotes'}
                                         >
                                             Remote
                                         </BasicTabs.Link>
                                     </BasicTabs.Trigger>
-                                    <BasicTabs.Trigger value="holiday">
+                                    <BasicTabs.Trigger value="holiday" className="p-0">
                                         <BasicTabs.Link
+                                            className="p-2"
                                             to={URLSearch.set({ type: 'holiday' })}
                                             isActive={QUERIES.type === 'holiday'}
                                         >
                                             Holiday
                                         </BasicTabs.Link>
                                     </BasicTabs.Trigger>
-                                    <BasicTabs.Trigger value="birthday">
+                                    <BasicTabs.Trigger value="birthday" className="p-0">
                                         <BasicTabs.Link
+                                            className="p-2"
                                             to={URLSearch.set({ type: 'birthday' })}
                                             isActive={QUERIES.type === 'birthday'}
                                         >
