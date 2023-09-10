@@ -1,21 +1,14 @@
 import { Check, Search, X } from 'lucide-react';
-import {
-    PieChart,
-    Pie,
-    Cell,
-    ResponsiveContainer,
-    BarChart,
-    Bar,
-    XAxis,
-    YAxis,
-    CartesianGrid,
-    Tooltip,
-    TooltipProps,
-} from 'recharts';
 import * as Tabs from '@radix-ui/react-tabs';
 import { NavLink } from 'react-router-dom';
-import { NameType, ValueType } from 'recharts/types/component/DefaultTooltipContent';
 import { twMerge } from 'tailwind-merge';
+import { BarChart } from '../_common/charts/BarChart';
+import { PieChart } from '../_common/charts/PieChart';
+import { BasicMetric } from '../_common/metrics';
+import { BasicTabs } from '@/_common/tabs';
+import { BasicCard } from '../_common/cards';
+import { Avatar } from '@/_common/avatar';
+import { CalendarFilter } from './_common/CalendarFilter';
 const dataCircularOne = [
     { name: 'Planned', value: 6 },
     { name: 'Left', value: 18 },
@@ -71,34 +64,6 @@ const data1 = [
     },
 ];
 
-const CustomToolTip = ({ active, payload, label }: TooltipProps<ValueType, NameType>) => {
-    if (active && payload && payload.length) {
-        const [data] = payload;
-
-        return (
-            <div className="bg-primary-900 p-2 px-3 rounded-lg text-white opacity-90 ">
-                <p className="text-xs font-thin">{label}</p>
-                <p className="text-lg font-bold">WH: {data.value}</p>
-                <p className="text-lg font-bold">Over: {data.payload.Overtime}</p>
-            </div>
-        );
-    }
-    return <p> </p>;
-};
-
-const CustomCirculeToolTip = ({ active, payload, label }: TooltipProps<ValueType, NameType>) => {
-    if (active && payload && payload.length) {
-        const [data] = payload;
-        return (
-            <div className="bg-primary-900 p-2 px-3 rounded-lg text-white opacity-90 ">
-                <p className="text-lg font-bold">
-                    <span className="text-sm">{data.name}</span>: {data.value}
-                </p>
-            </div>
-        );
-    }
-    return <p> </p>;
-};
 export const Dashboard = () => {
     return (
         <article className="flex h-full gap-[3px] overflow-hidden rounded">
@@ -115,41 +80,20 @@ export const Dashboard = () => {
                             </p>
                         </div>
                         <div>
-                            <Tabs.Root className="TabsRoot" defaultValue="tab1">
-                                <Tabs.List
-                                    className="TabsList flex gap-3 "
-                                    aria-label="Filter by absence types"
-                                >
-                                    <Tabs.Trigger
-                                        className="TabsTrigger p-2 font-semibold text-slate-600 text-sm relative"
-                                        value="tab2"
-                                    >
-                                        <NavLink
-                                            to={''}
-                                            className={twMerge(
-                                                'inline-block before:absolute before:w-full hover:before:h-1 before:bg-primary-800 before:left-0 before:bottom-0 before:rounded-t-lg transition-all ease-in-out duration-300',
-                                                false ? ' before:h-1' : ''
-                                            )}
-                                        >
+                            <BasicTabs.Root>
+                                <BasicTabs.List aria-label="Filter by company/personal">
+                                    <BasicTabs.Trigger value="company">
+                                        <BasicTabs.Link to="" isActive>
                                             Company
-                                        </NavLink>
-                                    </Tabs.Trigger>
-                                    <Tabs.Trigger
-                                        className="TabsTrigger p-2 font-semibold text-slate-600 text-sm relative "
-                                        value="tab1"
-                                    >
-                                        <NavLink
-                                            to={''}
-                                            className={twMerge(
-                                                'inline-block text-primary-950 before:absolute before:w-full hover:before:h-1 before:bg-primary-800 before:left-0 before:bottom-0 before:rounded-t-lg transition-all ease-in-out duration-300',
-                                                true ? ' before:h-1' : ''
-                                            )}
-                                        >
+                                        </BasicTabs.Link>
+                                    </BasicTabs.Trigger>
+                                    <BasicTabs.Trigger value="personal">
+                                        <BasicTabs.Link to="" isActive={false}>
                                             Personal
-                                        </NavLink>
-                                    </Tabs.Trigger>
-                                </Tabs.List>
-                            </Tabs.Root>
+                                        </BasicTabs.Link>
+                                    </BasicTabs.Trigger>
+                                </BasicTabs.List>
+                            </BasicTabs.Root>
                         </div>
                     </div>
                     <div className="flex-1 flex flex-col lg:flex-row gap-[3px]">
@@ -161,50 +105,25 @@ export const Dashboard = () => {
                                         <h5 className="text-slate-400 text-sm font-medium pb-3">
                                             Vacation
                                         </h5>
-                                        <PieChart width={100} height={100}>
-                                            <Pie
-                                                data={dataCircularOne}
-                                                cx={45}
-                                                cy={45}
-                                                innerRadius={30}
-                                                outerRadius={50}
-                                                fill="#8884d8"
-                                                paddingAngle={0}
-                                                dataKey="value"
-                                            >
-                                                {dataCircularOne.map((entry, index) => (
-                                                    <Cell
-                                                        key={`cell-${index}`}
-                                                        fill={COLORS[index % COLORS.length]}
-                                                    />
-                                                ))}
-                                            </Pie>
-                                            <Tooltip
-                                                content={(
-                                                    props: TooltipProps<ValueType, NameType>
-                                                ) => <CustomCirculeToolTip {...props} />}
-                                            />
-                                        </PieChart>
+                                        <PieChart data={dataCircularOne} width={100} height={100} />
                                     </div>
                                     <div className="flex-1 flex flex-row justify-evenly">
-                                        <div className="text-center p-2 md:p-2 flex flex-col items-center justify-center">
-                                            <p className="text-slate-700 font-extrabold text-xl">
-                                                06
-                                            </p>
-                                            <p className="text-slate-400 text-sm">Planned</p>
-                                        </div>
-                                        <div className="text-center p-2 md:p-2 flex flex-col items-center justify-center">
-                                            <p className="text-slate-700 font-extrabold text-xl">
-                                                18
-                                            </p>
-                                            <p className="text-slate-400 text-sm">Left</p>
-                                        </div>
-                                        <div className="text-center p-2 md:p-2 flex flex-col items-center justify-center">
-                                            <p className="text-slate-700 font-extrabold text-xl">
-                                                24
-                                            </p>
-                                            <p className="text-slate-400 text-sm">Annual</p>
-                                        </div>
+                                        <BasicMetric.Root>
+                                            <BasicMetric.Title>06</BasicMetric.Title>
+                                            <BasicMetric.Description>
+                                                Planned
+                                            </BasicMetric.Description>
+                                        </BasicMetric.Root>
+                                        <BasicMetric.Root>
+                                            <BasicMetric.Title>18</BasicMetric.Title>
+                                            <BasicMetric.Description>Left</BasicMetric.Description>
+                                        </BasicMetric.Root>
+                                        <BasicMetric.Root>
+                                            <BasicMetric.Title>24</BasicMetric.Title>
+                                            <BasicMetric.Description>
+                                                Annual
+                                            </BasicMetric.Description>
+                                        </BasicMetric.Root>
                                     </div>
                                 </div>
                                 <div className="flex justify-evenly mx-auto w-full max-w-lg">
@@ -212,50 +131,25 @@ export const Dashboard = () => {
                                         <h5 className="text-slate-400 text-sm font-medium pb-3">
                                             Others
                                         </h5>
-                                        <PieChart width={100} height={100}>
-                                            <Pie
-                                                data={dataCircularTwo}
-                                                cx={45}
-                                                cy={45}
-                                                innerRadius={30}
-                                                outerRadius={50}
-                                                fill="#8884d8"
-                                                paddingAngle={0}
-                                                dataKey="value"
-                                            >
-                                                {dataCircularTwo.map((entry, index) => (
-                                                    <Cell
-                                                        key={`cell-${index}`}
-                                                        fill={COLORS[index % COLORS.length]}
-                                                    />
-                                                ))}
-                                            </Pie>
-                                            <Tooltip
-                                                content={(
-                                                    props: TooltipProps<ValueType, NameType>
-                                                ) => <CustomCirculeToolTip {...props} />}
-                                            />
-                                        </PieChart>
+                                        <PieChart data={dataCircularTwo} width={100} height={100} />
                                     </div>
                                     <div className="flex-1 flex flex-row justify-evenly">
-                                        <div className="text-center p-2 md:p-2 flex flex-col items-center justify-center">
-                                            <p className="text-slate-700 font-extrabold text-xl">
-                                                03
-                                            </p>
-                                            <p className="text-slate-400 text-sm">Planned</p>
-                                        </div>
-                                        <div className="text-center p-2 md:p-2 flex flex-col items-center justify-center">
-                                            <p className="text-slate-700 font-extrabold text-xl">
-                                                01
-                                            </p>
-                                            <p className="text-slate-400 text-sm">Left</p>
-                                        </div>
-                                        <div className="text-center p-2 md:p-2 flex flex-col items-center justify-center">
-                                            <p className="text-slate-700 font-extrabold text-xl">
-                                                04
-                                            </p>
-                                            <p className="text-slate-400 text-sm">Annual</p>
-                                        </div>
+                                        <BasicMetric.Root>
+                                            <BasicMetric.Title>03</BasicMetric.Title>
+                                            <BasicMetric.Description>
+                                                Planned
+                                            </BasicMetric.Description>
+                                        </BasicMetric.Root>
+                                        <BasicMetric.Root>
+                                            <BasicMetric.Title>01</BasicMetric.Title>
+                                            <BasicMetric.Description>Left</BasicMetric.Description>
+                                        </BasicMetric.Root>
+                                        <BasicMetric.Root>
+                                            <BasicMetric.Title>04</BasicMetric.Title>
+                                            <BasicMetric.Description>
+                                                Annual
+                                            </BasicMetric.Description>
+                                        </BasicMetric.Root>
                                     </div>
                                 </div>
                             </div>
@@ -287,55 +181,7 @@ export const Dashboard = () => {
                                         </div>
                                     </div>
                                     <div className="w-full flex justify-center items-center mx-auto max-w-lg">
-                                        <ResponsiveContainer width={'100%'} height={250}>
-                                            <BarChart
-                                                // width={450}
-                                                // height={250}
-                                                data={data1}
-                                                margin={{
-                                                    top: 5,
-                                                    right: 30,
-                                                    left: 20,
-                                                    bottom: 5,
-                                                }}
-                                            >
-                                                <CartesianGrid
-                                                    strokeDasharray="4 4"
-                                                    vertical={false}
-                                                />
-                                                <XAxis
-                                                    dataKey="name"
-                                                    tick={{
-                                                        fill: '#334155',
-                                                        fontSize: '12px',
-                                                        fontWeight: 'bold',
-                                                    }}
-                                                    tickLine={{ stroke: '#fffff' }}
-                                                    stroke="#fffff"
-                                                />
-                                                <YAxis
-                                                    tick={{
-                                                        fill: '#334155',
-                                                        fontSize: '12px',
-                                                        fontWeight: 'bold',
-                                                    }}
-                                                    tickLine={{ stroke: '#fffff' }}
-                                                    stroke="#fffff"
-                                                />
-                                                <Tooltip
-                                                    cursor={false}
-                                                    content={(
-                                                        props: TooltipProps<ValueType, NameType>
-                                                    ) => <CustomToolTip {...props} />}
-                                                />
-                                                <Bar
-                                                    dataKey="Worked Hours"
-                                                    fill="#2693FF"
-                                                    radius={4}
-                                                />
-                                                <Bar dataKey="Overtime" fill="#C2E1FF" radius={4} />
-                                            </BarChart>
-                                        </ResponsiveContainer>
+                                        <BarChart data={data1} />
                                     </div>
                                 </div>
                             </div>
@@ -517,7 +363,7 @@ export const Dashboard = () => {
                     </div>
                 </div>
             </div>
-            <aside className="hidden xl:block flex-grow-3 bg-white h-full max-w-sm rounded">
+            {/* <aside className="hidden xl:block flex-grow-3 bg-white h-full max-w-sm rounded">
                 <div className="p-4 flex justify-between items-center">
                     <h3 className="text-slate-500 font-bold">Calendar</h3>
                     <button className="text-white text-sm bg-primary-900 p-3 px-4 rounded-lg hover:bg-primary-950 transition-all ease-in-out duration-300">
@@ -595,129 +441,64 @@ export const Dashboard = () => {
                             />
                         </div>
                         <div className="mt-4 space-y-2">
-                            <Tabs.Root className="TabsRoot" defaultValue="tab1">
-                                <Tabs.List
-                                    className="TabsList flex justify-between "
+                            <BasicTabs.Root>
+                                <BasicTabs.List
+                                    className="flex justify-between"
                                     aria-label="Filter by absence types"
                                 >
-                                    <Tabs.Trigger
-                                        className="TabsTrigger p-2 font-semibold text-slate-600 text-sm relative "
-                                        value="tab1"
-                                    >
-                                        <NavLink
-                                            to={''}
-                                            className={twMerge(
-                                                'inline-block text-primary-950 before:md:absolute before:md:w-full hover:before:md:h-1 before:md:bg-primary-800 before:md:left-0 before:md:bottom-0 before:md:rounded-t-lg transition-all ease-in-out duration-300',
-                                                true ? ' before:md:h-1' : ''
-                                            )}
-                                        >
+                                    <BasicTabs.Trigger value="leaves">
+                                        <BasicTabs.Link to="" isActive>
                                             Leaves
-                                        </NavLink>
-                                    </Tabs.Trigger>
-                                    <Tabs.Trigger
-                                        className="TabsTrigger p-2 font-semibold text-slate-600 text-sm relative"
-                                        value="tab2"
-                                    >
-                                        <NavLink
-                                            to={''}
-                                            className={twMerge(
-                                                'inline-block before:md:absolute before:md:w-full hover:before:md:h-1 before:md:bg-primary-800 before:md:left-0 before:md:bottom-0 before:md:rounded-t-lg transition-all ease-in-out duration-300',
-                                                false ? ' before:md:h-1' : ''
-                                            )}
-                                        >
+                                        </BasicTabs.Link>
+                                    </BasicTabs.Trigger>
+                                    <BasicTabs.Trigger value="remote">
+                                        <BasicTabs.Link to="" isActive={false}>
                                             Remote
-                                        </NavLink>
-                                    </Tabs.Trigger>
-                                    <Tabs.Trigger
-                                        className="TabsTrigger p-2 font-semibold text-slate-600 text-sm relative"
-                                        value="tab1"
-                                    >
-                                        <NavLink
-                                            to={''}
-                                            className={twMerge(
-                                                'inline-block before:md:absolute before:md:w-full hover:before:md:h-1 before:md:bg-primary-800 before:md:left-0 before:md:bottom-0 before:md:rounded-t-lg transition-all ease-in-out duration-300',
-                                                false ? ' before:md:h-1' : ''
-                                            )}
-                                        >
+                                        </BasicTabs.Link>
+                                    </BasicTabs.Trigger>
+                                    <BasicTabs.Trigger value="holiday">
+                                        <BasicTabs.Link to="" isActive={false}>
                                             Holiday
-                                        </NavLink>
-                                    </Tabs.Trigger>
-                                    <Tabs.Trigger
-                                        className="TabsTrigger p-2 font-semibold text-slate-600 text-sm relative"
-                                        value="tab2"
-                                    >
-                                        <NavLink
-                                            to={''}
-                                            // className="inline-block before:md:absolute before:md:w-full before:md:h-1 before:md:bg-primary-800 before:md:left-0 before:md:bottom-0 before:md:rounded-t-lg"
-                                            className={twMerge(
-                                                'inline-block before:md:absolute before:md:w-full hover:before:md:h-1 before:md:bg-primary-800 before:md:left-0 before:md:bottom-0 before:md:rounded-t-lg transition-all ease-in-out duration-300',
-                                                false ? ' before:md:h-1' : ''
-                                            )}
-                                        >
+                                        </BasicTabs.Link>
+                                    </BasicTabs.Trigger>
+                                    <BasicTabs.Trigger value="birthday">
+                                        <BasicTabs.Link to="" isActive={false}>
                                             Birthday
-                                        </NavLink>
-                                    </Tabs.Trigger>
-                                </Tabs.List>
-                            </Tabs.Root>
-                            <div className="flex gap-2 p-2 rounded-lg hover:bg-slate-100 cursor-pointer transition-all ease-in-out duration-300">
-                                <div className="w-10 h-10 bg-slate-200 rounded-full flex justify-center items-center">
-                                    <p className="text-slate-600 leading-none font-bold">CH</p>
-                                </div>
-                                <div>
-                                    <p className="text-sm text-slate-500 font-bold">
-                                        Cecilia Hernández
-                                    </p>
-                                    <p className="text-sm text-slate-400">Maternity</p>
-                                </div>
-                            </div>
-                            <div className="flex gap-2 p-2 rounded-lg hover:bg-slate-100 cursor-pointer transition-all ease-in-out duration-300">
-                                <div className="w-10 h-10 bg-slate-200 rounded-full flex justify-center items-center">
-                                    <p className="text-slate-600 leading-none font-bold">CH</p>
-                                </div>
-                                <div>
-                                    <p className="text-sm text-slate-500 font-bold">
-                                        Cecilia Hernández
-                                    </p>
-                                    <p className="text-sm text-slate-400">Maternity</p>
-                                </div>
-                            </div>
-                            <div className="flex gap-2 p-2 rounded-lg hover:bg-slate-100 cursor-pointer transition-all ease-in-out duration-300">
-                                <div className="w-10 h-10 bg-slate-200 rounded-full flex justify-center items-center">
-                                    <p className="text-slate-600 leading-none font-bold">CH</p>
-                                </div>
-                                <div>
-                                    <p className="text-sm text-slate-500 font-bold">
-                                        Cecilia Hernández
-                                    </p>
-                                    <p className="text-sm text-slate-400">Maternity</p>
+                                        </BasicTabs.Link>
+                                    </BasicTabs.Trigger>
+                                </BasicTabs.List>
+                            </BasicTabs.Root>
+                            <div className=" space-y-2">
+                                <BasicCard.Root>
+                                    <Avatar.Root>
+                                        <Avatar.Initials>CH</Avatar.Initials>
+                                    </Avatar.Root>
+                                    <BasicCard.Content>
+                                        <BasicCard.Item className="text-sm text-slate-500 font-bold">
+                                            Cecilia Hernández
+                                        </BasicCard.Item>
+                                        <BasicCard.Item className="text-sm text-slate-400">
+                                            Maternity
+                                        </BasicCard.Item>
+                                    </BasicCard.Content>
+                                </BasicCard.Root>
+                                <div className="flex gap-2 p-2 rounded-lg hover:bg-slate-100 cursor-pointer transition-all ease-in-out duration-300">
+                                    <div className="w-10 h-10 bg-slate-200 rounded-full flex justify-center items-center">
+                                        <p className="text-slate-600 leading-none font-bold">CH</p>
+                                    </div>
+                                    <div>
+                                        <p className="text-sm text-slate-500 font-bold">
+                                            Cecilia Hernández
+                                        </p>
+                                        <p className="text-sm text-slate-400">Maternity</p>
+                                    </div>
                                 </div>
                             </div>
-                            <div className="flex gap-2 p-2 rounded-lg hover:bg-slate-100 cursor-pointer transition-all ease-in-out duration-300">
-                                <div className="w-10 h-10 bg-slate-200 rounded-full flex justify-center items-center">
-                                    <p className="text-slate-600 leading-none font-bold">CH</p>
-                                </div>
-                                <div>
-                                    <p className="text-sm text-slate-500 font-bold">
-                                        Cecilia Hernández
-                                    </p>
-                                    <p className="text-sm text-slate-400">Maternity</p>
-                                </div>
-                            </div>
-                            {/* <div className="flex gap-2 p-2 rounded-lg hover:bg-slate-100 cursor-pointer transition-all ease-in-out duration-300">
-                                <div className="w-10 h-10 bg-slate-200 rounded-full flex justify-center items-center">
-                                    <p className="text-slate-600 leading-none font-bold">CH</p>
-                                </div>
-                                <div>
-                                    <p className="text-sm text-slate-500 font-bold">
-                                        Cecilia Hernández
-                                    </p>
-                                    <p className="text-sm text-slate-400">Maternity</p>
-                                </div>
-                            </div> */}
                         </div>
                     </div>
                 </div>
-            </aside>
+            </aside> */}
+            <CalendarFilter />
         </article>
     );
 };

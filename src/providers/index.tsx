@@ -7,7 +7,9 @@ import { HelmetProvider } from 'react-helmet-async';
 import { Provider } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
 import { AuthProvider } from './AuthProvider';
+import { URLSearch, urlQueries } from '@/constants/utils/URLSearch';
 
+URLSearch.register(urlQueries);
 interface IPropsAppProvider {
     children: ReactNode;
 }
