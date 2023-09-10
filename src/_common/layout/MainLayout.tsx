@@ -37,7 +37,7 @@ export const MainLayout = () => {
                         >
                             <img src={absenceSpotLogo} alt="absence spot" className="w-40" />
                         </Link>
-                        <ul className="menu h-full w-full flex flex-col  items-center overflow-y-auto pr-2 space-y-2">
+                        <ul className="small-scroll h-full w-full flex flex-col  items-center overflow-y-auto pr-2 space-y-2">
                             <div className="order-2 md:order-1 w-full space-y-2">
                                 <li>
                                     <Menu.Root to={`/c/${id}/dashboard`}>
