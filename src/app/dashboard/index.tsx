@@ -1,6 +1,7 @@
 import { Check, Search, X } from 'lucide-react';
+import * as R from 'ramda';
 import * as Tabs from '@radix-ui/react-tabs';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useSearchParams } from 'react-router-dom';
 import { twMerge } from 'tailwind-merge';
 import { BarChart } from '../_common/charts/BarChart';
 import { PieChart } from '../_common/charts/PieChart';
@@ -9,6 +10,10 @@ import { BasicTabs } from '@/_common/tabs';
 import { BasicCard } from '../_common/cards';
 import { Avatar } from '@/_common/avatar';
 import { CalendarFilter } from './_common/CalendarFilter';
+import { PieMetrics } from './_common/PieMetrics';
+import { ChartMetrics } from './_common/ChartMetrics';
+import { URLSearch } from '@/constants/utils/URLSearch';
+import { Header } from './_common/Header';
 const dataCircularOne = [
     { name: 'Planned', value: 6 },
     { name: 'Left', value: 18 },
@@ -65,11 +70,14 @@ const data1 = [
 ];
 
 export const Dashboard = () => {
+    const [searchParams, setSearchParams] = useSearchParams();
+    const QUERIES = URLSearch.queries();
+
     return (
         <article className="flex h-full gap-[3px] overflow-hidden rounded">
             <div className="flex-grow-10 flex flex-col gap-[3px] overflow-y-auto">
                 <div className="flex flex-col flex-1 gap-[3px] rounded">
-                    <div className="rounded p-3 flex justify-center md:justify-between items-end">
+                    {/* <div className="rounded p-3 flex justify-center md:justify-between items-end">
                         <div className="hidden md:block ">
                             <h2 className="text-slate-600 text-xl font-bold">
                                 Hello, Emily Smith 👋
@@ -81,24 +89,38 @@ export const Dashboard = () => {
                         </div>
                         <div>
                             <BasicTabs.Root>
-                                <BasicTabs.List aria-label="Filter by company/personal">
-                                    <BasicTabs.Trigger value="company">
-                                        <BasicTabs.Link to="" isActive>
+                                <BasicTabs.List
+                                    className="flex justify-between gap-2"
+                                    aria-label="Filter by role"
+                                >
+                                    <BasicTabs.Trigger value="company" className="p-0">
+                                        <BasicTabs.Link
+                                            className="p-2"
+                                            to={URLSearch.set({ role: 'company' })}
+                                            isActive={
+                                                QUERIES.role === 'company' || R.isNil(QUERIES.role)
+                                            }
+                                        >
                                             Company
                                         </BasicTabs.Link>
                                     </BasicTabs.Trigger>
-                                    <BasicTabs.Trigger value="personal">
-                                        <BasicTabs.Link to="" isActive={false}>
+                                    <BasicTabs.Trigger value="personal" className="p-0">
+                                        <BasicTabs.Link
+                                            className="p-2"
+                                            to={URLSearch.set({ role: 'personal' })}
+                                            isActive={QUERIES.role === 'personal'}
+                                        >
                                             Personal
                                         </BasicTabs.Link>
                                     </BasicTabs.Trigger>
                                 </BasicTabs.List>
                             </BasicTabs.Root>
                         </div>
-                    </div>
+                    </div> */}
+                    <Header />
                     <div className="flex-1 flex flex-col lg:flex-row gap-[3px]">
                         <div className="w-full lg:w-1/2 bg-white rounded">
-                            <div className="h-full flex flex-col p-6 gap-1">
+                            {/* <div className="h-full flex flex-col p-6 gap-1">
                                 <h4 className="text-slate-600 text-sm font-bold">Annual Leaves</h4>
                                 <div className="flex justify-evenly items-center mx-auto w-full max-w-lg">
                                     <div className="text-left p-2">
@@ -152,10 +174,11 @@ export const Dashboard = () => {
                                         </BasicMetric.Root>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
+                            <PieMetrics />
                         </div>
                         <div className="w-full lg:w-1/2 bg-white rounded">
-                            <div className="h-full flex flex-col p-6 gap-3">
+                            {/* <div className="h-full flex flex-col p-6 gap-3">
                                 <h4 className="text-slate-600 text-sm font-bold">
                                     Employee Time Tracking
                                 </h4>
@@ -184,7 +207,8 @@ export const Dashboard = () => {
                                         <BarChart data={data1} />
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
+                            <ChartMetrics />
                         </div>
                     </div>
                 </div>

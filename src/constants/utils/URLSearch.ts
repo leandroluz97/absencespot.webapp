@@ -6,9 +6,18 @@ interface IQuery {
     sortDesc: string;
     date: string;
     type: string;
+    role: string;
 }
 
-type IEntries = 'pageSize' | 'searchText' | 'pageNumber' | 'sortBy' | 'sortDesc' | 'date' | 'type';
+type IEntries =
+    | 'pageSize'
+    | 'searchText'
+    | 'pageNumber'
+    | 'sortBy'
+    | 'sortDesc'
+    | 'date'
+    | 'type'
+    | 'role';
 
 export const urlQueries: IEntries[] = [
     'searchText',
@@ -18,6 +27,7 @@ export const urlQueries: IEntries[] = [
     'sortDesc',
     'date',
     'type',
+    'role',
 ];
 
 export class URLSearch {

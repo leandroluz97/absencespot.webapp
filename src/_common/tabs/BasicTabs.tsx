@@ -53,7 +53,7 @@ export const BasicTabsLink = ({ children, isActive, ...props }: PropsLink) => {
             {...props}
             className={twMerge(
                 'inline-block before:absolute before:w-full hover:before:h-1 before:bg-primary-800 before:left-0 before:bottom-0 before:rounded-t-lg transition-all ease-in-out duration-300',
-                isActive ? ' before:h-1 ' : '',
+                isActive ? ' text-primary-950 before:h-1 ' : '',
                 props.className
             )}
         >
