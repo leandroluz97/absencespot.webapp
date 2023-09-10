@@ -3,7 +3,7 @@
 /* Firefox */
 * {
     scrollbar-width: thin;
-    scrollbar-color: red;
+    scrollbar-color: #edf1f5;
 }
 
 /* Chrome, Edge, and Safari */
@@ -23,25 +23,25 @@
     border-radius: 14px;
 }
 
-.menu {
+.small-scroll {
     scrollbar-width: thin;
     scrollbar-color: rgb(173, 167, 167);
 }
 
 /* Chrome, Edge, and Safari */
-.menu::-webkit-scrollbar {
+.small-scroll::-webkit-scrollbar {
     width: 3px;
     margin: 50px;
     height: 3px;
 }
 
-.menu::-webkit-scrollbar-track {
-    background: #d2dbe6;
+.small-scroll::-webkit-scrollbar-track {
+    background: #edf1f5;
     border-radius: 100px;
     margin: 1px;
 }
-.menu::-webkit-scrollbar-thumb {
-    background-color: #b7c2cf;
+.small-scroll::-webkit-scrollbar-thumb {
+    background-color: #d7e1ec;
     border-radius: 14px;
 }
 
