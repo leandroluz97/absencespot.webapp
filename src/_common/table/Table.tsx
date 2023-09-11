@@ -63,8 +63,8 @@ export const TableColumn = ({ children, ...props }: PropsColumn) => {
 
 type PropsColumnHead = LinkProps & {
     children: ReactNode;
-    hasIcon: boolean;
-    query: string;
+    hasIcon?: boolean;
+    query?: string;
 };
 export const TableColumnHead = ({ children, hasIcon, query, ...props }: PropsColumnHead) => {
     useSearchParams();
