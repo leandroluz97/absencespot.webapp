@@ -1,13 +1,14 @@
 import { MainLayout } from '@/_common/layout/MainLayout';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { Dashboard } from './dashboard';
+import { Calendar } from './calendar';
 
 export const Application = () => {
     return (
         <Routes>
             <Route path="/c/:id" element={<MainLayout />}>
                 <Route path="dashboard" element={<Dashboard />} />
-                <Route path="calendar" element={<p className="text-slate-800">Calendar</p>} />
+                <Route path="calendar" element={<Calendar />} />
                 <Route path="request" element={<p className="text-slate-800">Request</p>} />
                 <Route
                     path="track-records"
