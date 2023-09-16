@@ -7,6 +7,8 @@ interface IQuery {
     date: string;
     type: string;
     role: string;
+    groupBy: string;
+    filterBy: string;
 }
 
 type IEntries =
@@ -17,7 +19,9 @@ type IEntries =
     | 'sortDesc'
     | 'date'
     | 'type'
-    | 'role';
+    | 'role'
+    | 'groupBy'
+    | 'filterBy';
 
 export const urlQueries: IEntries[] = [
     'searchText',
@@ -28,6 +32,8 @@ export const urlQueries: IEntries[] = [
     'date',
     'type',
     'role',
+    'groupBy',
+    'filterBy',
 ];
 
 export class URLSearch {

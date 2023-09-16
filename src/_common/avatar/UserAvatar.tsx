@@ -8,7 +8,7 @@ export const AvatarRoot = ({ children, ...props }: PropsRoot) => {
     return (
         <div
             className={twMerge(
-                'w-10 h-10 bg-slate-200 rounded-full flex justify-center items-center ',
+                'w-10 h-10 bg-slate-100 rounded-full flex justify-center items-center ',
                 props.className
             )}
         >
@@ -22,7 +22,7 @@ type PropsInitals = ComponentProps<'div'> & {
 };
 export const AvatarInitials = ({ children, ...props }: PropsInitals) => {
     return (
-        <p className={twMerge('text-slate-600 leading-none font-bold ', props.className)}>
+        <p className={twMerge('text-slate-500 leading-none font-medium ', props.className)}>
             {children}
         </p>
     );
