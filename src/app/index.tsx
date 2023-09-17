@@ -2,6 +2,7 @@ import { MainLayout } from '@/_common/layout/MainLayout';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { Dashboard } from './dashboard';
 import { Calendar } from './calendar';
+import { Request } from './request';
 
 export const Application = () => {
     return (
@@ -9,7 +10,7 @@ export const Application = () => {
             <Route path="/c/:id" element={<MainLayout />}>
                 <Route path="dashboard" element={<Dashboard />} />
                 <Route path="calendar" element={<Calendar />} />
-                <Route path="request" element={<p className="text-slate-800">Request</p>} />
+                <Route path="request" element={<Request />} />
                 <Route
                     path="track-records"
                     element={<p className="text-slate-800">Track Records</p>}

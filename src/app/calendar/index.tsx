@@ -20,10 +20,8 @@ import {
 import {
     Check,
     CheckIcon,
-    ChevronDownIcon,
     ChevronLeft,
     ChevronRight,
-    ChevronUpIcon,
     Group,
     Palmtree,
     SlidersHorizontal,
