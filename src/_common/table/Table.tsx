@@ -69,7 +69,6 @@ type PropsColumnHead = LinkProps & {
 export const TableColumnHead = ({ children, hasIcon, query, ...props }: PropsColumnHead) => {
     useSearchParams();
     const QUERIES = URLSearch.queries();
-    const sortDesc = QUERIES.sortBy === query && Boolean(QUERIES.sortDesc) === true;
 
     return (
         <Link
@@ -84,11 +83,21 @@ export const TableColumnHead = ({ children, hasIcon, query, ...props }: PropsCol
                 <div className="flex -space-x-2">
                     <MoveUp
                         size={15}
-                        className={twMerge('text-slate-400', !sortDesc ? ' text-slate-700' : '')}
+                        className={twMerge(
+                            'text-slate-400',
+                            QUERIES.sortBy === query && QUERIES.sortDesc !== 'true'
+                                ? ' text-slate-700'
+                                : ''
+                        )}
                     />
                     <MoveDown
                         size={15}
-                        className={twMerge('text-slate-400', sortDesc ? ' text-slate-700' : '')}
+                        className={twMerge(
+                            'text-slate-400',
+                            QUERIES.sortBy === query && QUERIES.sortDesc === 'true'
+                                ? ' text-slate-700'
+                                : ''
+                        )}
                     />
                 </div>
             )}

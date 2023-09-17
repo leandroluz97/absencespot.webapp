@@ -1,9 +1,8 @@
 import React from 'react';
 import * as R from 'ramda';
-import { Avatar } from '@/_common/avatar';
 import { URLSearch } from '@/constants/utils/URLSearch';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
-import { NavLink, useSearchParams } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { twMerge } from 'tailwind-merge';
 import { Group, SlidersHorizontal } from 'lucide-react';
 import { Pagination } from '@/_common/pagination';
@@ -133,7 +132,7 @@ export const Request = () => {
                     </div>
                 </div>
                 <div className="h-full flex flex-col overflow-hidden ">
-                    <div className="flex-1 h-full overflow-y-auto">
+                    <div className="flex-1 h-full overflow-auto">
                         <RequestTable />
                     </div>
                     <footer>
