@@ -10,7 +10,7 @@ export const Application = () => {
             <Route path="/c/:id" element={<MainLayout />}>
                 <Route path="dashboard" element={<Dashboard />} />
                 <Route path="calendar" element={<Calendar />} />
-                <Route path="request" element={<Request />} />
+                <Route path="request/*" element={<Request />} />
                 <Route
                     path="track-records"
                     element={<p className="text-slate-800">Track Records</p>}
