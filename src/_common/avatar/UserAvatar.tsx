@@ -8,7 +8,7 @@ export const AvatarRoot = ({ children, ...props }: PropsRoot) => {
     return (
         <div
             className={twMerge(
-                'w-10 h-10 bg-slate-100 rounded-full flex justify-center items-center ',
+                'w-10 h-10 bg-slate-100 rounded-full flex justify-center items-center flex-shrink-0',
                 props.className
             )}
         >
