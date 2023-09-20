@@ -1,69 +1,89 @@
 import { URLSearch } from '@/constants/utils/URLSearch';
+import Select from 'react-select';
 import * as R from 'ramda';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import { NavLink } from 'react-router-dom';
 import { twMerge } from 'tailwind-merge';
-import { SlidersHorizontal } from 'lucide-react';
+import { ChevronDown, SlidersHorizontal } from 'lucide-react';
+
+const options = [
+    { value: 'chocolate', label: 'Chocolate' },
+    { value: 'strawberry', label: 'Strawberry' },
+    { value: 'vanilla', label: 'Vanilla' },
+];
 
 export const RequestNew = () => {
     const QUERIES = URLSearch.queries();
     return (
         <article className="h-full overflow-y-auto md:overflow-hidden flex flex-col md:flex-row  gap-[3px]">
-            <section className="flex-1 h-full flex flex-col">
-                <DropdownMenu.Root key="filterBy">
-                    <DropdownMenu.Trigger asChild>
-                        <button
-                            className="IconButton flex gap-2 outline-none"
-                            aria-label="Customise options"
-                        >
-                            <SlidersHorizontal /> Filter By: {'Team A'}
-                        </button>
-                    </DropdownMenu.Trigger>
-                    <DropdownMenu.Portal>
-                        <DropdownMenu.Content
-                            className="DropdownMenuContent bg-white p-4 shadow-xl shadow-slate-400/20 rounded-lg w-[500px] max-w-[200px] h-full max-h-80 overflow-y-auto flex flex-col gap-1"
-                            sideOffset={10}
-                            align="start"
-                        >
-                            <NavLink to={URLSearch.set({ filterBy: 'teamA' })}>
-                                <DropdownMenu.Item
-                                    className={twMerge(
-                                        'DropdownMenuItem text-slate-600 font-medium hover:bg-slate-100 p-2 rounded outline-transparent cursor-pointer',
-                                        QUERIES.filterBy === 'teamA' || R.isNil(QUERIES.filterBy)
-                                            ? ' text-white bg-primary-900 hover:bg-primary-950'
-                                            : ''
-                                    )}
-                                >
-                                    Team A
-                                </DropdownMenu.Item>
-                            </NavLink>
-                            <NavLink to={URLSearch.set({ filterBy: 'teamB' })}>
-                                <DropdownMenu.Item
-                                    className={twMerge(
-                                        'DropdownMenuItem text-slate-600 font-medium hover:bg-slate-100 p-2 rounded outline-transparent cursor-pointer',
-                                        QUERIES.filterBy === 'teamB'
-                                            ? ' text-white bg-primary-900 hover:bg-primary-950'
-                                            : ''
-                                    )}
-                                >
-                                    Team B
-                                </DropdownMenu.Item>
-                            </NavLink>
-                            <NavLink to={URLSearch.set({ filterBy: 'teamC' })}>
-                                <DropdownMenu.Item
-                                    className={twMerge(
-                                        'DropdownMenuItem text-slate-600 font-medium hover:bg-slate-100 p-2 rounded outline-transparent cursor-pointer',
-                                        QUERIES.filterBy === 'teamC'
-                                            ? ' text-white bg-primary-900 hover:bg-primary-950'
-                                            : ''
-                                    )}
-                                >
-                                    Team C
-                                </DropdownMenu.Item>
-                            </NavLink>
-                        </DropdownMenu.Content>
-                    </DropdownMenu.Portal>
-                </DropdownMenu.Root>
+            <section className="flex-1 h-full m-10">
+                <div className="flex flex-col max-w-4xl mx-auto relative">
+                    {/* <DropdownMenu.Root key="filterBy">
+                        <DropdownMenu.Trigger asChild>
+                            <button
+                                className="IconButton flex justify-between gap-2 outline-none bg-white rounded p-2"
+                                aria-label="Customise options"
+                            >
+                                Filter By: {'Team A'}
+                                <ChevronDown />
+                            </button>
+                        </DropdownMenu.Trigger>
+                        <DropdownMenu.Portal className="relative">
+                            <DropdownMenu.Content
+                                loop
+                                className="DropdownMenuContent bg-white p-4 shadow-xl shadow-slate-400/20 rounded-lg h-full max-h-80 overflow-y-auto flex flex-col w-full relative left-0 right-0 gap-1"
+                                sideOffset={10}
+                                style={{
+                                    // minWidth: '100vw',
+                                    position: 'absolute',
+                                    height: '300px',
+                                    width: '400px',
+                                    minWidth: '600px',
+                                }}
+                                align="start"
+                            >
+                                <NavLink to={URLSearch.set({ filterBy: 'teamA' })}>
+                                    <DropdownMenu.Item
+                                        className={twMerge(
+                                            'DropdownMenuItem text-slate-600 font-medium hover:bg-slate-100 p-2 rounded outline-transparent cursor-pointer ',
+                                            QUERIES.filterBy === 'teamA' ||
+                                                R.isNil(QUERIES.filterBy)
+                                                ? ' text-white bg-primary-900 hover:bg-primary-950'
+                                                : ''
+                                        )}
+                                    >
+                                        Team A
+                                    </DropdownMenu.Item>
+                                </NavLink>
+                                <NavLink to={URLSearch.set({ filterBy: 'teamB' })}>
+                                    <DropdownMenu.Item
+                                        className={twMerge(
+                                            'DropdownMenuItem text-slate-600 font-medium hover:bg-slate-100 p-2 rounded outline-transparent cursor-pointer flex',
+                                            QUERIES.filterBy === 'teamB'
+                                                ? ' text-white bg-primary-900 hover:bg-primary-950'
+                                                : ''
+                                        )}
+                                    >
+                                        Team B
+                                    </DropdownMenu.Item>
+                                </NavLink>
+                                <NavLink to={URLSearch.set({ filterBy: 'teamC' })}>
+                                    <DropdownMenu.Item
+                                        className={twMerge(
+                                            'DropdownMenuItem text-slate-600 font-medium hover:bg-slate-100 p-2 rounded outline-transparent cursor-pointer',
+                                            QUERIES.filterBy === 'teamC'
+                                                ? ' text-white bg-primary-900 hover:bg-primary-950'
+                                                : ''
+                                        )}
+                                    >
+                                        Team C
+                                    </DropdownMenu.Item>
+                                </NavLink>
+                            </DropdownMenu.Content>
+                        </DropdownMenu.Portal>
+                    </DropdownMenu.Root> */}
+                    <Select options={options} unstyled styles={{}} />
+                </div>
             </section>
             <aside className="small-scroll bg-a flex-grow-3 bg-white h-full w-full md:max-w-sm rounded">
                 <div className="overflow-hidden h-full flex flex-col">
