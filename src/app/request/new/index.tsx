@@ -4,7 +4,7 @@ import * as R from 'ramda';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import { NavLink } from 'react-router-dom';
 import { twMerge } from 'tailwind-merge';
-import { ChevronDown, SlidersHorizontal } from 'lucide-react';
+import { ChevronDown, FileUp, SlidersHorizontal } from 'lucide-react';
 
 const options = [
     { value: 'chocolate', label: 'Chocolate' },
@@ -16,73 +16,190 @@ export const RequestNew = () => {
     const QUERIES = URLSearch.queries();
     return (
         <article className="h-full overflow-y-auto md:overflow-hidden flex flex-col md:flex-row  gap-[3px]">
-            <section className="flex-1 h-full m-10">
-                <div className="flex flex-col max-w-4xl mx-auto relative">
-                    {/* <DropdownMenu.Root key="filterBy">
-                        <DropdownMenu.Trigger asChild>
-                            <button
-                                className="IconButton flex justify-between gap-2 outline-none bg-white rounded p-2"
-                                aria-label="Customise options"
-                            >
-                                Filter By: {'Team A'}
-                                <ChevronDown />
-                            </button>
-                        </DropdownMenu.Trigger>
-                        <DropdownMenu.Portal className="relative">
-                            <DropdownMenu.Content
-                                loop
-                                className="DropdownMenuContent bg-white p-4 shadow-xl shadow-slate-400/20 rounded-lg h-full max-h-80 overflow-y-auto flex flex-col w-full relative left-0 right-0 gap-1"
-                                sideOffset={10}
-                                style={{
-                                    // minWidth: '100vw',
-                                    position: 'absolute',
-                                    height: '300px',
-                                    width: '400px',
-                                    minWidth: '600px',
+            <section className="flex-1 h-full  ">
+                <div className="m-10">
+                    <div className="flex flex-col max-w-4xl mx-auto space-y-4 ">
+                        <div className="space-y-2 ">
+                            <span className="text-slate-500">On behalf of</span>
+                            <Select
+                                options={options}
+                                unstyled
+                                //styles={{ control }}
+                                placeholder="Marie Smith"
+                                classNames={{
+                                    singleValue: () => 'text-slate-600',
+                                    option: (state) =>
+                                        twMerge(
+                                            'p-1 rounded text-slate-600 font-medium hover:bg-slate-100 p-2 rounded outline-transparent cursor-pointer',
+                                            state.isSelected
+                                                ? ' text-white bg-primary-900 hover:bg-primary-950'
+                                                : ' '
+                                        ),
+                                    control: (state) =>
+                                        twMerge(
+                                            'bg-white p-2 px-3 rounded-lg outline-primary-900 border-2 border-transparent',
+                                            state.isFocused ? ' border-primary-900 ' : ''
+                                        ),
+                                    dropdownIndicator: () => 'text-slate-400',
+                                    menu: () =>
+                                        'bg-white rounded-lg mt-2 p-2 shadow-xl shadow-slate-400/10',
+                                    placeholder: () => 'text-slate-500',
                                 }}
-                                align="start"
-                            >
-                                <NavLink to={URLSearch.set({ filterBy: 'teamA' })}>
-                                    <DropdownMenu.Item
-                                        className={twMerge(
-                                            'DropdownMenuItem text-slate-600 font-medium hover:bg-slate-100 p-2 rounded outline-transparent cursor-pointer ',
-                                            QUERIES.filterBy === 'teamA' ||
-                                                R.isNil(QUERIES.filterBy)
+                            />
+                        </div>
+                        <div className="space-y-2 ">
+                            <span className="text-slate-500">Type</span>
+                            <Select
+                                options={options}
+                                unstyled
+                                //styles={{ control }}
+                                placeholder="Marie Smith"
+                                classNames={{
+                                    singleValue: () => 'text-slate-600',
+                                    option: (state) =>
+                                        twMerge(
+                                            'p-1 rounded text-slate-600 font-medium hover:bg-slate-100 p-2 rounded outline-transparent cursor-pointer',
+                                            state.isSelected
                                                 ? ' text-white bg-primary-900 hover:bg-primary-950'
-                                                : ''
-                                        )}
-                                    >
-                                        Team A
-                                    </DropdownMenu.Item>
-                                </NavLink>
-                                <NavLink to={URLSearch.set({ filterBy: 'teamB' })}>
-                                    <DropdownMenu.Item
-                                        className={twMerge(
-                                            'DropdownMenuItem text-slate-600 font-medium hover:bg-slate-100 p-2 rounded outline-transparent cursor-pointer flex',
-                                            QUERIES.filterBy === 'teamB'
-                                                ? ' text-white bg-primary-900 hover:bg-primary-950'
-                                                : ''
-                                        )}
-                                    >
-                                        Team B
-                                    </DropdownMenu.Item>
-                                </NavLink>
-                                <NavLink to={URLSearch.set({ filterBy: 'teamC' })}>
-                                    <DropdownMenu.Item
-                                        className={twMerge(
-                                            'DropdownMenuItem text-slate-600 font-medium hover:bg-slate-100 p-2 rounded outline-transparent cursor-pointer',
-                                            QUERIES.filterBy === 'teamC'
-                                                ? ' text-white bg-primary-900 hover:bg-primary-950'
-                                                : ''
-                                        )}
-                                    >
-                                        Team C
-                                    </DropdownMenu.Item>
-                                </NavLink>
-                            </DropdownMenu.Content>
-                        </DropdownMenu.Portal>
-                    </DropdownMenu.Root> */}
-                    <Select options={options} unstyled styles={{}} />
+                                                : ' '
+                                        ),
+                                    control: (state) =>
+                                        twMerge(
+                                            'bg-white p-2 px-3 rounded-lg outline-primary-900 border-2 border-transparent',
+                                            state.isFocused ? ' border-primary-900 ' : ''
+                                        ),
+                                    dropdownIndicator: () => 'text-slate-400',
+                                    menu: () =>
+                                        'bg-white rounded-lg mt-2 p-2 shadow-xl shadow-slate-400/10',
+                                    placeholder: () => 'text-slate-500',
+                                }}
+                            />
+                        </div>
+                        <div className="flex gap-4">
+                            <div className="flex-1 space-y-2">
+                                <span className="text-slate-500">Type</span>
+                                <Select
+                                    options={options}
+                                    unstyled
+                                    //styles={{ control }}
+                                    placeholder="Marie Smith"
+                                    classNames={{
+                                        singleValue: () => 'text-slate-600',
+                                        option: (state) =>
+                                            twMerge(
+                                                'p-1 rounded text-slate-600 font-medium hover:bg-slate-100 p-2 rounded outline-transparent cursor-pointer',
+                                                state.isSelected
+                                                    ? ' text-white bg-primary-900 hover:bg-primary-950'
+                                                    : ' '
+                                            ),
+                                        control: (state) =>
+                                            'bg-white p-2 px-3 rounded-lg outline-primary-900',
+                                        dropdownIndicator: () => 'text-slate-400',
+                                        menu: () =>
+                                            'bg-white rounded-lg mt-2 p-2 shadow-xl shadow-slate-400/10',
+                                        placeholder: () => 'text-slate-500',
+                                    }}
+                                />
+                            </div>
+                            <div className="flex-1 space-y-2">
+                                <span className="text-slate-500">Type</span>
+                                <Select
+                                    options={options}
+                                    unstyled
+                                    //styles={{ control }}
+                                    placeholder="Marie Smith"
+                                    classNames={{
+                                        singleValue: () => 'text-slate-600',
+                                        option: (state) =>
+                                            twMerge(
+                                                'p-1 rounded text-slate-600 font-medium hover:bg-slate-100 p-2 rounded outline-transparent cursor-pointer',
+                                                state.isSelected
+                                                    ? ' text-white bg-primary-900 hover:bg-primary-950'
+                                                    : ' '
+                                            ),
+                                        control: (state) =>
+                                            'bg-white p-2 px-3 rounded-lg outline-primary-900',
+                                        dropdownIndicator: () => 'text-slate-400',
+                                        menu: () =>
+                                            'bg-white rounded-lg mt-2 p-2 shadow-xl shadow-slate-400/10',
+                                        placeholder: () => 'text-slate-500',
+                                    }}
+                                />
+                            </div>
+                        </div>
+                        <div className="flex gap-4">
+                            <div className="flex-1 space-y-2">
+                                <span className="text-slate-500">Type</span>
+                                <Select
+                                    options={options}
+                                    unstyled
+                                    //styles={{ control }}
+                                    placeholder="Marie Smith"
+                                    classNames={{
+                                        singleValue: () => 'text-slate-600',
+                                        option: (state) =>
+                                            twMerge(
+                                                'p-1 rounded text-slate-600 font-medium hover:bg-slate-100 p-2 rounded outline-transparent cursor-pointer',
+                                                state.isSelected
+                                                    ? ' text-white bg-primary-900 hover:bg-primary-950'
+                                                    : ' '
+                                            ),
+                                        control: (state) =>
+                                            'bg-white p-2 px-3 rounded-lg outline-primary-900',
+                                        dropdownIndicator: () => 'text-slate-400',
+                                        menu: () =>
+                                            'bg-white rounded-lg mt-2 p-2 shadow-xl shadow-slate-400/10',
+                                        placeholder: () => 'text-slate-500',
+                                    }}
+                                />
+                            </div>
+                            <div className="flex-1 space-y-2">
+                                <span className="text-slate-500">Type</span>
+                                <Select
+                                    options={options}
+                                    unstyled
+                                    //styles={{ control }}
+                                    placeholder="Marie Smith"
+                                    classNames={{
+                                        singleValue: () => 'text-slate-600',
+                                        option: (state) =>
+                                            twMerge(
+                                                'p-1 rounded text-slate-600 font-medium hover:bg-slate-100 p-2 rounded outline-transparent cursor-pointer',
+                                                state.isSelected
+                                                    ? ' text-white bg-primary-900 hover:bg-primary-950'
+                                                    : ' '
+                                            ),
+                                        control: (state) =>
+                                            'bg-white p-2 px-3 rounded-lg outline-primary-900',
+                                        dropdownIndicator: () => 'text-slate-400',
+                                        menu: () =>
+                                            'bg-white rounded-lg mt-2 p-2 shadow-xl shadow-slate-400/10',
+                                        placeholder: () => 'text-slate-500',
+                                    }}
+                                />
+                            </div>
+                        </div>
+                        <div className="space-y-2 ">
+                            <div className="w-full h-40 rounded-lg border-2 border-dashed hover:bg-slate-200/50 border-slate-300 flex flex-col text-slate-600 text-sm items-center justify-center gap-1">
+                                <FileUp className="my-2" />
+                                <p>
+                                    <strong>Click to upload</strong> or drag and drop
+                                </p>
+
+                                <p>PDF, PNG or JPG (MAX. 800x400px)</p>
+                            </div>
+                        </div>
+                        <div className="space-y-2 ">
+                            <span className="text-slate-500">Note</span>
+                            <textarea
+                                className="w-full rounded-lg outline-primary-900 p-3 resize-none"
+                                name="note"
+                                id="note"
+                                rows={3}
+                                placeholder="Write text here ..."
+                            ></textarea>
+                        </div>
+                    </div>
                 </div>
             </section>
             <aside className="small-scroll bg-a flex-grow-3 bg-white h-full w-full md:max-w-sm rounded">
