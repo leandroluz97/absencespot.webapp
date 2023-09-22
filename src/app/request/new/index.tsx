@@ -3,6 +3,8 @@ import Select from 'react-select';
 import Dropzone from 'react-dropzone';
 import { twMerge } from 'tailwind-merge';
 import { FileUp } from 'lucide-react';
+import { BasicMetric } from '@/app/_common/metrics';
+import { PieChart } from '@/app/_common/charts/PieChart';
 
 const options = [
     { value: 'chocolate', label: 'Chocolate' },
@@ -10,6 +12,10 @@ const options = [
     { value: 'vanilla', label: 'Vanilla' },
 ];
 
+const dataCircularOne = [
+    { name: 'Planned', value: 6 },
+    { name: 'Left', value: 18 },
+];
 export const RequestNew = () => {
     const QUERIES = URLSearch.queries();
     return (
@@ -211,324 +217,87 @@ export const RequestNew = () => {
             <aside className="small-scroll bg-a flex-grow-3 bg-white h-full w-full md:max-w-sm rounded">
                 <div className="overflow-hidden h-full flex flex-col">
                     <div className="p-4 space-y-6 overflow-y-auto">
-                        gdgdgd
-                        {/* <section>
-                          <h3 className="font-bold text-slate-700 mb-3">Categories</h3>
-                          <div className="flex flex-col gap-2">
-                              {categories.map((cat) => (
-                                  <button
-                                      className="flex gap-2 items-center"
-                                      role="checkbox"
-                                      aria-checked={
-                                          filter.categories.includes(cat.name) ? 'true' : 'false'
-                                      }
-                                      value={filter.categories.includes(cat.name) ? 'on' : 'off'}
-                                      data-state={
-                                          filter.categories.includes(cat.name)
-                                              ? 'checked'
-                                              : 'uncheck'
-                                      }
-                                      id={cat.name}
-                                      onClick={() =>
-                                          setFilter({
-                                              ...filter,
-                                              categories: filter.categories.includes(cat.name)
-                                                  ? filter.categories.filter((c) => c !== cat.name)
-                                                  : [...filter.categories, cat.name],
-                                          })
-                                      }
-                                  >
-                                      <div className={getStyle(cat)}>
-                                          <CheckIcon className="text-white" size={15} />
-                                      </div>
-                                      <label htmlFor={cat.name}>{cat.name}</label>
-                                  </button>
-                              ))}
-                          </div>
-                      </section>
-                      <section>
-                          <h3 className="font-bold text-slate-700 mb-3">
-                              Request Awaiting Approval
-                          </h3>
-                          <div
-                              key={9}
-                              className="flex gap-2 p-2 rounded-lg hover:bg-slate-50 cursor-pointer transition-all ease-in-out duration-300"
-                          >
-                              <Avatar.Root>
-                                  <Avatar.Initials>CH</Avatar.Initials>
-                              </Avatar.Root>
-                              <div>
-                                  <p className="text-sm text-slate-500 font-bold">
-                                      Cecilia Hernández
-                                  </p>
-                                  <p className="text-sm text-slate-400">
-                                      Vacation: May 24 - Jun 24
-                                  </p>
-                              </div>
-                              <button className="text-white text-sm bg-primary-900 p-2 rounded-lg ml-auto hover:bg-primary-950 transition-all ease-in-out duration-300">
-                                  <Check />
-                              </button>
-                          </div>
-                      </section>
-                      <section>
-                          <h3 className="font-bold text-slate-700 mb-3">Upcoming </h3>
-                          <div
-                              key={9}
-                              className="flex gap-2 p-2 rounded-lg hover:bg-slate-50 cursor-pointer transition-all ease-in-out duration-300"
-                          >
-                              <Avatar.Root>
-                                  <Avatar.Initials>VF</Avatar.Initials>
-                              </Avatar.Root>
-                              <div>
-                                  <p className="text-sm text-slate-500 font-bold">
-                                      Victoria Flores
-                                  </p>
-                                  <p className="text-sm text-slate-400">
-                                      Maternity : May 5 - Dec 1
-                                  </p>
-                              </div>
-                          </div>
-                          <div
-                              key={9}
-                              className="flex gap-2 p-2 rounded-lg hover:bg-slate-50 cursor-pointer transition-all ease-in-out duration-300"
-                          >
-                              <Avatar.Root>
-                                  <Avatar.Initials>VF</Avatar.Initials>
-                              </Avatar.Root>
-                              <div>
-                                  <p className="text-sm text-slate-500 font-bold">
-                                      Victoria Flores
-                                  </p>
-                                  <p className="text-sm text-slate-400">
-                                      Maternity : May 5 - Dec 1
-                                  </p>
-                              </div>
-                          </div>
-                          <div
-                              key={9}
-                              className="flex gap-2 p-2 rounded-lg hover:bg-slate-50 cursor-pointer transition-all ease-in-out duration-300"
-                          >
-                              <Avatar.Root>
-                                  <Avatar.Initials>VF</Avatar.Initials>
-                              </Avatar.Root>
-                              <div>
-                                  <p className="text-sm text-slate-500 font-bold">
-                                      Victoria Flores
-                                  </p>
-                                  <p className="text-sm text-slate-400">
-                                      Maternity : May 5 - Dec 1
-                                  </p>
-                              </div>
-                          </div>
-                          <div
-                              key={9}
-                              className="flex gap-2 p-2 rounded-lg hover:bg-slate-50 cursor-pointer transition-all ease-in-out duration-300"
-                          >
-                              <Avatar.Root>
-                                  <Avatar.Initials>VF</Avatar.Initials>
-                              </Avatar.Root>
-                              <div>
-                                  <p className="text-sm text-slate-500 font-bold">
-                                      Victoria Flores
-                                  </p>
-                                  <p className="text-sm text-slate-400">
-                                      Maternity : May 5 - Dec 1
-                                  </p>
-                              </div>
-                          </div>
-                          <div
-                              key={9}
-                              className="flex gap-2 p-2 rounded-lg hover:bg-slate-50 cursor-pointer transition-all ease-in-out duration-300"
-                          >
-                              <Avatar.Root>
-                                  <Avatar.Initials>VF</Avatar.Initials>
-                              </Avatar.Root>
-                              <div>
-                                  <p className="text-sm text-slate-500 font-bold">
-                                      Victoria Flores
-                                  </p>
-                                  <p className="text-sm text-slate-400">
-                                      Maternity : May 5 - Dec 1
-                                  </p>
-                              </div>
-                          </div>
-                          <div
-                              key={9}
-                              className="flex gap-2 p-2 rounded-lg hover:bg-slate-50 cursor-pointer transition-all ease-in-out duration-300"
-                          >
-                              <Avatar.Root>
-                                  <Avatar.Initials>VF</Avatar.Initials>
-                              </Avatar.Root>
-                              <div>
-                                  <p className="text-sm text-slate-500 font-bold">
-                                      Victoria Flores
-                                  </p>
-                                  <p className="text-sm text-slate-400">
-                                      Maternity : May 5 - Dec 1
-                                  </p>
-                              </div>
-                          </div>
-                          <div
-                              key={9}
-                              className="flex gap-2 p-2 rounded-lg hover:bg-slate-50 cursor-pointer transition-all ease-in-out duration-300"
-                          >
-                              <Avatar.Root>
-                                  <Avatar.Initials>VF</Avatar.Initials>
-                              </Avatar.Root>
-                              <div>
-                                  <p className="text-sm text-slate-500 font-bold">
-                                      Victoria Flores
-                                  </p>
-                                  <p className="text-sm text-slate-400">
-                                      Maternity : May 5 - Dec 1
-                                  </p>
-                              </div>
-                          </div>
-                          <div
-                              key={9}
-                              className="flex gap-2 p-2 rounded-lg hover:bg-slate-50 cursor-pointer transition-all ease-in-out duration-300"
-                          >
-                              <Avatar.Root>
-                                  <Avatar.Initials>VF</Avatar.Initials>
-                              </Avatar.Root>
-                              <div>
-                                  <p className="text-sm text-slate-500 font-bold">
-                                      Victoria Flores
-                                  </p>
-                                  <p className="text-sm text-slate-400">
-                                      Maternity : May 5 - Dec 1
-                                  </p>
-                              </div>
-                          </div>
-                          <div
-                              key={9}
-                              className="flex gap-2 p-2 rounded-lg hover:bg-slate-50 cursor-pointer transition-all ease-in-out duration-300"
-                          >
-                              <Avatar.Root>
-                                  <Avatar.Initials>VF</Avatar.Initials>
-                              </Avatar.Root>
-                              <div>
-                                  <p className="text-sm text-slate-500 font-bold">
-                                      Victoria Flores
-                                  </p>
-                                  <p className="text-sm text-slate-400">
-                                      Maternity : May 5 - Dec 1
-                                  </p>
-                              </div>
-                          </div>
-                          <div
-                              key={9}
-                              className="flex gap-2 p-2 rounded-lg hover:bg-slate-50 cursor-pointer transition-all ease-in-out duration-300"
-                          >
-                              <Avatar.Root>
-                                  <Avatar.Initials>VF</Avatar.Initials>
-                              </Avatar.Root>
-                              <div>
-                                  <p className="text-sm text-slate-500 font-bold">
-                                      Victoria Flores
-                                  </p>
-                                  <p className="text-sm text-slate-400">
-                                      Maternity : May 5 - Dec 1
-                                  </p>
-                              </div>
-                          </div>
-                          <div
-                              key={9}
-                              className="flex gap-2 p-2 rounded-lg hover:bg-slate-50 cursor-pointer transition-all ease-in-out duration-300"
-                          >
-                              <Avatar.Root>
-                                  <Avatar.Initials>VF</Avatar.Initials>
-                              </Avatar.Root>
-                              <div>
-                                  <p className="text-sm text-slate-500 font-bold">
-                                      Victoria Flores
-                                  </p>
-                                  <p className="text-sm text-slate-400">
-                                      Maternity : May 5 - Dec 1
-                                  </p>
-                              </div>
-                          </div>
-                          <div
-                              key={9}
-                              className="flex gap-2 p-2 rounded-lg hover:bg-slate-50 cursor-pointer transition-all ease-in-out duration-300"
-                          >
-                              <Avatar.Root>
-                                  <Avatar.Initials>VF</Avatar.Initials>
-                              </Avatar.Root>
-                              <div>
-                                  <p className="text-sm text-slate-500 font-bold">
-                                      Victoria Flores
-                                  </p>
-                                  <p className="text-sm text-slate-400">
-                                      Maternity : May 5 - Dec 1
-                                  </p>
-                              </div>
-                          </div>
-                          <div
-                              key={9}
-                              className="flex gap-2 p-2 rounded-lg hover:bg-slate-50 cursor-pointer transition-all ease-in-out duration-300"
-                          >
-                              <Avatar.Root>
-                                  <Avatar.Initials>VF</Avatar.Initials>
-                              </Avatar.Root>
-                              <div>
-                                  <p className="text-sm text-slate-500 font-bold">
-                                      Victoria Flores
-                                  </p>
-                                  <p className="text-sm text-slate-400">
-                                      Maternity : May 5 - Dec 1
-                                  </p>
-                              </div>
-                          </div>
-                          <div
-                              key={9}
-                              className="flex gap-2 p-2 rounded-lg hover:bg-slate-50 cursor-pointer transition-all ease-in-out duration-300"
-                          >
-                              <Avatar.Root>
-                                  <Avatar.Initials>VF</Avatar.Initials>
-                              </Avatar.Root>
-                              <div>
-                                  <p className="text-sm text-slate-500 font-bold">
-                                      Victoria Flores
-                                  </p>
-                                  <p className="text-sm text-slate-400">
-                                      Maternity : May 5 - Dec 1
-                                  </p>
-                              </div>
-                          </div>
-                          <div
-                              key={9}
-                              className="flex gap-2 p-2 rounded-lg hover:bg-slate-50 cursor-pointer transition-all ease-in-out duration-300"
-                          >
-                              <Avatar.Root>
-                                  <Avatar.Initials>VF</Avatar.Initials>
-                              </Avatar.Root>
-                              <div>
-                                  <p className="text-sm text-slate-500 font-bold">
-                                      Victoria Flores
-                                  </p>
-                                  <p className="text-sm text-slate-400">
-                                      Maternity : May 5 - Dec 1
-                                  </p>
-                              </div>
-                          </div>
-                          <div
-                              key={9}
-                              className="flex gap-2 p-2 rounded-lg hover:bg-slate-50 cursor-pointer transition-all ease-in-out duration-300"
-                          >
-                              <Avatar.Root>
-                                  <Avatar.Initials>VF</Avatar.Initials>
-                              </Avatar.Root>
-                              <div>
-                                  <p className="text-sm text-slate-500 font-bold">
-                                      Victoria Flores
-                                  </p>
-                                  <p className="text-sm text-slate-400">
-                                      Maternity : May 5 - Dec 1
-                                  </p>
-                              </div>
-                          </div>
-                      </section> */}
+                        <div className="flex flex-col justify-evenly items-center mx-auto w-full max-w-lg">
+                            <div className="flex flex-col w-full text-left p-2">
+                                <h4 className="text-slate-600 text-sm font-bold">
+                                    Annual Vacation
+                                </h4>
+                                <div className="mx-auto relative">
+                                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 text-center">
+                                        <span className="block font-bold"> 06 </span>
+                                        <span className="text-slate-400">Days used</span>
+                                    </div>
+                                    <PieChart
+                                        data={dataCircularOne}
+                                        width={180}
+                                        height={180}
+                                        cx={85}
+                                        cy={85}
+                                        innerRadius={50}
+                                        outerRadius={70}
+                                    />
+                                </div>
+                            </div>
+                            <div className="w-full flex-1 flex flex-row justify-around">
+                                <BasicMetric.Root>
+                                    <BasicMetric.Title>06</BasicMetric.Title>
+                                    <BasicMetric.Description>Planned</BasicMetric.Description>
+                                </BasicMetric.Root>
+                                <BasicMetric.Root>
+                                    <BasicMetric.Title>18</BasicMetric.Title>
+                                    <BasicMetric.Description>Left</BasicMetric.Description>
+                                </BasicMetric.Root>
+                                <BasicMetric.Root>
+                                    <BasicMetric.Title>
+                                        24 <span className="text-green-500 text-md">(+2)</span>
+                                    </BasicMetric.Title>
+                                    <BasicMetric.Description>Annual</BasicMetric.Description>
+                                </BasicMetric.Root>
+                            </div>
+                        </div>
+                        <div className="h-[2px] w-full bg-slate-100"></div>
+                        <div className="flex flex-col justify-evenly items-center mx-auto w-full max-w-lg">
+                            <div className="flex flex-col w-full text-left p-2">
+                                <h4 className="text-slate-600 text-sm font-bold">Others</h4>
+                                <div className="mx-auto relative">
+                                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 text-center">
+                                        <span className="block font-bold"> 06 </span>
+                                        <span className="text-slate-400">Days used</span>
+                                    </div>
+                                    <PieChart
+                                        data={dataCircularOne}
+                                        width={180}
+                                        height={180}
+                                        cx={85}
+                                        cy={85}
+                                        innerRadius={50}
+                                        outerRadius={70}
+                                    />
+                                </div>
+                            </div>
+                            <div className="w-full flex-1 flex flex-row justify-around">
+                                <BasicMetric.Root>
+                                    <BasicMetric.Title>06</BasicMetric.Title>
+                                    <BasicMetric.Description>Planned</BasicMetric.Description>
+                                </BasicMetric.Root>
+                                <BasicMetric.Root>
+                                    <BasicMetric.Title>18</BasicMetric.Title>
+                                    <BasicMetric.Description>Left</BasicMetric.Description>
+                                </BasicMetric.Root>
+                                <BasicMetric.Root>
+                                    <BasicMetric.Title>24</BasicMetric.Title>
+                                    <BasicMetric.Description>Annual</BasicMetric.Description>
+                                </BasicMetric.Root>
+                            </div>
+                        </div>
+                        <div className="h-[2px] w-full bg-slate-100"></div>
+                        <div className="flex flex-col w-full text-left p-2">
+                            <h4 className="text-slate-600 text-sm font-bold">Request</h4>
+                            <div className="mt-3 text-slate-500">
+                                <p>Vacation leave: Jul 17 - Jul 24</p>
+                                <p>Vacation leave: Aug 13 - Aug 19</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </aside>

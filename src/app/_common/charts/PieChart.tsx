@@ -1,4 +1,4 @@
-import { Cell, Pie, PieChart as PieChartMain, Tooltip, TooltipProps } from 'recharts';
+import { Cell, Legend, Pie, PieChart as PieChartMain, Tooltip, TooltipProps } from 'recharts';
 import { CategoricalChartProps } from 'recharts/types/chart/generateCategoricalChart';
 import { NameType } from 'recharts/types/component/DefaultTooltipContent';
 import { ValueType } from 'tailwindcss/types/config';
@@ -22,7 +22,7 @@ type Props = { data: unknown[] } & CategoricalChartProps;
 
 export const PieChart = ({ data, ...props }: Props) => {
     return (
-        <PieChartMain width={100} height={100}>
+        <PieChartMain width={100} height={100} {...props}>
             <Pie
                 cx={45}
                 cy={45}
