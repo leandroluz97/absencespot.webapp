@@ -1,10 +1,8 @@
 import { URLSearch } from '@/constants/utils/URLSearch';
 import Select from 'react-select';
-import * as R from 'ramda';
-import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
-import { NavLink } from 'react-router-dom';
+import Dropzone from 'react-dropzone';
 import { twMerge } from 'tailwind-merge';
-import { ChevronDown, FileUp, SlidersHorizontal } from 'lucide-react';
+import { FileUp } from 'lucide-react';
 
 const options = [
     { value: 'chocolate', label: 'Chocolate' },
@@ -16,8 +14,8 @@ export const RequestNew = () => {
     const QUERIES = URLSearch.queries();
     return (
         <article className="h-full overflow-y-auto md:overflow-hidden flex flex-col md:flex-row  gap-[3px]">
-            <section className="flex-1 h-full  ">
-                <div className="m-10">
+            <section className="flex-1 h-full overflow-y-auto p-10">
+                <div className="">
                     <div className="flex flex-col max-w-4xl mx-auto space-y-4 ">
                         <div className="space-y-2 ">
                             <span className="text-slate-500">On behalf of</span>
@@ -180,14 +178,22 @@ export const RequestNew = () => {
                             </div>
                         </div>
                         <div className="space-y-2 ">
-                            <div className="w-full h-40 rounded-lg border-2 border-dashed hover:bg-slate-200/50 border-slate-300 flex flex-col text-slate-600 text-sm items-center justify-center gap-1">
-                                <FileUp className="my-2" />
-                                <p>
-                                    <strong>Click to upload</strong> or drag and drop
-                                </p>
+                            <Dropzone onDrop={(acceptedFiles) => console.log(acceptedFiles)}>
+                                {({ getRootProps, getInputProps }) => (
+                                    <div
+                                        {...getRootProps()}
+                                        className="w-full h-40 rounded-lg border-2 border-dashed hover:bg-slate-200/50 border-slate-300 flex flex-col text-slate-600 text-sm items-center justify-center gap-1"
+                                    >
+                                        <FileUp className="my-2" />
+                                        <p>
+                                            <strong>Click to upload</strong> or drag and drop
+                                        </p>
 
-                                <p>PDF, PNG or JPG (MAX. 800x400px)</p>
-                            </div>
+                                        <p>PDF, PNG or JPG (Max. 4Mb)</p>
+                                        <input {...getInputProps()} />
+                                    </div>
+                                )}
+                            </Dropzone>
                         </div>
                         <div className="space-y-2 ">
                             <span className="text-slate-500">Note</span>
