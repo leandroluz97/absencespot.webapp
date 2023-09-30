@@ -20,8 +20,8 @@ const dataCircularOne = [
 ];
 export const RequestNew = () => {
     const QUERIES = URLSearch.queries();
-    const [startDate, setStartDate] = useState(new Date('2014/02/08'));
-    const [endDate, setEndDate] = useState(new Date('2014/02/10'));
+    const [startDate, setStartDate] = useState(new Date());
+    const [endDate, setEndDate] = useState(new Date());
     return (
         <article className="h-full overflow-y-auto md:overflow-hidden flex flex-col md:flex-row  gap-[3px]">
             <section className="flex-1 h-full md:overflow-y-auto p-2 md:p-10">
@@ -55,7 +55,7 @@ export const RequestNew = () => {
                                 }}
                             />
                         </div>
-                        <div className="space-y-2 text-sm">
+                        <div className="space-y-2 text-sm ">
                             <span className="text-slate-500">Type</span>
                             <Select
                                 options={options}
@@ -87,11 +87,12 @@ export const RequestNew = () => {
                             <div className="flex-1 space-y-2">
                                 <span className="text-slate-500">From</span>
                                 <DatePicker
+                                    className="bg-white rounded-lg p-2 w-full outline-transparent focus:outline-primary-900 text-sm "
                                     selected={startDate}
                                     onChange={(date) => setStartDate(date)}
-                                    selectsStart
+                                    // selectsStart
+                                    //endDate={endDate}
                                     startDate={startDate}
-                                    endDate={endDate}
                                 />
                             </div>
                             <div className="flex-1 space-y-2">
@@ -123,27 +124,13 @@ export const RequestNew = () => {
                         <div className="flex gap-4">
                             <div className="flex-1 space-y-2">
                                 <span className="text-slate-500">To</span>
-                                <Select
-                                    options={options}
-                                    unstyled
-                                    //styles={{ control }}
-                                    placeholder="Marie Smith"
-                                    classNames={{
-                                        singleValue: () => 'text-slate-600',
-                                        option: (state) =>
-                                            twMerge(
-                                                'p-1 rounded text-slate-600 font-medium hover:bg-slate-100 p-2 rounded outline-transparent cursor-pointer',
-                                                state.isSelected
-                                                    ? ' text-white bg-primary-900 hover:bg-primary-950'
-                                                    : ' '
-                                            ),
-                                        control: (state) =>
-                                            'bg-white p-2 px-3 rounded-lg outline-primary-900',
-                                        dropdownIndicator: () => 'text-slate-400',
-                                        menu: () =>
-                                            'bg-white rounded-lg mt-2 p-2 shadow-xl shadow-slate-400/10',
-                                        placeholder: () => 'text-slate-500',
-                                    }}
+                                <DatePicker
+                                    className="bg-white rounded-lg p-2 w-full outline-transparent focus:outline-primary-900"
+                                    selected={startDate}
+                                    onChange={(date) => setStartDate(date)}
+                                    // selectsStart
+                                    startDate={startDate}
+                                    endDate={endDate}
                                 />
                             </div>
                             <div className="flex-1 space-y-2">
