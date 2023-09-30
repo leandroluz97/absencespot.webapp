@@ -1,3 +1,4 @@
+import DatePicker from 'react-datepicker';
 import { URLSearch } from '@/constants/utils/URLSearch';
 import Select from 'react-select';
 import Dropzone from 'react-dropzone';
@@ -5,6 +6,7 @@ import { twMerge } from 'tailwind-merge';
 import { FileUp } from 'lucide-react';
 import { BasicMetric } from '@/app/_common/metrics';
 import { PieChart } from '@/app/_common/charts/PieChart';
+import { useState } from 'react';
 
 const options = [
     { value: 'chocolate', label: 'Chocolate' },
@@ -18,11 +20,13 @@ const dataCircularOne = [
 ];
 export const RequestNew = () => {
     const QUERIES = URLSearch.queries();
+    const [startDate, setStartDate] = useState(new Date('2014/02/08'));
+    const [endDate, setEndDate] = useState(new Date('2014/02/10'));
     return (
         <article className="h-full overflow-y-auto md:overflow-hidden flex flex-col md:flex-row  gap-[3px]">
-            <section className="flex-1 h-full overflow-y-auto p-10">
+            <section className="flex-1 h-full md:overflow-y-auto p-2 md:p-10">
                 <div className="">
-                    <div className="flex flex-col max-w-4xl mx-auto space-y-4 ">
+                    <div className="flex flex-col max-w-4xl mx-auto space-y-4 text-sm">
                         <div className="space-y-2 ">
                             <span className="text-slate-500">On behalf of</span>
                             <Select
@@ -51,7 +55,7 @@ export const RequestNew = () => {
                                 }}
                             />
                         </div>
-                        <div className="space-y-2 ">
+                        <div className="space-y-2 text-sm">
                             <span className="text-slate-500">Type</span>
                             <Select
                                 options={options}
@@ -81,32 +85,17 @@ export const RequestNew = () => {
                         </div>
                         <div className="flex gap-4">
                             <div className="flex-1 space-y-2">
-                                <span className="text-slate-500">Type</span>
-                                <Select
-                                    options={options}
-                                    unstyled
-                                    //styles={{ control }}
-                                    placeholder="Marie Smith"
-                                    classNames={{
-                                        singleValue: () => 'text-slate-600',
-                                        option: (state) =>
-                                            twMerge(
-                                                'p-1 rounded text-slate-600 font-medium hover:bg-slate-100 p-2 rounded outline-transparent cursor-pointer',
-                                                state.isSelected
-                                                    ? ' text-white bg-primary-900 hover:bg-primary-950'
-                                                    : ' '
-                                            ),
-                                        control: (state) =>
-                                            'bg-white p-2 px-3 rounded-lg outline-primary-900',
-                                        dropdownIndicator: () => 'text-slate-400',
-                                        menu: () =>
-                                            'bg-white rounded-lg mt-2 p-2 shadow-xl shadow-slate-400/10',
-                                        placeholder: () => 'text-slate-500',
-                                    }}
+                                <span className="text-slate-500">From</span>
+                                <DatePicker
+                                    selected={startDate}
+                                    onChange={(date) => setStartDate(date)}
+                                    selectsStart
+                                    startDate={startDate}
+                                    endDate={endDate}
                                 />
                             </div>
                             <div className="flex-1 space-y-2">
-                                <span className="text-slate-500">Type</span>
+                                <span className="text-slate-500">Start Period</span>
                                 <Select
                                     options={options}
                                     unstyled
@@ -133,7 +122,7 @@ export const RequestNew = () => {
                         </div>
                         <div className="flex gap-4">
                             <div className="flex-1 space-y-2">
-                                <span className="text-slate-500">Type</span>
+                                <span className="text-slate-500">To</span>
                                 <Select
                                     options={options}
                                     unstyled
@@ -158,7 +147,7 @@ export const RequestNew = () => {
                                 />
                             </div>
                             <div className="flex-1 space-y-2">
-                                <span className="text-slate-500">Type</span>
+                                <span className="text-slate-500">End Period</span>
                                 <Select
                                     options={options}
                                     unstyled
@@ -214,9 +203,9 @@ export const RequestNew = () => {
                     </div>
                 </div>
             </section>
-            <aside className="small-scroll bg-a flex-grow-3 bg-white h-full w-full md:max-w-sm rounded">
-                <div className="overflow-hidden h-full flex flex-col">
-                    <div className="p-4 space-y-6 overflow-y-auto">
+            <aside className="small-scroll flex-grow-3 md:bg-white h-full w-full md:max-w-sm rounded">
+                <div className="md:overflow-hidden h-full flex flex-col">
+                    <div className="p-4 space-y-6 md:overflow-y-auto">
                         <div className="flex flex-col justify-evenly items-center mx-auto w-full max-w-lg">
                             <div className="flex flex-col w-full text-left p-2">
                                 <h4 className="text-slate-600 text-sm font-bold">
@@ -291,7 +280,7 @@ export const RequestNew = () => {
                             </div>
                         </div>
                         <div className="h-[2px] w-full bg-slate-100"></div>
-                        <div className="flex flex-col w-full text-left p-2">
+                        <div className=" hidden md:flex flex-col w-full text-left p-2">
                             <h4 className="text-slate-600 text-sm font-bold">Request</h4>
                             <div className="mt-3 text-slate-500">
                                 <p>Vacation leave: Jul 17 - Jul 24</p>
