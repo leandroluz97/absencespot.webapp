@@ -93,7 +93,7 @@ export const RequestNew = () => {
                                 }}
                             />
                         </div>
-                        <div className="flex gap-4">
+                        <div className="flex flex-col lg:flex-row gap-4">
                             <div className="flex-1 space-y-2">
                                 <span className="text-slate-500">From</span>
                                 <div className="relative">
@@ -136,7 +136,7 @@ export const RequestNew = () => {
                                 />
                             </div>
                         </div>
-                        <div className="flex gap-4">
+                        <div className="flex flex-col lg:flex-row gap-4">
                             <div className="flex-1 space-y-2">
                                 <span className="text-slate-500">To</span>
                                 <div className="relative">
