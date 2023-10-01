@@ -3,7 +3,7 @@ import { URLSearch } from '@/constants/utils/URLSearch';
 import Select from 'react-select';
 import Dropzone from 'react-dropzone';
 import { twMerge } from 'tailwind-merge';
-import { FileUp } from 'lucide-react';
+import { Calendar, FileUp } from 'lucide-react';
 import { BasicMetric } from '@/app/_common/metrics';
 import { PieChart } from '@/app/_common/charts/PieChart';
 import { useState } from 'react';
@@ -86,14 +86,18 @@ export const RequestNew = () => {
                         <div className="flex gap-4">
                             <div className="flex-1 space-y-2">
                                 <span className="text-slate-500">From</span>
-                                <DatePicker
-                                    className="bg-white rounded-lg p-2 w-full outline-transparent focus:outline-primary-900 text-sm "
-                                    selected={startDate}
-                                    onChange={(date) => setStartDate(date)}
-                                    // selectsStart
-                                    //endDate={endDate}
-                                    startDate={startDate}
-                                />
+                                <div className="flex relative">
+                                    <Calendar
+                                        size={20}
+                                        className="absolute left-3 top-[8px] z-10 text-slate-300"
+                                    />
+                                    <DatePicker
+                                        className="bg-white text-slate-700 rounded-lg p-[9px] pl-10 w-full outline-transparent focus:outline-primary-900 text-sm "
+                                        selected={startDate}
+                                        onChange={(date) => setStartDate(date)}
+                                        startDate={startDate}
+                                    />
+                                </div>
                             </div>
                             <div className="flex-1 space-y-2">
                                 <span className="text-slate-500">Start Period</span>
@@ -124,14 +128,19 @@ export const RequestNew = () => {
                         <div className="flex gap-4">
                             <div className="flex-1 space-y-2">
                                 <span className="text-slate-500">To</span>
-                                <DatePicker
-                                    className="bg-white rounded-lg p-2 w-full outline-transparent focus:outline-primary-900"
-                                    selected={startDate}
-                                    onChange={(date) => setStartDate(date)}
-                                    // selectsStart
-                                    startDate={startDate}
-                                    endDate={endDate}
-                                />
+
+                                <div className="flex relative">
+                                    <Calendar
+                                        size={20}
+                                        className="absolute left-3 top-[8px] z-10 text-slate-300"
+                                    />
+                                    <DatePicker
+                                        className="bg-white text-slate-700 rounded-lg p-[9px] pl-10 w-full outline-transparent focus:outline-primary-900 text-sm "
+                                        selected={endDate}
+                                        onChange={(date) => setEndDate(date)}
+                                        endDate={endDate}
+                                    />
+                                </div>
                             </div>
                             <div className="flex-1 space-y-2">
                                 <span className="text-slate-500">End Period</span>
