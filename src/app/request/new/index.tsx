@@ -13,6 +13,14 @@ const options = [
     { value: 'strawberry', label: 'Strawberry' },
     { value: 'vanilla', label: 'Vanilla' },
 ];
+const startPeriod = [
+    { value: 'morning', label: 'Morning' },
+    { value: 'midday', label: 'Midday' },
+];
+const endPeriod = [
+    { value: 'midday', label: 'Midday' },
+    { value: 'endday', label: 'End of day' },
+];
 
 const dataCircularOne = [
     { name: 'Planned', value: 6 },
@@ -39,6 +47,7 @@ export const RequestNew = () => {
                                     option: (state) =>
                                         twMerge(
                                             'p-1 rounded text-slate-600 font-medium hover:bg-slate-100 p-2 rounded outline-transparent cursor-pointer',
+                                            state.isFocused ? ' bg-slate-100' : '',
                                             state.isSelected
                                                 ? ' text-white bg-primary-900 hover:bg-primary-950'
                                                 : ' '
@@ -55,7 +64,7 @@ export const RequestNew = () => {
                                 }}
                             />
                         </div>
-                        <div className="space-y-2 text-sm ">
+                        <div className="space-y-2 text-sm">
                             <span className="text-slate-500">Type</span>
                             <Select
                                 options={options}
@@ -67,6 +76,7 @@ export const RequestNew = () => {
                                     option: (state) =>
                                         twMerge(
                                             'p-1 rounded text-slate-600 font-medium hover:bg-slate-100 p-2 rounded outline-transparent cursor-pointer',
+                                            state.isFocused ? ' bg-slate-100' : '',
                                             state.isSelected
                                                 ? ' text-white bg-primary-900 hover:bg-primary-950'
                                                 : ' '
@@ -86,13 +96,13 @@ export const RequestNew = () => {
                         <div className="flex gap-4">
                             <div className="flex-1 space-y-2">
                                 <span className="text-slate-500">From</span>
-                                <div className="flex relative">
-                                    <Calendar
+                                <div className="relative">
+                                    {/* <Calendar
                                         size={20}
-                                        className="absolute left-3 top-[8px] z-10 text-slate-300"
-                                    />
+                                        className="absolute left-3 top-[8px] z-1 text-slate-300"
+                                    /> */}
                                     <DatePicker
-                                        className="bg-white text-slate-700 rounded-lg p-[9px] pl-10 w-full outline-transparent focus:outline-primary-900 text-sm "
+                                        className="bg-white text-slate-700 rounded-lg p-[9px] px-3 w-full outline-transparent focus:outline-primary-900 text-sm "
                                         selected={startDate}
                                         onChange={(date) => setStartDate(date)}
                                         startDate={startDate}
@@ -102,15 +112,16 @@ export const RequestNew = () => {
                             <div className="flex-1 space-y-2">
                                 <span className="text-slate-500">Start Period</span>
                                 <Select
-                                    options={options}
+                                    options={startPeriod}
                                     unstyled
                                     //styles={{ control }}
-                                    placeholder="Marie Smith"
+                                    defaultValue={startPeriod[0]}
                                     classNames={{
                                         singleValue: () => 'text-slate-600',
                                         option: (state) =>
                                             twMerge(
                                                 'p-1 rounded text-slate-600 font-medium hover:bg-slate-100 p-2 rounded outline-transparent cursor-pointer',
+                                                state.isFocused ? ' bg-slate-100' : '',
                                                 state.isSelected
                                                     ? ' text-white bg-primary-900 hover:bg-primary-950'
                                                     : ' '
@@ -128,14 +139,14 @@ export const RequestNew = () => {
                         <div className="flex gap-4">
                             <div className="flex-1 space-y-2">
                                 <span className="text-slate-500">To</span>
-
-                                <div className="flex relative">
-                                    <Calendar
+                                <div className="relative">
+                                    {/* <Calendar
                                         size={20}
                                         className="absolute left-3 top-[8px] z-10 text-slate-300"
-                                    />
+                                    /> */}
                                     <DatePicker
-                                        className="bg-white text-slate-700 rounded-lg p-[9px] pl-10 w-full outline-transparent focus:outline-primary-900 text-sm "
+                                        enableTabLoop={true}
+                                        className="bg-white text-slate-700 rounded-lg p-[9px] px-3 w-full outline-transparent focus:outline-primary-900 text-sm"
                                         selected={endDate}
                                         onChange={(date) => setEndDate(date)}
                                         endDate={endDate}
@@ -145,15 +156,16 @@ export const RequestNew = () => {
                             <div className="flex-1 space-y-2">
                                 <span className="text-slate-500">End Period</span>
                                 <Select
-                                    options={options}
+                                    options={endPeriod}
                                     unstyled
                                     //styles={{ control }}
-                                    placeholder="Marie Smith"
+                                    defaultValue={endPeriod[0]}
                                     classNames={{
                                         singleValue: () => 'text-slate-600',
                                         option: (state) =>
                                             twMerge(
                                                 'p-1 rounded text-slate-600 font-medium hover:bg-slate-100 p-2 rounded outline-transparent cursor-pointer',
+                                                state.isFocused ? ' bg-slate-100' : '',
                                                 state.isSelected
                                                     ? ' text-white bg-primary-900 hover:bg-primary-950'
                                                     : ' '
