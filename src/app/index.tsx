@@ -3,6 +3,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { Dashboard } from './dashboard';
 import { Calendar } from './calendar';
 import { Request } from './request';
+import { TrackRecord } from './track-record';
 
 export const Application = () => {
     return (
@@ -11,10 +12,7 @@ export const Application = () => {
                 <Route path="dashboard" element={<Dashboard />} />
                 <Route path="calendar" element={<Calendar />} />
                 <Route path="request/*" element={<Request />} />
-                <Route
-                    path="track-records"
-                    element={<p className="text-slate-800">Track Records</p>}
-                />
+                <Route path="track-records/*" element={<TrackRecord />} />
                 <Route path="employees" element={<p className="text-slate-800">Employees</p>} />
                 <Route path="teams" element={<p className="text-slate-800">Dashboard</p>} />
                 <Route path="offices" element={<p className="text-slate-800">Teams</p>} />

@@ -1,39 +1,42 @@
 import { Table } from '@/_common/table';
 import { URLSearch } from '@/constants/utils/URLSearch';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
-import { Eye, FileText, MoreHorizontal, Pencil } from 'lucide-react';
+import { Clock3, Eye, FileText, MoreHorizontal, PauseCircle, Pencil } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 import { twMerge } from 'tailwind-merge';
 
 export const TableRow = () => {
     return (
-        <Table.Row className="p-2">
+        <Table.Row className="p-3">
             <Table.Column className="col-span-2">
-                <div className="flex gap-2 items-center">
-                    <div className="w-8 h-8 bg-slate-200 rounded-full flex flex-shrink-0 justify-center items-center">
-                        <p className="text-slate-600 leading-none font-bold text-sm">CH</p>
+                <p className="truncate text-slate-500 text-sm">
+                    <span className="font-bold">Mon</span> Apr 3, 2023
+                </p>
+            </Table.Column>
+            <Table.Column className="col-span-1">
+                <p className="truncate text-slate-500 text-sm font-semibold ">09:00 AM</p>
+            </Table.Column>
+            <Table.Column className="col-span-2">
+                <p className="truncate text-slate-500 text-sm font-semibold ">09:00 AM</p>
+            </Table.Column>
+            <Table.Column className="col-span-3">
+                <div className="flex gap-2">
+                    <div>
+                        <PauseCircle className="text-yellow-400" />
                     </div>
-                    <p className="truncate text-slate-500 text-sm">Justine Andre</p>
+                    <div>
+                        <p className="text-slate-500 text-sm font-bold">1:00 hrs</p>
+                        <p className="text-slate-500 text-sm">01:00 pm - 02:00pm</p>
+                    </div>
                 </div>
             </Table.Column>
             <Table.Column className="col-span-1">
-                <p className="font-bold text-green-500">Vacation</p>
+                <p className="truncate text-slate-500 text-sm font-semibold">8 hrs</p>
             </Table.Column>
-            <Table.Column className="col-span-2">
-                <p className="text-slate-500 text-sm">May 2, 2023</p>
+            <Table.Column className="col-span-1">
+                <p className="truncate text-slate-500 text-sm font-semibold">0 hrs</p>
             </Table.Column>
-            <Table.Column className="col-span-2">
-                <p className="text-slate-500 text-sm">May 4, 2023</p>
-            </Table.Column>
-            <Table.Column className="col-span-2">
-                <p className="text-slate-500 text-sm">Apr 12, 2023</p>
-            </Table.Column>
-            <Table.Column className="col-span-1 flex items-center text-slate-500 justify-start">
-                <p className="font-bold text-sm bg-violet-100 text-violet-800 rounded-lg p-1 px-3">
-                    Pending
-                </p>
-            </Table.Column>
-            <Table.Column className="col-span-1  flex items-center justify-center">
+            <Table.Column className="col-span-1 flex items-center justify-end">
                 <FileText className="text-primary-800" />
             </Table.Column>
             <Table.Column className=" col-span-1 flex items-center justify-end">

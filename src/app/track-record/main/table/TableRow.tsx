@@ -1,42 +1,47 @@
 import { Table } from '@/_common/table';
 import { URLSearch } from '@/constants/utils/URLSearch';
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
-import { Eye, FileText, MoreHorizontal, Pencil } from 'lucide-react';
+import { Clock3, Eye, FileText, MoreHorizontal, Pencil } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 import { twMerge } from 'tailwind-merge';
 
 export const TableRow = () => {
     return (
-        <Table.Row className="p-2">
-            <Table.Column className="col-span-2">
+        <Table.Row className="p-3">
+            <Table.Column className="col-span-4">
                 <div className="flex gap-2 items-center">
                     <div className="w-8 h-8 bg-slate-200 rounded-full flex flex-shrink-0 justify-center items-center">
                         <p className="text-slate-600 leading-none font-bold text-sm">CH</p>
                     </div>
-                    <p className="truncate text-slate-500 text-sm">Justine Andre</p>
+                    <div className="truncate text-slate-500 text-sm">
+                        <p className="truncate text-slate-500 text-sm font-bold">Adam Bradley</p>
+                        <p className="truncate text-slate-500 text-sm">Director of marketing</p>
+                    </div>
                 </div>
             </Table.Column>
-            <Table.Column className="col-span-1">
-                <p className="font-bold text-green-500">Vacation</p>
+            <Table.Column className="col-span-3">
+                <div className="flex gap-2">
+                    <div>
+                        <Clock3 className="text-primary-900" />
+                    </div>
+                    <div>
+                        <p className="text-slate-500 text-sm">Monthly hours</p>
+                        <p className="text-slate-500 text-sm font-bold">180</p>
+                    </div>
+                </div>
             </Table.Column>
-            <Table.Column className="col-span-2">
-                <p className="text-slate-500 text-sm">May 2, 2023</p>
+            <Table.Column className="col-span-3">
+                <div className="flex gap-2">
+                    <div>
+                        <Clock3 className="text-primary-900" />
+                    </div>
+                    <div>
+                        <p className="text-slate-500 text-sm">Time Balance</p>
+                        <p className="text-green-500 text-sm font-bold">+ 2hr</p>
+                    </div>
+                </div>
             </Table.Column>
-            <Table.Column className="col-span-2">
-                <p className="text-slate-500 text-sm">May 4, 2023</p>
-            </Table.Column>
-            <Table.Column className="col-span-2">
-                <p className="text-slate-500 text-sm">Apr 12, 2023</p>
-            </Table.Column>
-            <Table.Column className="col-span-1 flex items-center text-slate-500 justify-start">
-                <p className="font-bold text-sm bg-violet-100 text-violet-800 rounded-lg p-1 px-3">
-                    Pending
-                </p>
-            </Table.Column>
-            <Table.Column className="col-span-1  flex items-center justify-center">
-                <FileText className="text-primary-800" />
-            </Table.Column>
-            <Table.Column className=" col-span-1 flex items-center justify-end">
+            <Table.Column className=" col-span-2 flex items-center justify-end">
                 <DropdownMenu.Root key="filterBy">
                     <DropdownMenu.Trigger asChild>
                         <button

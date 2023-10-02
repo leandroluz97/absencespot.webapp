@@ -121,8 +121,8 @@ export const Calendar = () => {
     };
 
     return (
-        <article className="h-full overflow-y-auto md:overflow-hidden flex flex-col md:flex-row  gap-[3px]">
-            <section className="flex-1 h-full flex flex-col">
+        <article className="h-full md:h-full overflow-y-auto md:overflow-hidden flex flex-col md:flex-row  gap-[3px]">
+            <section className="flex-1 h-auto md:h-full flex flex-col">
                 <div className="flex gap-6 p-4">
                     <div className="flex gap-2 text-slate-600 font-medium">
                         <DropdownMenu.Root key="groupBy">
@@ -343,7 +343,7 @@ export const Calendar = () => {
                     ))}
                 </div>
             </section>
-            <aside className="small-scroll bg-a flex-grow-3 bg-white h-full w-full md:max-w-sm rounded">
+            <aside className="h-auto md:h-full small-scroll bg-a flex-grow-3 bg-white w-full md:max-w-sm rounded">
                 <div className="overflow-hidden h-full flex flex-col">
                     <div className="p-4 space-y-6 overflow-y-auto">
                         <section>

@@ -31,8 +31,8 @@ export const RequestNew = () => {
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
     return (
-        <article className="h-full overflow-y-auto md:overflow-hidden flex flex-col md:flex-row  gap-[3px]">
-            <section className="flex-1 h-full md:overflow-y-auto p-2 md:p-10">
+        <article className="h-auto md:h-full overflow-y-auto md:overflow-hidden flex flex-col md:flex-row  gap-[3px]">
+            <section className="flex-1 h-auto md:h-full md:overflow-y-auto p-2 md:p-10">
                 <div className="">
                     <div className="flex flex-col max-w-4xl mx-auto space-y-4 text-sm">
                         <div className="space-y-2 ">
