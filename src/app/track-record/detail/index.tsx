@@ -1,10 +1,9 @@
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import * as R from 'ramda';
-import { BasicMetric } from '@/app/_common/metrics';
 import { ChevronLeft, ChevronRight, Clock3, Group, SlidersHorizontal } from 'lucide-react';
 import { URLSearch } from '@/constants/utils/URLSearch';
 import { twMerge } from 'tailwind-merge';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { usePagination } from '@/hooks/usePagination';
 import { Pagination } from '@/_common/pagination';
 import { TrackRecordDetailsTable } from './table/Table';
@@ -15,6 +14,7 @@ import {
     endOfMonth,
     endOfWeek,
     format,
+    isEqual,
     isSameMonth,
     isToday,
     startOfMonth,
@@ -43,6 +43,7 @@ export const TrackRecordDetails = () => {
     };
 
     const currentMonth = new Date(QUERIES.date || today);
+    const selectedDate = new Date(QUERIES.selectedDate || today);
     const previousMonth = format(sub(currentMonth, { months: 1 }), 'yyyy-MM-dd');
     const nextMonth = format(add(currentMonth, { months: 1 }), 'yyyy-MM-dd');
 
@@ -50,9 +51,12 @@ export const TrackRecordDetails = () => {
         start: startOfWeek(today),
         end: add(endOfWeek(today), { days: 1 }),
     });
+
+    console.log(selectedDate);
+
     return (
-        <article className="h-full overflow-hidden flex gap-[3px] text-sm">
-            <section className="flex-1 flex flex-col overflow-hidden">
+        <article className="h-auto md:h-full overflow-y-auto md:overflow-hidden flex flex-col md:flex-row  gap-[3px]">
+            <section className="order-2 md:order-1 flex-1 flex flex-col md:overflow-hidden">
                 <div className="flex gap-6 p-4">
                     <div className="flex gap-2 text-slate-600 font-medium">
                         <DropdownMenu.Root key="groupBy">
@@ -213,7 +217,7 @@ export const TrackRecordDetails = () => {
                     </footer>
                 </div>
             </section>
-            <aside className="small-scroll flex-grow-3 md:bg-white h-full w-full md:max-w-xs rounded">
+            <aside className="order-1 md:order-2 small-scroll flex-grow-3 md:bg-white h-auto md:h-full w-full md:max-w-xs rounded text-sm">
                 <div className="md:overflow-hidden h-full flex flex-col">
                     <div className="p-4 space-y-4 md:overflow-y-auto">
                         <div className="flex flex-col justify-evenly items-center mx-auto w-full max-w-lg">
@@ -237,32 +241,36 @@ export const TrackRecordDetails = () => {
                         </div>
                         <div className="h-[2px] w-full bg-slate-100"></div>
                         <div className="flex flex-col justify-evenly items-center mx-auto w-full max-w-lg">
-                            <div className="flex flex-col gap-3 w-full text-left p-2">
+                            <div className="flex flex-col gap-5 w-full text-left p-2">
                                 <div>
-                                    <Clock3 className="text-primary-900" size={18} />
-                                    <p className="text-slate-700">
+                                    <Clock3 className="text-primary-900 mb-1" size={18} />
+                                    <p className="text-slate-700 leading-none">
                                         <span className=" text-lg font-bold">160</span> hrs
                                     </p>
-                                    <p className="text-slate-500">Monthly required</p>
+                                    <p className="text-slate-500 leading-none">Monthly required</p>
                                 </div>
                                 <div>
-                                    <Clock3 className="text-primary-900" size={18} />
-                                    <p className="text-slate-700">
+                                    <Clock3 className="text-primary-900 mb-1" size={18} />
+                                    <p className="text-slate-700 leading-none">
                                         <span className=" text-lg font-bold">75</span> hrs
                                     </p>
-                                    <p className="text-slate-500">Report time this month</p>
+                                    <p className="text-slate-500 leading-none">
+                                        Report time this month
+                                    </p>
                                 </div>
                                 <div>
-                                    <Clock3 className="text-primary-900" size={18} />
-                                    <p className="text-slate-700">
+                                    <Clock3 className="text-primary-900 mb-1" size={18} />
+                                    <p className="text-slate-700 leading-none">
                                         <span className=" text-lg font-bold">02</span> hrs
                                     </p>
-                                    <p className="text-slate-500">Overtime this month</p>
+                                    <p className="text-slate-500 leading-none">
+                                        Overtime this month
+                                    </p>
                                 </div>
                             </div>
                         </div>
                         <div className="h-[2px] w-full bg-slate-100"></div>
-                        <div className=" hidden md:flex flex-col w-full text-left p-2">
+                        <div className="flex flex-col w-full text-left p-2">
                             {/* <span className='text-slate-400 group-hover:text-primary-500 after:absolute after:left-1/2 after:text-primary-900 after:-translate-x-1/2 after:-bottom-1 after:content-['•']'></span> */}
                             <section className="space-y-4">
                                 <header className="flex justify-between items-center">
@@ -292,28 +300,24 @@ export const TrackRecordDetails = () => {
                                     <span className="text-slate-400 text-center">Fri</span>
                                     <span className="text-slate-400 text-center">Sat</span>
                                 </div>
-                                <div className="grid grid-cols-7">
+                                <div className="grid grid-cols-7 gap-1">
                                     {days.map((day, index) => (
-                                        <div
+                                        <Link
+                                            to={URLSearch.set({
+                                                selectedDate: format(day, 'yyyy-MM-dd'),
+                                            })}
                                             className={twMerge(
-                                                'col-span-1 font-bold text-slate-700 bg-white p-2 text-sm text-center cursor-pointer rounded-sm ',
-                                                !isSameMonth(day, today)
-                                                    ? ' text-slate-300 bg-slate-50'
+                                                'col-span-1 font-bold text-slate-700  p-2 text-sm text-center cursor-pointer rounded-full hover:bg-slate-100 transition-all ease-in duration-200 ',
+                                                !isSameMonth(day, today) ? ' text-slate-300 ' : '',
+                                                isToday(day) ? 'bg-slate-200 rounded-full' : '',
+                                                format(day, 'yyyy-MM-dd') ===
+                                                    format(selectedDate, 'yyyy-MM-dd')
+                                                    ? ' bg-primary-900 hover:bg-primary-950 rounded-full text-white '
                                                     : ''
                                             )}
                                         >
-                                            <p
-                                                className={twMerge(
-                                                    '',
-                                                    isToday(day)
-                                                        ? ' text-primary-900 font-extrabold '
-                                                        : ''
-                                                )}
-                                            >
-                                                {format(day, 'd')}
-                                            </p>
-                                            <div className="grid grid-row-6 gap-2"></div>
-                                        </div>
+                                            {format(day, 'd')}
+                                        </Link>
                                     ))}
                                 </div>
                             </section>
