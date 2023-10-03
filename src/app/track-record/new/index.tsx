@@ -191,8 +191,8 @@ export const TrackRecordNew = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="flex flex-col lg:flex-row gap-4">
-                            <div className="flex-1 space-y-2">
+                        <div className="flex flex-col lg:flex-row gap-1 md:gap-4">
+                            <div className="flex-1 space-y-0 md:space-y-2">
                                 <span className="text-slate-500">Check in</span>
                                 <Select
                                     options={hours}
@@ -221,7 +221,7 @@ export const TrackRecordNew = () => {
                                     }}
                                 />
                             </div>
-                            <div className="flex-1 space-y-2">
+                            <div className="flex-1 space-y-0 md:space-y-2">
                                 <span className="text-slate-100">--</span>
                                 <Select
                                     options={periods}
@@ -251,8 +251,8 @@ export const TrackRecordNew = () => {
                                 />
                             </div>
                         </div>
-                        <div className="flex flex-col lg:flex-row gap-4">
-                            <div className="flex-1 space-y-2">
+                        <div className="flex flex-col lg:flex-row gap-1 md:gap-4">
+                            <div className="flex-1 space-y-0 md:space-y-2">
                                 <span className="text-slate-500">Check out</span>
                                 <Select
                                     options={hours}
@@ -281,7 +281,7 @@ export const TrackRecordNew = () => {
                                     }}
                                 />
                             </div>
-                            <div className="flex-1 space-y-2">
+                            <div className="flex-1 space-y-0 md:space-y-2">
                                 <span className="text-slate-100">--</span>
                                 <Select
                                     options={periods}
@@ -311,14 +311,14 @@ export const TrackRecordNew = () => {
                                 />
                             </div>
                         </div>
-                        <div className="flex flex-col lg:flex-row gap-4">
-                            <div className="flex-1 space-y-2">
+                        <div className="flex flex-col lg:flex-row gap-1 md:gap-4">
+                            <div className="flex-1 space-y-0 md:space-y-2">
                                 <span className="text-slate-500">Break</span>
                                 <Select
-                                    options={periods}
+                                    options={hours}
                                     unstyled
                                     //styles={{ control }}
-                                    defaultValue={periods[0]}
+                                    defaultValue={hours[0]}
                                     classNames={{
                                         singleValue: () => 'text-slate-600',
                                         option: (state) =>
@@ -341,7 +341,7 @@ export const TrackRecordNew = () => {
                                     }}
                                 />
                             </div>
-                            <div className="flex-1 space-y-2">
+                            <div className="flex-1 space-y-0 md:space-y-2">
                                 <span className="text-slate-100">--</span>
                                 <Select
                                     options={periods}
@@ -370,13 +370,12 @@ export const TrackRecordNew = () => {
                                     }}
                                 />
                             </div>
-                            <div className="flex-1 space-y-2">
+                            <div className="flex-1 space-y-0 md:space-y-2">
                                 <span className="text-slate-100">--</span>
                                 <Select
-                                    options={periods}
+                                    options={hours}
                                     unstyled
-                                    //styles={{ control }}
-                                    defaultValue={periods[0]}
+                                    defaultValue={hours[0]}
                                     classNames={{
                                         singleValue: () => 'text-slate-600',
                                         option: (state) =>
@@ -399,7 +398,7 @@ export const TrackRecordNew = () => {
                                     }}
                                 />
                             </div>
-                            <div className="flex-1 space-y-2">
+                            <div className="flex-1 space-y-0 md:space-y-2">
                                 <span className="text-slate-100">--</span>
                                 <Select
                                     options={periods}
@@ -435,7 +434,7 @@ export const TrackRecordNew = () => {
                                 <div className="flex gap-2">
                                     <RadioGroup.Item
                                         value="1"
-                                        className="flex justify-between items-center w-4 h-4 rounded-full border-4 border-slate-400 bg-slate-100  aria-checked:border-primary-900 "
+                                        className="flex justify-between items-center flex-shrink-0 w-4 h-4 rounded-full border-4 border-slate-400 bg-slate-100  aria-checked:border-primary-900 "
                                     >
                                         <RadioGroup.Indicator className="flex w-2 h-2">
                                             {/* <div className="block w-1 h-1 rounded-full bg-primary-900"></div> */}
@@ -447,7 +446,7 @@ export const TrackRecordNew = () => {
                                 <div className="flex gap-2">
                                     <RadioGroup.Item
                                         value="2"
-                                        className="flex justify-between items-center w-4 h-4 rounded-full border-4 border-slate-400 bg-slate-100  aria-checked:border-primary-900 "
+                                        className="flex justify-between items-center flex-shrink-0 w-4 h-4 rounded-full border-4 border-slate-400 bg-slate-100  aria-checked:border-primary-900 "
                                     >
                                         <RadioGroup.Indicator className="flex w-2 h-2">
                                             {/* <div className="block w-1 h-1 rounded-full bg-primary-900"></div> */}
