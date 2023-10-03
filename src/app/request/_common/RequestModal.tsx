@@ -10,8 +10,6 @@ type RequestModalProps = { data: IRequest };
 
 export const RequestModal = ({ data, ...props }: RequestModalProps) => {
     const { firstName, lastName, type, start, end, notes } = data;
-    console.log(start);
-    console.log(end);
 
     return (
         <Dialog.Root open={false}>

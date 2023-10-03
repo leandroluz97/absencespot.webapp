@@ -8,6 +8,7 @@ import { URLSearch } from '@/constants/utils/URLSearch';
 import { usePagination } from '@/hooks/usePagination';
 import { NavLink } from 'react-router-dom';
 import { Group, SlidersHorizontal } from 'lucide-react';
+import { TrackRecordModal } from '../_common/trackRecordModal';
 
 type IGroup = 'team' | 'office';
 type IMapper = {
@@ -188,7 +189,7 @@ export const TrackRecordMain = () => {
                     </footer>
                 </div>
             </section>
-            {/* <RequestModal data={data} /> */}
+            <TrackRecordModal />
         </article>
     );
 };
