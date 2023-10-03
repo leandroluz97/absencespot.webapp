@@ -33,9 +33,9 @@ type IMapper = {
 };
 
 const options = [
-    { value: 'chocolate', label: 'Chocolate' },
-    { value: 'strawberry', label: 'Strawberry' },
-    { value: 'vanilla', label: 'Vanilla' },
+    { value: 'Adam Bradley', label: 'Adam Bradley' },
+    { value: 'Cecilia Hernandez', label: 'Cecilia Hernandez' },
+    { value: 'Marie', label: 'Willis' },
 ];
 const startPeriod = [
     { value: 'morning', label: 'Morning' },
@@ -66,8 +66,8 @@ export const TrackRecordNew = () => {
         .splice(0, 12 * (60 / 5))
         .map((h) => ({
             // value: format(h, "hh : mm aaaaa'm'"),
-            value: format(h, 'hh : mm'),
-            label: format(h, 'hh : mm'),
+            value: format(h, 'hh:mm'),
+            label: format(h, 'hh:mm'),
         }));
 
     console.log(hours);
@@ -195,10 +195,10 @@ export const TrackRecordNew = () => {
                             <div className="flex-1 space-y-2">
                                 <span className="text-slate-500">Check in</span>
                                 <Select
-                                    options={periods}
+                                    options={hours}
                                     unstyled
                                     //styles={{ control }}
-                                    defaultValue={periods[0]}
+                                    defaultValue={hours[0]}
                                     classNames={{
                                         singleValue: () => 'text-slate-600',
                                         option: (state) =>
@@ -210,7 +210,10 @@ export const TrackRecordNew = () => {
                                                     : ' '
                                             ),
                                         control: (state) =>
-                                            'bg-white p-2 px-3 rounded-lg outline-primary-900',
+                                            twMerge(
+                                                'bg-white p-2 px-3 rounded-lg outline-primary-900 border-2 border-transparent',
+                                                state.isFocused ? ' border-primary-900 ' : ''
+                                            ),
                                         dropdownIndicator: () => 'text-slate-400',
                                         menu: () =>
                                             'bg-white rounded-lg mt-2 p-2 shadow-xl shadow-slate-400/10',
@@ -236,7 +239,10 @@ export const TrackRecordNew = () => {
                                                     : ' '
                                             ),
                                         control: (state) =>
-                                            'bg-white p-2 px-3 rounded-lg outline-primary-900',
+                                            twMerge(
+                                                'bg-white p-2 px-3 rounded-lg outline-primary-900 border-2 border-transparent',
+                                                state.isFocused ? ' border-primary-900 ' : ''
+                                            ),
                                         dropdownIndicator: () => 'text-slate-400',
                                         menu: () =>
                                             'bg-white rounded-lg mt-2 p-2 shadow-xl shadow-slate-400/10',
@@ -264,7 +270,10 @@ export const TrackRecordNew = () => {
                                                     : ' '
                                             ),
                                         control: (state) =>
-                                            'bg-white p-2 px-3 rounded-lg outline-primary-900',
+                                            twMerge(
+                                                'bg-white p-2 px-3 rounded-lg outline-primary-900 border-2 border-transparent',
+                                                state.isFocused ? ' border-primary-900 ' : ''
+                                            ),
                                         dropdownIndicator: () => 'text-slate-400',
                                         menu: () =>
                                             'bg-white rounded-lg mt-2 p-2 shadow-xl shadow-slate-400/10',
@@ -290,7 +299,10 @@ export const TrackRecordNew = () => {
                                                     : ' '
                                             ),
                                         control: (state) =>
-                                            'bg-white p-2 px-3 rounded-lg outline-primary-900',
+                                            twMerge(
+                                                'bg-white p-2 px-3 rounded-lg outline-primary-900 border-2 border-transparent',
+                                                state.isFocused ? ' border-primary-900 ' : ''
+                                            ),
                                         dropdownIndicator: () => 'text-slate-400',
                                         menu: () =>
                                             'bg-white rounded-lg mt-2 p-2 shadow-xl shadow-slate-400/10',
@@ -318,7 +330,10 @@ export const TrackRecordNew = () => {
                                                     : ' '
                                             ),
                                         control: (state) =>
-                                            'bg-white p-2 px-3 rounded-lg outline-primary-900',
+                                            twMerge(
+                                                'bg-white p-2 px-3 rounded-lg outline-primary-900 border-2 border-transparent',
+                                                state.isFocused ? ' border-primary-900 ' : ''
+                                            ),
                                         dropdownIndicator: () => 'text-slate-400',
                                         menu: () =>
                                             'bg-white rounded-lg mt-2 p-2 shadow-xl shadow-slate-400/10',
@@ -344,7 +359,10 @@ export const TrackRecordNew = () => {
                                                     : ' '
                                             ),
                                         control: (state) =>
-                                            'bg-white p-2 px-3 rounded-lg outline-primary-900',
+                                            twMerge(
+                                                'bg-white p-2 px-3 rounded-lg outline-primary-900 border-2 border-transparent',
+                                                state.isFocused ? ' border-primary-900 ' : ''
+                                            ),
                                         dropdownIndicator: () => 'text-slate-400',
                                         menu: () =>
                                             'bg-white rounded-lg mt-2 p-2 shadow-xl shadow-slate-400/10',
@@ -370,7 +388,10 @@ export const TrackRecordNew = () => {
                                                     : ' '
                                             ),
                                         control: (state) =>
-                                            'bg-white p-2 px-3 rounded-lg outline-primary-900',
+                                            twMerge(
+                                                'bg-white p-2 px-3 rounded-lg outline-primary-900 border-2 border-transparent',
+                                                state.isFocused ? ' border-primary-900 ' : ''
+                                            ),
                                         dropdownIndicator: () => 'text-slate-400',
                                         menu: () =>
                                             'bg-white rounded-lg mt-2 p-2 shadow-xl shadow-slate-400/10',
@@ -396,7 +417,10 @@ export const TrackRecordNew = () => {
                                                     : ' '
                                             ),
                                         control: (state) =>
-                                            'bg-white p-2 px-3 rounded-lg outline-primary-900',
+                                            twMerge(
+                                                'bg-white p-2 px-3 rounded-lg outline-primary-900 border-2 border-transparent',
+                                                state.isFocused ? ' border-primary-900 ' : ''
+                                            ),
                                         dropdownIndicator: () => 'text-slate-400',
                                         menu: () =>
                                             'bg-white rounded-lg mt-2 p-2 shadow-xl shadow-slate-400/10',
@@ -411,9 +435,11 @@ export const TrackRecordNew = () => {
                                 <div className="flex gap-2">
                                     <RadioGroup.Item
                                         value="1"
-                                        className="flex justify-center items-center w-4 h-4 rounded-full bg-slate-400"
+                                        className="flex justify-between items-center w-4 h-4 rounded-full border-4 border-slate-400 bg-slate-100  aria-checked:border-primary-900 "
                                     >
-                                        <div className="w-2 h-2 rounded-full bg-white"></div>
+                                        <RadioGroup.Indicator className="flex w-2 h-2">
+                                            {/* <div className="block w-1 h-1 rounded-full bg-primary-900"></div> */}
+                                        </RadioGroup.Indicator>
                                     </RadioGroup.Item>
                                     On site
                                 </div>
@@ -421,9 +447,11 @@ export const TrackRecordNew = () => {
                                 <div className="flex gap-2">
                                     <RadioGroup.Item
                                         value="2"
-                                        className="flex justify-center items-center w-4 h-4 rounded-full bg-primary-900"
+                                        className="flex justify-between items-center w-4 h-4 rounded-full border-4 border-slate-400 bg-slate-100  aria-checked:border-primary-900 "
                                     >
-                                        <div className="w-2 h-2 rounded-full bg-white"></div>
+                                        <RadioGroup.Indicator className="flex w-2 h-2">
+                                            {/* <div className="block w-1 h-1 rounded-full bg-primary-900"></div> */}
+                                        </RadioGroup.Indicator>
                                     </RadioGroup.Item>
                                     Remote
                                 </div>
