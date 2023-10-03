@@ -9,7 +9,7 @@ type TrackRecordModalProps = { data: IRequest };
 
 export const TrackRecordModal = ({ data, ...props }: TrackRecordModalProps) => {
     return (
-        <Dialog.Root open={true}>
+        <Dialog.Root open={false}>
             {/* <Dialog.Trigger asChild>
                     <button className="Button violet">Edit profile</button>
                 </Dialog.Trigger> */}
