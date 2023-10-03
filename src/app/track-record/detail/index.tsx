@@ -47,13 +47,6 @@ export const TrackRecordDetails = () => {
     const previousMonth = format(sub(currentMonth, { months: 1 }), 'yyyy-MM-dd');
     const nextMonth = format(add(currentMonth, { months: 1 }), 'yyyy-MM-dd');
 
-    const vacation = eachDayOfInterval({
-        start: startOfWeek(today),
-        end: add(endOfWeek(today), { days: 1 }),
-    });
-
-    console.log(selectedDate);
-
     return (
         <article className="h-auto md:h-full overflow-y-auto md:overflow-hidden flex flex-col md:flex-row  gap-[3px]">
             <section className="order-2 md:order-1 flex-1 flex flex-col md:overflow-hidden">
@@ -301,8 +294,10 @@ export const TrackRecordDetails = () => {
                                     <span className="text-slate-400 text-center">Sat</span>
                                 </div>
                                 <div className="grid grid-cols-7 gap-1">
-                                    {days.map((day, index) => (
+                                    {days.map((day) => (
                                         <Link
+                                            tabIndex={1}
+                                            key={day.toDateString()}
                                             to={URLSearch.set({
                                                 selectedDate: format(day, 'yyyy-MM-dd'),
                                             })}

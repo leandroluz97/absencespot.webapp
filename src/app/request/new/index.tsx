@@ -3,7 +3,7 @@ import { URLSearch } from '@/constants/utils/URLSearch';
 import Select from 'react-select';
 import Dropzone from 'react-dropzone';
 import { twMerge } from 'tailwind-merge';
-import { Calendar, FileUp } from 'lucide-react';
+import { FileUp } from 'lucide-react';
 import { BasicMetric } from '@/app/_common/metrics';
 import { PieChart } from '@/app/_common/charts/PieChart';
 import { useState } from 'react';
