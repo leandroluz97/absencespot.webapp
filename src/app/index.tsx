@@ -5,6 +5,7 @@ import { Calendar } from './calendar';
 import { Request } from './request';
 import { TrackRecord } from './track-record';
 import { Employee } from './employee';
+import { Team } from './team';
 
 export const Application = () => {
     return (
@@ -15,7 +16,7 @@ export const Application = () => {
                 <Route path="request/*" element={<Request />} />
                 <Route path="track-records/*" element={<TrackRecord />} />
                 <Route path="employees" element={<Employee />} />
-                <Route path="teams" element={<p className="text-slate-800">Dashboard</p>} />
+                <Route path="teams" element={<Team />} />
                 <Route path="offices" element={<p className="text-slate-800">Teams</p>} />
                 <Route path="notifications" element={<p className="text-slate-800">Offices</p>} />
                 <Route
