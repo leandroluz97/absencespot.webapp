@@ -7,6 +7,7 @@ import { Pagination } from '@/_common/pagination';
 import { URLSearch } from '@/constants/utils/URLSearch';
 import { usePagination } from '@/hooks/usePagination';
 import { TeamTable } from './table/Table';
+import { DeleteTeamModal } from '../_common/deleteTeamModal';
 
 type IGroup = 'team' | 'office';
 type IMapper = {
@@ -140,7 +141,7 @@ export const TeamMain = () => {
                     </footer>
                 </div>
             </section>
-            {/* <TrackRecordModal /> */}
+            <DeleteTeamModal />
         </article>
     );
 };
