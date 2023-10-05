@@ -4,7 +4,7 @@ import { Avatar } from '@/_common/avatar';
 
 export const DeleteTeamModal = () => {
     return (
-        <Dialog.Root open={true}>
+        <Dialog.Root open={false}>
             {/* <Dialog.Trigger asChild>
                     <button className="Button violet">Edit profile</button>
                 </Dialog.Trigger> */}
