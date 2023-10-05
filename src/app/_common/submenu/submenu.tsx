@@ -1,91 +1,66 @@
-import { NavLink } from 'react-router-dom';
+import { ComponentProps, ReactNode } from 'react';
+import { NavLink, NavLinkProps } from 'react-router-dom';
 import { twMerge } from 'tailwind-merge';
 
-export const SubmenuRoot = () => {
+type RootProps = ComponentProps<'div'> & {
+    children: ReactNode;
+};
+type ContentProps = ComponentProps<'div'> & {
+    children: ReactNode;
+};
+type ListProps = ComponentProps<'div'> & {
+    children: ReactNode;
+};
+type ItemProps = NavLinkProps & {
+    children: ReactNode;
+    className?: string;
+};
+
+export const SubmenuRoot = ({ children, ...props }: RootProps) => {
     return (
-        <div className="submenu flex flex-col w-full md:max-w-[200px] text-sm overflow-x-auto">
-            <nav className="flex-1 p-2 flex flex-col">
-                <ul className="flex gap-2 w-full md:flex-col flex-nowrap md:p-3">
-                    <li className="">
-                        <NavLink
-                            to="general"
-                            className={({ isActive }) =>
-                                twMerge(
-                                    'text-slate-500 font-semibold whitespace-nowrap p-2 md:p-4 hover:text-primary-900 transition-all ease-in-out duration-300',
-                                    isActive ? 'text-primary-900 ' : null
-                                )
-                            }
-                        >
-                            General
-                        </NavLink>
-                    </li>
-                    <li className="">
-                        <NavLink
-                            to="user"
-                            className={({ isActive }) =>
-                                twMerge(
-                                    'text-slate-500 font-semibold whitespace-nowrap p-2 md:p-4 hover:text-primary-900 transition-all ease-in-out duration-300',
-                                    isActive ? 'text-primary-900 ' : null
-                                )
-                            }
-                        >
-                            User
-                        </NavLink>
-                    </li>
-                    <li className="">
-                        <NavLink
-                            to="type-leaves"
-                            className={({ isActive }) =>
-                                twMerge(
-                                    'text-slate-500 font-semibold whitespace-nowrap p-2 md:p-4 hover:text-primary-900 transition-all ease-in-out duration-300',
-                                    isActive ? 'text-primary-900 ' : null
-                                )
-                            }
-                        >
-                            Type Leaves
-                        </NavLink>
-                    </li>
-                    <li className="">
-                        <NavLink
-                            to="integration"
-                            className={({ isActive }) =>
-                                twMerge(
-                                    'text-slate-500 font-semibold whitespace-nowrap p-2 md:p-4 hover:text-primary-900 transition-all ease-in-out duration-300',
-                                    isActive ? 'text-primary-900 ' : null
-                                )
-                            }
-                        >
-                            Integration
-                        </NavLink>
-                    </li>
-                    <li className="">
-                        <NavLink
-                            to="Work-schedule"
-                            className={({ isActive }) =>
-                                twMerge(
-                                    'text-slate-500 font-semibold whitespace-nowrap p-2 md:p-4 hover:text-primary-900 transition-all ease-in-out duration-300',
-                                    isActive ? 'text-primary-900 ' : null
-                                )
-                            }
-                        >
-                            Work Schedule
-                        </NavLink>
-                    </li>
-                    <li className="">
-                        <NavLink
-                            to="plans"
-                            className={({ isActive }) =>
-                                twMerge(
-                                    'text-slate-500 font-semibold whitespace-nowrap p-4 hover:text-primary-900 transition-all ease-in-out duration-300',
-                                    isActive ? 'text-primary-900 ' : null
-                                )
-                            }
-                        >
-                            Plans
-                        </NavLink>
-                    </li>
-                </ul>
-            </nav>
+        <div
+            className={twMerge(
+                'submenu flex flex-col w-full md:max-w-[200px] text-sm overflow-x-auto',
+                props.className
+            )}
+        >
+            {children}
         </div>
+    );
+};
+
+export const SubmenuContent = ({ children, ...props }: ContentProps) => {
+    return <nav className={twMerge('flex-1 p-2 flex flex-col', props.className)}>{children}</nav>;
+};
+
+export const SubmenuList = ({ children, ...props }: ListProps) => {
+    return (
+        <ul
+            className={twMerge(
+                'h-full flex gap-2 md:gap-0 w-full md:flex-col flex-nowrap md:p-3',
+                props.className
+            )}
+        >
+            {children}
+        </ul>
+    );
+};
+
+export const SubmenuItem = ({ children, ...props }: ItemProps) => {
+    return (
+        <li className="">
+            <NavLink
+                {...props}
+                className={({ isActive }) =>
+                    twMerge(
+                        'block w-full text-slate-500 font-semibold whitespace-nowrap p-2  hover:text-primary-900 transition-all ease-in-out duration-300',
+                        isActive ? 'text-primary-900 ' : null,
+                        props.className
+                    )
+                }
+            >
+                {children}
+            </NavLink>
+        </li>
     );
 };
