@@ -6,6 +6,7 @@ import { Request } from './request';
 import { TrackRecord } from './track-record';
 import { Employee } from './employee';
 import { Team } from './team';
+import { Office } from './office';
 
 export const Application = () => {
     return (
@@ -17,7 +18,7 @@ export const Application = () => {
                 <Route path="track-records/*" element={<TrackRecord />} />
                 <Route path="employees/*" element={<Employee />} />
                 <Route path="teams/*" element={<Team />} />
-                <Route path="offices" element={<p className="text-slate-800">Teams</p>} />
+                <Route path="offices/*" element={<Office />} />
                 <Route path="notifications" element={<p className="text-slate-800">Offices</p>} />
                 <Route
                     path="settings"
