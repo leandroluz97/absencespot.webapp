@@ -8,6 +8,7 @@ import { Employee } from './employee';
 import { Team } from './team';
 import { Office } from './office';
 import { Notification } from './notification';
+import { Settings } from './settings';
 
 export const Application = () => {
     return (
@@ -21,10 +22,7 @@ export const Application = () => {
                 <Route path="teams/*" element={<Team />} />
                 <Route path="offices/*" element={<Office />} />
                 <Route path="notifications" element={<Notification />} />
-                <Route
-                    path="settings"
-                    element={<p className="text-slate-800">Settingssssssssssssssssssssssssss</p>}
-                />
+                <Route path="settings/*" element={<Settings />} />
                 <Route path="upgrade" element={<p className="text-slate-800">upgrade</p>} />
                 <Route path="profile" element={<p className="text-slate-800">profile</p>} />
 

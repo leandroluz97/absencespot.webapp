@@ -289,28 +289,30 @@ export const MainLayout = () => {
                     </nav>
                 </article>
                 <main className="flex flex-col w-full md:ml-[2px] gap-[3px] ">
-                    <header className="bg-white">
-                        <div className="h-full p-3 flex flex-col md:flex-row justify-between items-center">
-                            <div className="w-full flex justify-between items-center mb-3 md:mb-0">
-                                <MenuIcon className=" md:hidden" />
-                                <h2 className="text-slate-600 font-bold">Dashboard</h2>
-                                <div className=" md:hidden w-10 h-10 bg-slate-200 rounded-full flex justify-center items-center">
-                                    <p className="text-slate-600 leading-none">ES</p>
+                    {!pathname.includes('settings') && (
+                        <header className="bg-white">
+                            <div className="h-full p-3 flex flex-col md:flex-row justify-between items-center">
+                                <div className="w-full flex justify-between items-center mb-3 md:mb-0">
+                                    <MenuIcon className=" md:hidden" />
+                                    <h2 className="text-slate-600 font-bold">Dashboard</h2>
+                                    <div className=" md:hidden w-10 h-10 bg-slate-200 rounded-full flex justify-center items-center">
+                                        <p className="text-slate-600 leading-none">ES</p>
+                                    </div>
+                                </div>
+                                <div className="relative max-w-full md:max-w-xs w-full">
+                                    <Search
+                                        size={20}
+                                        className="absolute top-2 left-4 translate-y-0.5 text-slate-400"
+                                    />
+                                    <input
+                                        type="text"
+                                        placeholder="Search"
+                                        className="bg-slate-100 rounded-lg p-2 pl-12 outline-primary-900 w-full text-slate-700 placeholder-slate-400"
+                                    />
                                 </div>
                             </div>
-                            <div className="relative max-w-full md:max-w-xs w-full">
-                                <Search
-                                    size={20}
-                                    className="absolute top-2 left-4 translate-y-0.5 text-slate-400"
-                                />
-                                <input
-                                    type="text"
-                                    placeholder="Search"
-                                    className="bg-slate-100 rounded-lg p-2 pl-12 outline-primary-900 w-full text-slate-700 placeholder-slate-400"
-                                />
-                            </div>
-                        </div>
-                    </header>
+                        </header>
+                    )}
                     <Outlet />
                 </main>
             </section>

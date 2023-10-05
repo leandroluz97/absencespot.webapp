@@ -1,5 +1,3 @@
-import { Table } from '@/_common/table';
-import { TableHeader } from './TableHeader';
 import { TableCard } from './TableCard';
 
 export const OfficeTable = () => {
