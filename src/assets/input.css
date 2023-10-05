@@ -48,6 +48,21 @@
     border-radius: 14px;
 }
 
+/* Hide the visual scrollbar */
+.submenu::-webkit-scrollbar {
+    width: 0.5em; /* Adjust this width as needed */
+}
+
+/* Track */
+.submenu::-webkit-scrollbar-track {
+    background: transparent; /* Make the track transparent */
+}
+
+/* Handle */
+.submenu::-webkit-scrollbar-thumb {
+    background: transparent; /* Make the scrollbar thumb (handle) transparent */
+}
+
 .AccordionChevron {
     transition: transform 300ms;
 }

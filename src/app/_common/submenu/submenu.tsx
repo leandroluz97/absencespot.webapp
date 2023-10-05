@@ -1,18 +1,17 @@
-import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { twMerge } from 'tailwind-merge';
 
 export const SubmenuRoot = () => {
     return (
-        <div className="flex flex-col w-full md:max-w-[200px] text-sm">
-            <nav className="flex-1">
-                <ul className="h-full flex gap-2 w-full md:flex-col flex-nowrap overflow-auto">
+        <div className="submenu flex flex-col w-full md:max-w-[200px] text-sm overflow-x-auto">
+            <nav className="flex-1 p-2 flex flex-col">
+                <ul className="flex gap-2 w-full md:flex-col flex-nowrap md:p-3">
                     <li className="">
                         <NavLink
                             to="general"
                             className={({ isActive }) =>
                                 twMerge(
-                                    'text-slate-500 font-semibold whitespace-nowrap p-4 hover:text-primary-900 transition-all ease-in-out duration-300',
+                                    'text-slate-500 font-semibold whitespace-nowrap p-2 md:p-4 hover:text-primary-900 transition-all ease-in-out duration-300',
                                     isActive ? 'text-primary-900 ' : null
                                 )
                             }
@@ -25,7 +24,7 @@ export const SubmenuRoot = () => {
                             to="user"
                             className={({ isActive }) =>
                                 twMerge(
-                                    'text-slate-500 font-semibold whitespace-nowrap p-4 hover:text-primary-900 transition-all ease-in-out duration-300',
+                                    'text-slate-500 font-semibold whitespace-nowrap p-2 md:p-4 hover:text-primary-900 transition-all ease-in-out duration-300',
                                     isActive ? 'text-primary-900 ' : null
                                 )
                             }
@@ -38,7 +37,7 @@ export const SubmenuRoot = () => {
                             to="type-leaves"
                             className={({ isActive }) =>
                                 twMerge(
-                                    'text-slate-500 font-semibold whitespace-nowrap p-4 hover:text-primary-900 transition-all ease-in-out duration-300',
+                                    'text-slate-500 font-semibold whitespace-nowrap p-2 md:p-4 hover:text-primary-900 transition-all ease-in-out duration-300',
                                     isActive ? 'text-primary-900 ' : null
                                 )
                             }
@@ -51,7 +50,7 @@ export const SubmenuRoot = () => {
                             to="integration"
                             className={({ isActive }) =>
                                 twMerge(
-                                    'text-slate-500 font-semibold whitespace-nowrap p-4 hover:text-primary-900 transition-all ease-in-out duration-300',
+                                    'text-slate-500 font-semibold whitespace-nowrap p-2 md:p-4 hover:text-primary-900 transition-all ease-in-out duration-300',
                                     isActive ? 'text-primary-900 ' : null
                                 )
                             }
@@ -64,7 +63,7 @@ export const SubmenuRoot = () => {
                             to="Work-schedule"
                             className={({ isActive }) =>
                                 twMerge(
-                                    'text-slate-500 font-semibold whitespace-nowrap p-4 hover:text-primary-900 transition-all ease-in-out duration-300',
+                                    'text-slate-500 font-semibold whitespace-nowrap p-2 md:p-4 hover:text-primary-900 transition-all ease-in-out duration-300',
                                     isActive ? 'text-primary-900 ' : null
                                 )
                             }
