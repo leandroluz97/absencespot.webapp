@@ -7,6 +7,7 @@ import { TrackRecord } from './track-record';
 import { Employee } from './employee';
 import { Team } from './team';
 import { Office } from './office';
+import { Notification } from './notification';
 
 export const Application = () => {
     return (
@@ -19,7 +20,7 @@ export const Application = () => {
                 <Route path="employees/*" element={<Employee />} />
                 <Route path="teams/*" element={<Team />} />
                 <Route path="offices/*" element={<Office />} />
-                <Route path="notifications" element={<p className="text-slate-800">Offices</p>} />
+                <Route path="notifications" element={<Notification />} />
                 <Route
                     path="settings"
                     element={<p className="text-slate-800">Settingssssssssssssssssssssssssss</p>}

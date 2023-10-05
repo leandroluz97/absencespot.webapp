@@ -3,7 +3,7 @@ import { Building2, X } from 'lucide-react';
 
 export const OfficeModal = () => {
     return (
-        <Dialog.Root open={true}>
+        <Dialog.Root open={false}>
             {/* <Dialog.Trigger asChild>
                     <button className="Button violet">Edit profile</button>
                 </Dialog.Trigger> */}
