@@ -94,11 +94,11 @@ export const TeamNew = () => {
                                 id="c1"
                                 defaultChecked
                                 className={twMerge(
-                                    'rounded flex justify-between items-center flex-shrink-0 w-5 h-5 border-2 border-slate-400 bg-tranparent  aria-checked:border-primary-900 aria-checked:bg-primary-800  '
+                                    'rounded flex justify-between items-center flex-shrink-0 w-4 h-4 border-2 border-slate-400 bg-tranparent  aria-checked:border-primary-900 aria-checked:bg-primary-800  '
                                 )}
                             >
                                 <CheckboxPrimitive.Indicator>
-                                    <CheckIcon className="h-4 w-4 self-center text-white" />
+                                    <CheckIcon className="h-3 w-3  self-center text-white" />
                                 </CheckboxPrimitive.Indicator>
                             </CheckboxPrimitive.Root>
 
