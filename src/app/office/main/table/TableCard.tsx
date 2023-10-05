@@ -8,7 +8,7 @@ import { twMerge } from 'tailwind-merge';
 
 export const TableCard = () => {
     return (
-        <div className="bg-white p-4 py-6 space-y-4">
+        <div tabIndex={1} className="bg-white p-4 py-6 space-y-4">
             <div className="flex justify-between">
                 <div className="space-y-1">
                     <Building2 className="text-primary-900" />
@@ -18,6 +18,7 @@ export const TableCard = () => {
                     <DropdownMenu.Root key="filterBy">
                         <DropdownMenu.Trigger asChild>
                             <button
+                                tabIndex={1}
                                 aria-label="options"
                                 className="IconButton outline-none text-white text-sm p-2 rounded-lg hover:bg-slate-100 transition-all ease-in-out duration-300"
                             >

@@ -8,6 +8,8 @@ import { twMerge } from 'tailwind-merge';
 import { Group, SlidersHorizontal } from 'lucide-react';
 import { Pagination } from '@/_common/pagination';
 import { OfficeTable } from './table/Table';
+import { DeleteOfficeModal } from '../_common/deleteOfficeModal';
+import { OfficeModal } from '../_common/officeModal';
 
 type IGroup = 'team' | 'office';
 type IMapper = {
@@ -95,7 +97,8 @@ export const OfficeMain = () => {
                     </footer>
                 </div>
             </section>
-            {/* <DeleteTeamModal /> */}
+            {/* <DeleteOfficeModal /> */}
+            <OfficeModal />
         </article>
     );
 };
