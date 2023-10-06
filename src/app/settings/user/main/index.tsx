@@ -6,7 +6,7 @@ import { Pagination } from '@/_common/pagination';
 export const UserMain = () => {
     return (
         <article className="space-y-6 h-full ">
-            <section className="space-y-6 h-full overflow-hidden">
+            <section className="space-y-6 h-full">
                 <header className="flex justify-between">
                     <h2 className="text-lg text-slate-500 font-bold">User</h2>
                     <Link
@@ -17,13 +17,16 @@ export const UserMain = () => {
                         Invite user
                     </Link>
                 </header>
-                <section className="space-y-5 overflow-hidden">
+                <section className="space-y-5 ">
                     <div className="relative max-w-full w-full">
-                        <Search size={20} className="absolute top-2 left-4  text-slate-400" />
+                        <Search
+                            size={20}
+                            className="absolute top-3 left-4 translate-y-0.3 text-slate-400"
+                        />
                         <input
                             type="text"
                             placeholder="Search"
-                            className="bg-slate-100 rounded-lg p-2 pl-12 outline-primary-900 w-full text-slate-700 placeholder-slate-400"
+                            className="bg-slate-100 rounded-lg p-3 pl-12 outline-primary-900 w-full text-slate-700 placeholder-slate-400"
                         />
                     </div>
                     <div className="h-full flex flex-col overflow-hidden ">

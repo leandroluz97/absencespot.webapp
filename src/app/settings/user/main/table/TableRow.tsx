@@ -7,13 +7,18 @@ import { twMerge } from 'tailwind-merge';
 
 export const TableRow = () => {
     return (
-        <Table.Row className="p-2">
+        <Table.Row className="p-2 bg-slate-50 rounded-lg">
             <Table.Column className="col-span-6">
                 <div className="flex gap-2 items-center">
                     <div className="w-8 h-8 bg-slate-200 rounded-full flex flex-shrink-0 justify-center items-center">
                         <p className="text-slate-600 leading-none font-bold text-sm">CH</p>
                     </div>
-                    <p className="truncate text-slate-500 text-sm">Justine Andre</p>
+                    <div>
+                        <p className="truncate text-slate-500 text-sm font-semibold">
+                            Justine Andre
+                        </p>
+                        <p className="text-slate-400">justin.andre@absencespot.com</p>
+                    </div>
                 </div>
             </Table.Column>
             <Table.Column className="col-span-4">

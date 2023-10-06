@@ -8,13 +8,13 @@ export const TableHeader = () => {
     const desc = QUERIES.sortDesc === 'true' ? 'false' : 'true';
 
     return (
-        <Table.Row>
+        <Table.Row className="bg-slate-100 rounded-lg">
             <Table.ColumnHead
                 to={URLSearch.set({
                     sortBy: 'name',
                     sortDesc: QUERIES.sortBy === 'name' ? desc : 'false',
                 })}
-                className="col-span-6"
+                className="col-span-6 text-slate-600"
                 hasIcon={true}
                 query="name"
             >
@@ -25,13 +25,13 @@ export const TableHeader = () => {
                     sortBy: 'role',
                     sortDesc: QUERIES.sortBy === 'role' ? desc : 'false',
                 })}
-                className="col-span-4"
+                className="col-span-4 text-slate-600"
                 hasIcon={true}
                 query="role"
             >
                 Role
             </Table.ColumnHead>
-            <Table.ColumnHead to="" className="col-span-2" hasIcon={false}>
+            <Table.ColumnHead to="" className="col-span-2 text-slate-600" hasIcon={false}>
                 {' '}
             </Table.ColumnHead>
         </Table.Row>

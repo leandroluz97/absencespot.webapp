@@ -5,7 +5,7 @@ import { CheckIcon, ChevronDown, ChevronUp } from 'lucide-react';
 import Select from 'react-select';
 import { twMerge } from 'tailwind-merge';
 import { useState } from 'react';
-import { Number } from '@/_common/number';
+import { Number } from '@/_common/number/Number';
 
 const options = [
     { value: 'maria', label: 'Maria Willis' },
