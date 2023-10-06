@@ -17,7 +17,11 @@ export const Layout = () => {
                     </Submenu.List>
                 </Submenu.Content>
             </Submenu.Root>
-            <Outlet />
+            <div className="flex-1 bg-white max-w-6xl rounded-lg h-auto md:h-full overflow-hidden p-2">
+                <div className="p-10 h-full overflow-y-auto text-sm">
+                    <Outlet />
+                </div>
+            </div>
         </SimpleLayout>
     );
 };
