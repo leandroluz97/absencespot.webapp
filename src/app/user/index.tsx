@@ -10,9 +10,9 @@ export const User = () => {
         <Routes>
             <Route element={<Layout />}>
                 <Route index element={<Profile />} />
-                <Route path="leave/*" element={<Leave />} />
-                <Route path="credential" element={<Credential />} />
-                <Route path="notification/*" element={<Notification />} />
+                <Route path="leaves/*" element={<Leave />} />
+                <Route path="credentials" element={<Credential />} />
+                <Route path="notifications" element={<Notification />} />
                 <Route path="" element={<p>404</p>} />
                 <Route path="*" element={<Navigate to="/c/5454-4353-534f-3ef6/dashboard" />} />
             </Route>
