@@ -4,7 +4,7 @@ import { TableRow } from './TableRow';
 
 export const UserTable = () => {
     return (
-        <Table.Root style={{ minWidth: '900px' }} className="h-full overflow-auto">
+        <Table.Root style={{ minWidth: '500px' }} className="h-full overflow-auto">
             <Table.Content className="h-full overflow-auto">
                 <TableHeader />
                 <div className="h-full overflow-y-auto flex flex-col w-100 space-y-[3px]">

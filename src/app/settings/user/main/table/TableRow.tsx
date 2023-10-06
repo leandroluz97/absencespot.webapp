@@ -26,7 +26,7 @@ export const TableRow = () => {
                             aria-label="options"
                             className="IconButton outline-none text-white text-sm p-2 rounded-lg hover:bg-slate-100 transition-all ease-in-out duration-300"
                         >
-                            <MoreHorizontal className="text-slate-700" />
+                            <MoreHorizontal className="text-slate-400" />
                         </button>
                     </DropdownMenu.Trigger>
                     <DropdownMenu.Portal>
