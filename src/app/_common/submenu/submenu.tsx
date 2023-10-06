@@ -14,6 +14,7 @@ type ListProps = ComponentProps<'div'> & {
 type ItemProps = NavLinkProps & {
     children: ReactNode;
     className?: string;
+    isActive: boolean;
 };
 
 export const SubmenuRoot = ({ children, ...props }: RootProps) => {
@@ -46,12 +47,12 @@ export const SubmenuList = ({ children, ...props }: ListProps) => {
     );
 };
 
-export const SubmenuItem = ({ children, ...props }: ItemProps) => {
+export const SubmenuItem = ({ children, isActive, ...props }: ItemProps) => {
     return (
         <li className="">
             <NavLink
                 {...props}
-                className={({ isActive }) =>
+                className={() =>
                     twMerge(
                         'block w-full text-slate-500 font-semibold whitespace-nowrap p-2  hover:text-primary-900 transition-all ease-in-out duration-300',
                         isActive ? 'text-primary-900 ' : null,
