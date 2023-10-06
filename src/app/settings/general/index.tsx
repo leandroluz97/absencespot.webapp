@@ -11,7 +11,7 @@ const options = [
 
 export const General = () => {
     return (
-        <article className=" space-y-6">
+        <article className="space-y-6">
             <header>
                 <h2 className="text-lg text-slate-500 font-bold">General</h2>
                 <p className="text-slate-400">Custumize and configure</p>
