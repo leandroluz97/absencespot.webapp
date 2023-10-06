@@ -264,7 +264,7 @@ export const MainLayout = () => {
 
                             <div className="pb-3 md:pb-0 order-1 md:order-4 w-full flex">
                                 <li className="w-full">
-                                    <Menu.Root to={`/c/${id}/profile`} className="w-full">
+                                    <Menu.Root to={`/c/${id}/user`} className="w-full">
                                         <Menu.Content className="w-full flex gap-2 items-center">
                                             <div className="w-10 h-10 bg-slate-200 rounded-full flex justify-center items-center">
                                                 <p className="text-slate-600 leading-none">ES</p>
