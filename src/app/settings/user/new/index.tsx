@@ -14,9 +14,12 @@ export const UserNew = () => {
     const [startDate, setStartDate] = useState(new Date());
 
     return (
-        <article className=" space-y-6">
+        <article className="space-y-6">
             <header>
-                <Link to={''} className="text-lg text-slate-500 font-bold flex gap-3">
+                <Link
+                    to={-1 as unknown as string}
+                    className="text-lg text-slate-500 font-bold flex gap-3"
+                >
                     <ArrowLeft className="text-slate-400" />
                     New User
                 </Link>
@@ -181,7 +184,7 @@ export const UserNew = () => {
                 <div className="text-right pt-10">
                     <button
                         type="submit"
-                        className="px-6 text-white text-sm bg-primary-900 p-2 rounded-lg hover:bg-primary-950 transition-all ease-in-out duration-300"
+                        className=" w-full md:w-auto px-6 text-white text-sm bg-primary-900 p-2 rounded-lg hover:bg-primary-950 transition-all ease-in-out duration-300"
                     >
                         Save
                     </button>
