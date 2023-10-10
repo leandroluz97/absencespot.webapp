@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 export const CredentialNew = () => {
     const [visibility, setVisibility] = useState({ old: false, new: true, confirm: true });
     return (
-        <article className="space-y-6">
+        <article className="space-y-6 ">
             <header>
                 <Link
                     to={-1 as unknown as string}
@@ -25,7 +25,7 @@ export const CredentialNew = () => {
                             id="old"
                             type={visibility.old ? 'text' : 'password'}
                             placeholder="•••••••••"
-                            className="w-full px-4 py-2 text-base rounded-lg  bg-slate-50  p-2  outline-primary-900  text-slate-700 placeholder-slate-400"
+                            className="w-full px-4 py-2 text-base rounded-lg  bg-slate-100  p-2  outline-primary-900  text-slate-700 placeholder-slate-400"
                         />
                         <button
                             onClick={() => {
@@ -51,7 +51,7 @@ export const CredentialNew = () => {
                             id="new"
                             type={visibility.old ? 'text' : 'password'}
                             placeholder="•••••••••"
-                            className="w-full px-4 py-2 text-base rounded-lg  bg-slate-50  p-2  outline-primary-900  text-slate-700 placeholder-slate-400"
+                            className="w-full px-4 py-2 text-base rounded-lg  bg-slate-100  p-2  outline-primary-900  text-slate-700 placeholder-slate-400"
                         />
                         <button
                             onClick={() => {
@@ -77,7 +77,7 @@ export const CredentialNew = () => {
                             id="confirm"
                             type={visibility.confirm ? 'text' : 'password'}
                             placeholder="•••••••••"
-                            className="w-full px-4 py-2 text-base rounded-lg  bg-slate-50  p-2  outline-primary-900  text-slate-700 placeholder-slate-400"
+                            className="w-full px-4 py-2 text-base rounded-lg  bg-slate-100  p-2  outline-primary-900  text-slate-700 placeholder-slate-400"
                         />
                         <button
                             onClick={() => {
@@ -102,7 +102,7 @@ export const CredentialNew = () => {
                         id="companyName"
                         type="email"
                         placeholder=""
-                        className="block bg-slate-50 rounded-lg p-2 px-4 outline-primary-900 w-full text-slate-700 placeholder-slate-400"
+                        className="block bg-slate-100 rounded-lg p-2 px-4 outline-primary-900 w-full text-slate-700 placeholder-slate-400"
                     />
                 </div>
                 <div className="space-y-2">
@@ -113,7 +113,7 @@ export const CredentialNew = () => {
                         id="companyName"
                         type="email"
                         placeholder=""
-                        className="block bg-slate-50 rounded-lg p-2 px-4 outline-primary-900 w-full text-slate-700 placeholder-slate-400"
+                        className="block bg-slate-100 rounded-lg p-2 px-4 outline-primary-900 w-full text-slate-700 placeholder-slate-400"
                     />
                 </div> */}
                 <div className="text-right pt-10">

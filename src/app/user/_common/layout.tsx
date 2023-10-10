@@ -9,11 +9,11 @@ export const Layout = () => {
             <Submenu.Root>
                 <Submenu.Content>
                     <Submenu.List>
-                        <Submenu.Item to="" isActive={pathname.endsWith('/user')}>
+                        <Submenu.Item
+                            to=""
+                            isActive={pathname.endsWith('/user') || pathname.endsWith('/user/new')}
+                        >
                             Profile
-                        </Submenu.Item>
-                        <Submenu.Item to="leaves" isActive={pathname.includes('leaves')}>
-                            Leaves
                         </Submenu.Item>
                         <Submenu.Item to="credentials" isActive={pathname.includes('credentials')}>
                             Credentials

@@ -1,5 +1,4 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { CredentialMain } from './main';
 import { CredentialNew } from './new';
 
 export const Credential = () => {

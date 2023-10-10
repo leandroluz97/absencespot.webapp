@@ -11,7 +11,7 @@ const options = [
 
 export const General = () => {
     return (
-        <article className="space-y-6">
+        <article className=" space-y-6">
             <header>
                 <h2 className="text-lg text-slate-500 font-bold">General</h2>
                 <p className="text-slate-400">Custumize and configure</p>
@@ -27,7 +27,7 @@ export const General = () => {
                         id="companyName"
                         type="text"
                         placeholder=""
-                        className="block bg-slate-50 rounded-lg p-2 px-4 outline-primary-900 w-full text-slate-700 placeholder-slate-400 max-w-sm"
+                        className="block bg-slate-100 rounded-lg p-2 px-4 outline-primary-900 w-full text-slate-700 placeholder-slate-400 max-w-sm"
                     />
                 </div>
                 <div className="space-y-2">
@@ -52,12 +52,12 @@ export const General = () => {
                                 ),
                             control: (state) =>
                                 twMerge(
-                                    'bg-slate-50 p-2 px-3 rounded-lg outline-primary-900 border-2 border-transparent',
+                                    'bg-slate-100 p-2 px-3 rounded-lg outline-primary-900 border-2 border-transparent',
                                     state.isFocused ? ' border-primary-900 ' : ''
                                 ),
                             dropdownIndicator: () => 'text-slate-400',
                             menu: () =>
-                                'bg-white rounded-lg mt-2 p-2 shadow-xl shadow-slate-400/10',
+                                'bg-white rounded-lg mt-2 p-2 shadow-xl shadow-slate-400/30',
                             placeholder: () => 'text-slate-500',
                         }}
                     />
@@ -211,12 +211,12 @@ export const General = () => {
                                 ),
                             control: (state) =>
                                 twMerge(
-                                    'bg-slate-50 p-2 px-3 rounded-lg outline-primary-900 border-2 border-transparent',
+                                    'bg-slate-100 p-2 px-3 rounded-lg outline-primary-900 border-2 border-transparent',
                                     state.isFocused ? ' border-primary-900 ' : ''
                                 ),
                             dropdownIndicator: () => 'text-slate-400',
                             menu: () =>
-                                'bg-white rounded-lg mt-2 p-2 shadow-xl shadow-slate-400/10',
+                                'bg-white rounded-lg mt-2 p-2 shadow-xl shadow-slate-400/30',
                             placeholder: () => 'text-slate-500',
                         }}
                     />
@@ -243,12 +243,12 @@ export const General = () => {
                                 ),
                             control: (state) =>
                                 twMerge(
-                                    'bg-slate-50 p-2 px-3 rounded-lg outline-primary-900 border-2 border-transparent',
+                                    'bg-slate-100 p-2 px-3 rounded-lg outline-primary-900 border-2 border-transparent',
                                     state.isFocused ? ' border-primary-900 ' : ''
                                 ),
                             dropdownIndicator: () => 'text-slate-400',
                             menu: () =>
-                                'bg-white rounded-lg mt-2 p-2 shadow-xl shadow-slate-400/10',
+                                'bg-white rounded-lg mt-2 p-2 shadow-xl shadow-slate-400/30',
                             placeholder: () => 'text-slate-500',
                         }}
                     />
@@ -275,12 +275,12 @@ export const General = () => {
                                 ),
                             control: (state) =>
                                 twMerge(
-                                    'bg-slate-50 p-2 px-3 rounded-lg outline-primary-900 border-2 border-transparent',
+                                    'bg-slate-100 p-2 px-3 rounded-lg outline-primary-900 border-2 border-transparent',
                                     state.isFocused ? ' border-primary-900 ' : ''
                                 ),
                             dropdownIndicator: () => 'text-slate-400',
                             menu: () =>
-                                'bg-white rounded-lg mt-2 p-2 shadow-xl shadow-slate-400/10',
+                                'bg-white rounded-lg mt-2 p-2 shadow-xl shadow-slate-400/30',
                             placeholder: () => 'text-slate-500',
                         }}
                     />
@@ -311,12 +311,12 @@ export const General = () => {
                                 ),
                             control: (state) =>
                                 twMerge(
-                                    'bg-slate-50 p-2 px-3 rounded-lg outline-primary-900 border-2 border-transparent',
+                                    'bg-slate-100 p-2 px-3 rounded-lg outline-primary-900 border-2 border-transparent',
                                     state.isFocused ? ' border-primary-900 ' : ''
                                 ),
                             dropdownIndicator: () => 'text-slate-400',
                             menu: () =>
-                                'bg-white rounded-lg mt-2 p-2 shadow-xl shadow-slate-400/10',
+                                'bg-white rounded-lg mt-2 p-2 shadow-xl shadow-slate-400/30',
                             placeholder: () => 'text-slate-500',
                         }}
                     />

@@ -10,9 +10,8 @@ const options = [
     { value: 'team', label: 'Team' },
 ];
 
-export const UserNew = () => {
+export const ProfileNew = () => {
     const [startDate, setStartDate] = useState(new Date());
-
     return (
         <article className="space-y-6">
             <header>
@@ -21,7 +20,7 @@ export const UserNew = () => {
                     className="text-lg text-slate-500 font-bold flex gap-3"
                 >
                     <ArrowLeft className="text-slate-400" />
-                    New User
+                    Personal Information
                 </Link>
             </header>
             <form className="space-y-4">
@@ -51,28 +50,82 @@ export const UserNew = () => {
                 </div>
 
                 <div className="space-y-2">
-                    <label className="text-slate-500" htmlFor="companyName">
+                    <label className="text-slate-500" htmlFor="email">
                         Email
                     </label>
                     <input
-                        id="companyName"
+                        id="email"
                         type="email"
                         placeholder=""
                         className="block bg-slate-100 rounded-lg p-2 px-4 outline-primary-900 w-full text-slate-700 placeholder-slate-400"
                     />
                 </div>
                 <div className="space-y-2">
-                    <label className="text-slate-500" htmlFor="companyName">
-                        Position
+                    <label className="text-slate-500" htmlFor="address">
+                        Address
                     </label>
                     <input
-                        id="companyName"
+                        id="address"
                         type="email"
                         placeholder=""
                         className="block bg-slate-100 rounded-lg p-2 px-4 outline-primary-900 w-full text-slate-700 placeholder-slate-400"
                     />
                 </div>
-
+                <div className="space-y-2 flex-1">
+                    <label className="text-slate-500" htmlFor="office">
+                        Birth Date
+                    </label>
+                    <DatePicker
+                        className="bg-slate-100 text-slate-700 rounded-lg p-[9px] px-3 w-full outline-transparent focus:outline-primary-900 text-sm "
+                        selected={startDate}
+                        onChange={(date) => setStartDate(date)}
+                        startDate={startDate}
+                    />
+                </div>
+                <div className="space-y-2">
+                    <label className="text-slate-500" htmlFor="emergency">
+                        Emergency Contact
+                    </label>
+                    <input
+                        id="emergency"
+                        type="email"
+                        placeholder=""
+                        className="block bg-slate-100 rounded-lg p-2 px-4 outline-primary-900 w-full text-slate-700 placeholder-slate-400"
+                    />
+                </div>
+                <div className="space-y-2">
+                    <label className="text-slate-500" htmlFor="work">
+                        Work Phone
+                    </label>
+                    <input
+                        id="work"
+                        type="email"
+                        placeholder=""
+                        className="block bg-slate-100 rounded-lg p-2 px-4 outline-primary-900 w-full text-slate-700 placeholder-slate-400"
+                    />
+                </div>
+                <div className="space-y-2 flex-1">
+                    <label className="text-slate-500" htmlFor="office">
+                        Start date
+                    </label>
+                    <DatePicker
+                        className="bg-slate-100 text-slate-700 rounded-lg p-[9px] px-3 w-full outline-transparent focus:outline-primary-900 text-sm "
+                        selected={startDate}
+                        onChange={(date) => setStartDate(date)}
+                        startDate={startDate}
+                    />
+                </div>
+                <div className="space-y-2">
+                    <label className="text-slate-500" htmlFor="position">
+                        Position
+                    </label>
+                    <input
+                        id="position"
+                        type="email"
+                        placeholder=""
+                        className="block bg-slate-100 rounded-lg p-2 px-4 outline-primary-900 w-full text-slate-700 placeholder-slate-400"
+                    />
+                </div>
                 <div className="flex gap-4">
                     <div className="space-y-2 flex-1">
                         <label className="text-slate-500" htmlFor="team">
@@ -137,7 +190,7 @@ export const UserNew = () => {
                         />
                     </div>
                 </div>
-                <div className="flex gap-4">
+                {/* <div className="flex gap-4">
                     <div className="space-y-2 flex-1">
                         <label className="text-slate-500" htmlFor="team">
                             Work schedule
@@ -169,18 +222,8 @@ export const UserNew = () => {
                             }}
                         />
                     </div>
-                    <div className="space-y-2 flex-1">
-                        <label className="text-slate-500" htmlFor="office">
-                            Start date
-                        </label>
-                        <DatePicker
-                            className="bg-slate-100 text-slate-700 rounded-lg p-[9px] px-3 w-full outline-transparent focus:outline-primary-900 text-sm "
-                            selected={startDate}
-                            onChange={(date) => setStartDate(date)}
-                            startDate={startDate}
-                        />
-                    </div>
-                </div>
+                    
+                </div> */}
                 <div className="text-right pt-10">
                     <button
                         type="submit"

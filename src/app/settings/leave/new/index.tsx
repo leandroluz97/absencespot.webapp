@@ -34,7 +34,7 @@ export const LeaveTypeNew = () => {
                         id="name"
                         type="email"
                         placeholder=""
-                        className="block bg-slate-50 rounded-lg p-2 px-4 outline-primary-900 w-full text-slate-700 placeholder-slate-400"
+                        className="block bg-slate-100 rounded-lg p-2 px-4 outline-primary-900 w-full text-slate-700 placeholder-slate-400"
                     />
                 </div>
                 <div className="flex gap-4">
@@ -46,7 +46,7 @@ export const LeaveTypeNew = () => {
                             id="color"
                             type="text"
                             placeholder=""
-                            className="block bg-slate-50 rounded-lg p-2 px-4 outline-primary-900 w-full text-slate-700 placeholder-slate-400"
+                            className="block bg-slate-100 rounded-lg p-2 px-4 outline-primary-900 w-full text-slate-700 placeholder-slate-400"
                         />
                     </div>
                     <div className="space-y-2 flex-1">
@@ -70,12 +70,12 @@ export const LeaveTypeNew = () => {
                                     ),
                                 control: (state) =>
                                     twMerge(
-                                        'bg-slate-50 p-2 px-3 rounded-lg outline-primary-900 border-2 border-transparent',
+                                        'bg-slate-100 p-2 px-3 rounded-lg outline-primary-900 border-2 border-transparent',
                                         state.isFocused ? ' border-primary-900 ' : ''
                                     ),
                                 dropdownIndicator: () => 'text-slate-400',
                                 menu: () =>
-                                    'bg-white rounded-lg mt-2 p-2 shadow-xl shadow-slate-400/10',
+                                    'bg-white rounded-lg mt-2 p-2 shadow-xl shadow-slate-400/30',
                                 placeholder: () => 'text-slate-500',
                             }}
                         />
@@ -89,7 +89,7 @@ export const LeaveTypeNew = () => {
                         id="companyName"
                         type="email"
                         placeholder=""
-                        className="block bg-slate-50 rounded-lg p-2 px-4 outline-primary-900 w-full text-slate-700 placeholder-slate-400"
+                        className="block bg-slate-100 rounded-lg p-2 px-4 outline-primary-900 w-full text-slate-700 placeholder-slate-400"
                     />
                 </div>
                 <div className="space-y-2 ">
@@ -149,7 +149,7 @@ export const LeaveTypeNew = () => {
                         id="companyName"
                         type="email"
                         placeholder=""
-                        className="block bg-slate-50 rounded-lg p-2 px-4 outline-primary-900 w-full text-slate-700 placeholder-slate-400"
+                        className="block bg-slate-100 rounded-lg p-2 px-4 outline-primary-900 w-full text-slate-700 placeholder-slate-400"
                     />
                 </div>
                 <div className="space-y-2">
@@ -173,12 +173,12 @@ export const LeaveTypeNew = () => {
                                 ),
                             control: (state) =>
                                 twMerge(
-                                    'bg-slate-50 p-2 px-3 rounded-lg outline-primary-900 border-2 border-transparent',
+                                    'bg-slate-100 p-2 px-3 rounded-lg outline-primary-900 border-2 border-transparent',
                                     state.isFocused ? ' border-primary-900 ' : ''
                                 ),
                             dropdownIndicator: () => 'text-slate-400',
                             menu: () =>
-                                'bg-white rounded-lg mt-2 p-2 shadow-xl shadow-slate-400/10',
+                                'bg-white rounded-lg mt-2 p-2 shadow-xl shadow-slate-400/30',
                             placeholder: () => 'text-slate-500',
                         }}
                     />

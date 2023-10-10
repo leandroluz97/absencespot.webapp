@@ -7,7 +7,6 @@ export const Profile = () => {
         <Routes>
             <Route index element={<ProfileMain />} />
             <Route path="new" element={<ProfileNew />} />
-            <Route path="/:id/edit" element={<p>Edit</p>} />
             <Route path="" element={<p>404</p>} />
             <Route path="*" element={<Navigate to="/c/5454-4353-534f-3ef6/dashboard" />} />
         </Routes>

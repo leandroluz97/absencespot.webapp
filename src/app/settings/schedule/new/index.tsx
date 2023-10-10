@@ -64,7 +64,7 @@ export const WorkScheduleNew = () => {
                         id="name"
                         type="email"
                         placeholder=""
-                        className="block bg-slate-50 rounded-lg p-2 px-4 outline-primary-900 w-full text-slate-700 placeholder-slate-400"
+                        className="block bg-slate-100 rounded-lg p-2 px-4 outline-primary-900 w-full text-slate-700 placeholder-slate-400"
                     />
                 </div>
                 <div className="space-y-4">
@@ -128,7 +128,7 @@ export const WorkScheduleNew = () => {
                             <p className="text-slate-400">Select the days of the week to be work</p>
                         </div>
                         <Number.Root>
-                            <Number.Input className="bg-slate-50 w-full" />
+                            <Number.Input className="bg-slate-100 w-full" />
                             <Number.Label>Days</Number.Label>
                         </Number.Root>
                     </div>
@@ -138,7 +138,7 @@ export const WorkScheduleNew = () => {
                             <p className="text-slate-400">Set which hours want to be working</p>
                         </div>
                         <Number.Root>
-                            <Number.Input className="bg-slate-50 w-full" />
+                            <Number.Input className="bg-slate-100 w-full" />
                             <Number.Label>Hours</Number.Label>
                         </Number.Root>
                     </div>
@@ -203,7 +203,7 @@ export const WorkScheduleNew = () => {
                                             ),
                                         dropdownIndicator: () => 'text-slate-400',
                                         menu: () =>
-                                            'bg-white rounded-lg mt-2 p-2 shadow-xl shadow-slate-400/10',
+                                            'bg-white rounded-lg mt-2 p-2 shadow-xl shadow-slate-400/30',
                                         placeholder: () => 'text-slate-500',
                                     }}
                                 />
@@ -229,7 +229,7 @@ export const WorkScheduleNew = () => {
                                             ),
                                         dropdownIndicator: () => 'text-slate-400',
                                         menu: () =>
-                                            'bg-white rounded-lg mt-2 p-2 shadow-xl shadow-slate-400/10',
+                                            'bg-white rounded-lg mt-2 p-2 shadow-xl shadow-slate-400/30',
                                         placeholder: () => 'text-slate-500',
                                     }}
                                 />
