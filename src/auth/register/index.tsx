@@ -37,15 +37,15 @@ export const Register = () => {
                                         isActive && 'text-slate-800'
                                     )
                                 }
-                                to={'register'}
+                                to={'/auth/register'}
                             >
                                 Register
                             </NavLink>
                         </nav>
                     </header>
-                    <section className="flex-1 h-full flex overflow-y-auto ">
-                        <div className="w-full  flex justify-center items-center p-3 md:p-8">
-                            <div className="flex-1  space-y-10 max-w-md ">
+                    <section className="flex-1 flex overflow-y-auto ">
+                        <div className="w-full h-auto flex-1 flex justify-center items-center p-3 md:p-8">
+                            <div className="flex-1 space-y-10 max-w-md ">
                                 <header className="space-y-2 text-center md:text-left">
                                     <h1 className="text-slate-700 font-bold text-2xl">
                                         Create New Account!
@@ -57,13 +57,13 @@ export const Register = () => {
                                 <div className="flex flex-col md:flex-row gap-4">
                                     <Link
                                         to={''}
-                                        className="w-full md:w-1/2 p-2 flex justify-center items-center gap-2 border-solid rounded-md border border-slate-200 text-slate-600 text-base hover:bg-slate-50 transition-all ease-in-out duration-300"
+                                        className="w-full md:w-1/2 p-3 flex justify-center items-center gap-2 border-solid rounded-md border border-slate-200 text-slate-600 text-sm hover:bg-slate-50 transition-all ease-in-out duration-300"
                                     >
                                         <GoogleLogo /> Sign up with Google
                                     </Link>
                                     <Link
                                         to={''}
-                                        className="w-full md:w-1/2 p-2 flex justify-center items-center gap-2 border-solid rounded-md border border-slate-200 text-slate-600 text-base hover:bg-slate-50 transition-all ease-in-out duration-300"
+                                        className="w-full md:w-1/2 p-3 flex justify-center items-center gap-2 border-solid rounded-md border border-slate-200 text-slate-600 text-sm hover:bg-slate-50 transition-all ease-in-out duration-300"
                                     >
                                         <MicrosoftLogo /> Sign up with Microsoft
                                     </Link>

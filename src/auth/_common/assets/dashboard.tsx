@@ -6,9 +6,9 @@ export const Dashboard = ({ ...props }: Props) => {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="1240"
-            height="700"
-            viewBox="0 0 1240 700"
+            width="1540"
+            height="900"
+            viewBox="0 0 1540 900"
             fill="none"
         >
             <g clipPath="url(#clip0_3461_31428)">
@@ -18,8 +18,8 @@ export const Dashboard = ({ ...props }: Props) => {
                     maskUnits="userSpaceOnUse"
                     x="0"
                     y="0"
-                    width="1240"
-                    height="700"
+                    width="1540"
+                    height="900"
                 >
                     <path
                         d="M1422 0H18C8.05888 0 0 8.05886 0 18V882C0 891.941 8.05886 900 18 900H1422C1431.94 900 1440 891.941 1440 882V18C1440 8.05887 1431.94 0 1422 0Z"
