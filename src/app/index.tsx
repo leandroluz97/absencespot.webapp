@@ -10,6 +10,7 @@ import { Office } from './office';
 import { Notification } from './notification';
 import { Settings } from './settings';
 import { User } from './user';
+import { Onboarding } from './onboarding';
 
 export const Application = () => {
     return (
@@ -28,10 +29,7 @@ export const Application = () => {
                 <Route path="user/*" element={<User />} />
                 <Route path="" element={<p>404</p>} />
             </Route>
-            <Route
-                path="/onboarding/:id"
-                element={<Navigate to="/c/5454-4353-534f-3ef6/dashboard" />}
-            />
+            <Route path="/onboarding/:id" element={<Onboarding />} />
             <Route path="*" element={<Navigate to="/c/5454-4353-534f-3ef6/dashboard" />} />
         </Routes>
     );

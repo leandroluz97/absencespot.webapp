@@ -27,7 +27,6 @@ export const Confirm = () => {
                                         Add your name and password to create your account.
                                     </p>
                                 </header>
-
                                 <form action="" className="space-y-5">
                                     <div className="space-y-2">
                                         <label className="text-slate-500" htmlFor="firstname">

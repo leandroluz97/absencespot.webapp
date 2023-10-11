@@ -5,7 +5,7 @@ import { Route, Navigate, Routes } from 'react-router-dom';
 import { Application } from '@/app/index';
 
 export const AppRoutes = () => {
-    const user = false;
+    const user = true;
     // const { user } = useAuth();
 
     // const routes = user ? protectedRoutes : publicRoutes;
