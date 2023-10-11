@@ -1,6 +1,6 @@
 import React, { ReactNode, useState } from 'react';
 import { twMerge } from 'tailwind-merge';
-import { Dashboard } from './assets/dashboard';
+import { Dashboard } from '../../auth/_common/assets/dashboard';
 
 type Props = {
     title: string;

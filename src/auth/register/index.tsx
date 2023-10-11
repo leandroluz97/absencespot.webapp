@@ -6,7 +6,7 @@ import * as CheckboxPrimitive from '@radix-ui/react-checkbox';
 import * as LabelPrimitive from '@radix-ui/react-label';
 import { CheckIcon } from 'lucide-react';
 import { GoogleLogo, MicrosoftLogo } from '../_common/assets/logos';
-import { Banner } from '../_common/banner';
+import { Banner } from '../../_common/layout/Banner';
 
 export const Register = () => {
     let num = 2;
