@@ -19,7 +19,7 @@ export const Confirm = () => {
                         </Link>
                     </header>
                     <section className="flex-1 flex overflow-y-auto ">
-                        <div className="w-full h-auto flex-1 flex justify-center items-center p-3 md:p-8">
+                        <div className="w-full h-full flex justify-center  p-3 md:p-8">
                             <div className="flex-1 space-y-10 max-w-md ">
                                 <header className="space-y-2 text-center md:text-left">
                                     <h1 className="text-slate-700 font-bold text-2xl">Welcome!</h1>
