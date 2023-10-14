@@ -27,8 +27,8 @@ export const Login = () => {
                                 }
                                 to={'/auth/register'}
                             >
-                                Sign in to your account?
-                                <span className="font-bold"> Register</span>
+                                Don't have an account?
+                                <span className="font-bold"> Sign up</span>
                             </NavLink>
                         </nav>
                     </header>
