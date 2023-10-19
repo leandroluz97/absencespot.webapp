@@ -83,7 +83,7 @@ export const Login = () => {
                                                 id="old"
                                                 type={visibility.old ? 'text' : 'password'}
                                                 placeholder="•••••••••"
-                                                className="w-full px-4 py-3 text-base rounded-lg  bg-slate-100  p-2  outline-primary-900  text-slate-700 placeholder-slate-400"
+                                                className="w-full px-4 py-3 text-sm rounded-lg  bg-slate-100  outline-primary-900  text-slate-700 placeholder-slate-400"
                                             />
                                             <button
                                                 onClick={() => {
