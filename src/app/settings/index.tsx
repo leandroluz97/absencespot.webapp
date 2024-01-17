@@ -6,6 +6,7 @@ import { Integration } from './integration';
 import { LeaveTypes } from './leave';
 import { WorkSchedule } from './schedule';
 import { Plans } from './plans';
+import { Payment } from './payment';
 
 export const Settings = () => {
     return (
@@ -17,6 +18,7 @@ export const Settings = () => {
                 <Route path="integration" element={<Integration />} />
                 <Route path="work-schedule/*" element={<WorkSchedule />} />
                 <Route path="plans" element={<Plans />} />
+                <Route path="payment" element={<Payment />} />
                 <Route path="" element={<p>404</p>} />
                 <Route path="*" element={<Navigate to="/c/5454-4353-534f-3ef6/dashboard" />} />
             </Route>

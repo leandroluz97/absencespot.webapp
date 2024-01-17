@@ -45,18 +45,25 @@ export const Register = () => {
                                     </p>
                                 </header>
                                 <div className="flex flex-col md:flex-row gap-4">
-                                    <Link
-                                        to={''}
-                                        className="w-full md:w-1/2 p-3 flex justify-center items-center gap-2 border-solid rounded-md border border-slate-200 text-slate-600 text-sm hover:bg-slate-50 transition-all ease-in-out duration-300"
+                                    <form
+                                        action="http://localhost:7071/api/authentication/external-login?provider=Google&returnUrl=/home"
+                                        method="post"
+                                        className="w-full md:w-1/2"
                                     >
-                                        <GoogleLogo /> Sign up with Google
-                                    </Link>
-                                    <Link
-                                        to={''}
-                                        className="w-full md:w-1/2 p-3 flex justify-center items-center gap-2 border-solid rounded-md border border-slate-200 text-slate-600 text-sm hover:bg-slate-50 transition-all ease-in-out duration-300"
+                                        <button className="w-full  p-3 flex justify-center items-center gap-2 border-solid rounded-md border border-slate-200 text-slate-600 text-sm hover:bg-slate-50 transition-all ease-in-out duration-300">
+                                            <GoogleLogo /> Sign up with Google
+                                        </button>
+                                    </form>
+
+                                    <form
+                                        action="http://localhost:7071/api/authentication/external-login?provider=Microsoft&returnUrl=/home"
+                                        method="post"
+                                        className="w-full md:w-1/2"
                                     >
-                                        <MicrosoftLogo /> Sign up with Microsoft
-                                    </Link>
+                                        <button className="w-full p-3 flex justify-center items-center gap-2 border-solid rounded-md border border-slate-200 text-slate-600 text-sm hover:bg-slate-50 transition-all ease-in-out duration-300">
+                                            <MicrosoftLogo /> Sign up with Microsoft
+                                        </button>
+                                    </form>
                                 </div>
                                 <div className="my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-slate-200 after:mt-0.5 after:flex-1 after:border-t after:border-slate-200">
                                     <p className="mx-4 mb-0 text-center  text-slate-300">

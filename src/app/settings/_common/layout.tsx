@@ -30,6 +30,9 @@ export const Layout = () => {
                         <Submenu.Item to="plans" isActive={pathname.includes('plans')}>
                             Plans
                         </Submenu.Item>
+                        <Submenu.Item to="payment" isActive={pathname.includes('payment')}>
+                            Payment
+                        </Submenu.Item>
                     </Submenu.List>
                 </Submenu.Content>
             </Submenu.Root>
