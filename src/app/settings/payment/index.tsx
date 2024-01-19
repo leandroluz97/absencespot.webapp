@@ -1,25 +1,24 @@
-import React from 'react';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import { CheckoutForm } from './CheckoutForm';
 
-const stripePromise = loadStripe(
-    'pk_test_51OYwSkA0D3nIAUzqlvK5xSqkeaeeuHwNgWxGQgszRvmgQoE69EKAogew9qr9VgIj3QFpJj4bJ1iV5ZZgd99Yc5ug006ECOwHLa'
-);
+const stripePromise = loadStripe(import.meta.env.VITE_PUBLISHABLE_KEY);
 
 export const Payment = () => {
     const options = {
-        clientSecret: 'rtyrtyt',
+        clientSecret: 'pi_123_secret_123',
         // Fully customizable with appearance API.
         appearance: {
-            /*...*/
+            theme: 'flat',
         },
     };
+
+    console.log(import.meta.env.VITE_SECRET_KEY);
 
     return (
         <div>
             <div>Payment</div>
-            <Elements stripe={stripePromise} options={options}>
+            <Elements stripe={stripePromise}>
                 <CheckoutForm />
             </Elements>
         </div>
