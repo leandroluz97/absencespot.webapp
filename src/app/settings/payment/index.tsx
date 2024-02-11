@@ -6,7 +6,7 @@ const stripePromise = loadStripe(import.meta.env.VITE_PUBLISHABLE_KEY);
 
 export const Payment = () => {
     const options = {
-        clientSecret: 'pi_123_secret_123',
+        clientSecret: '',
         // Fully customizable with appearance API.
         appearance: {
             theme: 'flat',
@@ -18,8 +18,8 @@ export const Payment = () => {
     return (
         <div>
             <div>Payment</div>
-            <Elements stripe={stripePromise}>
-                <CheckoutForm />
+            <Elements stripe={stripePromise} options={options}>
+                <CheckoutForm clientSecret={options.clientSecret} />
             </Elements>
         </div>
     );

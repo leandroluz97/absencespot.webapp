@@ -30,8 +30,20 @@ export const Layout = () => {
                         <Submenu.Item to="plans" isActive={pathname.includes('plans')}>
                             Plans
                         </Submenu.Item>
-                        <Submenu.Item to="payment" isActive={pathname.includes('payment')}>
-                            Payment
+                        {/* <Submenu.Item to="checkout" isActive={pathname.includes('checkout')}>
+                            Checkout
+                        </Submenu.Item> */}
+                        <Submenu.Item
+                            to="payment-method"
+                            isActive={pathname.includes('payment-method')}
+                        >
+                            Payment Methods
+                        </Submenu.Item>
+                        <Submenu.Item
+                            to="payment-history"
+                            isActive={pathname.includes('payment-history')}
+                        >
+                            Payment History
                         </Submenu.Item>
                     </Submenu.List>
                 </Submenu.Content>

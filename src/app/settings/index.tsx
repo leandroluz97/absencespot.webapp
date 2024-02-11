@@ -18,7 +18,9 @@ export const Settings = () => {
                 <Route path="integration" element={<Integration />} />
                 <Route path="work-schedule/*" element={<WorkSchedule />} />
                 <Route path="plans" element={<Plans />} />
-                <Route path="payment" element={<Payment />} />
+                <Route path="checkout" element={<Payment />} />
+                <Route path="payment-method" element={<Payment />} />
+                <Route path="payment-history" element={<Payment />} />
                 <Route path="" element={<p>404</p>} />
                 <Route path="*" element={<Navigate to="/c/5454-4353-534f-3ef6/dashboard" />} />
             </Route>
