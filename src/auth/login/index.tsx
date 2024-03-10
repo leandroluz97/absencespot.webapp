@@ -45,7 +45,7 @@ export const Login = () => {
                                 </header>
                                 <div className="flex flex-col md:flex-row gap-4">
                                     <Link
-                                        to={''}
+                                        to={'/.auth/login/google?post_login_redirect_uri=/'}
                                         className="w-full md:w-1/2 p-3 flex justify-center items-center gap-2 border-solid rounded-md border border-slate-200 text-slate-600 text-sm hover:bg-slate-50 transition-all ease-in-out duration-300"
                                     >
                                         <GoogleLogo /> Sign in with Google

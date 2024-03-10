@@ -7,9 +7,37 @@ import * as LabelPrimitive from '@radix-ui/react-label';
 import { CheckIcon } from 'lucide-react';
 import { GoogleLogo, MicrosoftLogo } from '../_common/assets/logos';
 import { Banner } from '../../_common/layout/Banner';
+import { useEffect, useState } from 'react';
+import { RANDOM_STRING_SIZE, VERIFY_CODE_SIZE } from '@/constants/utils/constants';
+import { GetGoogleAuthenticationUrl, GetMicrosoftAuthenticationUrl } from '@/constants/webapi/auth';
 
 export const Register = () => {
-    let num = 2;
+    const [microsoftUrl, setMicrosoftUrl] = useState<string>('');
+    const [googleUrl, setGoogleUrl] = useState<string>('');
+
+    useEffect(() => {
+        async function init() {
+            const nonce = generateRandomString(RANDOM_STRING_SIZE);
+            let codeVerifier = generateRandomString(VERIFY_CODE_SIZE);
+            let codeChallenge = await generateCodeChallenge(codeVerifier);
+
+            if (!sessionStorage.getItem('codeVerifier')) {
+                sessionStorage.setItem('codeVerifier', codeVerifier);
+                sessionStorage.setItem('codeChallenge', codeChallenge);
+            } else {
+                codeVerifier = sessionStorage.getItem('codeVerifier') as string;
+                codeChallenge = sessionStorage.getItem('codeChallenge') as string;
+            }
+
+            const googleAuthenticationUrl = await GetGoogleAuthenticationUrl(nonce);
+            const microsoftAuthenticationUrl = await GetMicrosoftAuthenticationUrl(codeChallenge);
+
+            setMicrosoftUrl(microsoftAuthenticationUrl);
+            setGoogleUrl(googleAuthenticationUrl);
+        }
+        init();
+    }, []);
+
     return (
         <article className="h-screen flex relative overflow-hidden text-sm">
             <section className="w-full md:w-1/2 overflow-hidden">
@@ -46,23 +74,29 @@ export const Register = () => {
                                 </header>
                                 <div className="flex flex-col md:flex-row gap-4">
                                     <form
-                                        action="http://localhost:7071/api/authentication/external-login?provider=Google&returnUrl=/home"
-                                        method="post"
+                                        // action="http://localhost:7071/api/authentication/external-login?provider=Google&returnUrl=/home"
+                                        // method="post"
                                         className="w-full md:w-1/2"
                                     >
-                                        <button className="w-full  p-3 flex justify-center items-center gap-2 border-solid rounded-md border border-slate-200 text-slate-600 text-sm hover:bg-slate-50 transition-all ease-in-out duration-300">
+                                        <Link
+                                            to={googleUrl}
+                                            className="w-full  p-3 flex justify-center items-center gap-2 border-solid rounded-md border border-slate-200 text-slate-600 text-sm hover:bg-slate-50 transition-all ease-in-out duration-300"
+                                        >
                                             <GoogleLogo /> Sign up with Google
-                                        </button>
+                                        </Link>
                                     </form>
 
                                     <form
-                                        action="http://localhost:7071/api/authentication/external-login?provider=Microsoft&returnUrl=/home"
-                                        method="post"
+                                        // action="http://localhost:7071/api/authentication/external-login?provider=Microsoft&returnUrl=/home"
+                                        // method="post"
                                         className="w-full md:w-1/2"
                                     >
-                                        <button className="w-full p-3 flex justify-center items-center gap-2 border-solid rounded-md border border-slate-200 text-slate-600 text-sm hover:bg-slate-50 transition-all ease-in-out duration-300">
+                                        <Link
+                                            to={microsoftUrl}
+                                            className="w-full p-3 flex justify-center items-center gap-2 border-solid rounded-md border border-slate-200 text-slate-600 text-sm hover:bg-slate-50 transition-all ease-in-out duration-300"
+                                        >
                                             <MicrosoftLogo /> Sign up with Microsoft
-                                        </button>
+                                        </Link>
                                     </form>
                                 </div>
                                 <div className="my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-slate-200 after:mt-0.5 after:flex-1 after:border-t after:border-slate-200">
@@ -162,3 +196,43 @@ export const Register = () => {
         </article>
     );
 };
+
+// async function generateCodeChallenge() {
+//     // Generate a random array of bytes
+//     const array = new Uint8Array(96);
+//     crypto.getRandomValues(array);
+
+//     // Convert the array to a hexadecimal string
+//     let hexString = '';
+//     for (let i = 0; i < array.length; i++) {
+//         hexString += ('0' + array[i].toString(16)).slice(-2);
+//     }
+//     // Hash the hexadecimal string using SHA-256
+//     const hashedString = await sha256(hexString);
+
+//     // Convert the hashed string to base64 URL encoded format
+//     const base64Encoded = base64URLEncode(hashedString);
+
+//     // Take the first 43 characters as the code_challenge
+//     const codeChallenge = base64Encoded.substr(0, 43);
+
+//     console.log('verifier: ', hexString, 'codeChallenge: ', codeChallenge);
+//     return codeChallenge;
+// }
+
+// async function sha256(plain) {
+//     const encoder = new TextEncoder();
+//     const data = encoder.encode(plain);
+//     const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+//     return hashBuffer;
+// }
+
+// function base64URLEncode(buffer) {
+//     let str = '';
+//     const bytes = new Uint8Array(buffer);
+//     const len = bytes.byteLength;
+//     for (let i = 0; i < len; i++) {
+//         str += String.fromCharCode(bytes[i]);
+//     }
+//     return btoa(str).replace(/\+/g, '-').replace(/\//g, '_').replace(/=/g, '');
+// }
